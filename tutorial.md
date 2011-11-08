@@ -27,6 +27,14 @@ title: チュートリアル
 もしかしたら、プロジェクトの git リポジトリ内で共有するなどして .logaling.d 以外のディレクトリに用語集ファイルを置いておきたいことがあるかもしれません。
 その場合は、`--logaling_home </path/to/logalinghome>` として、ファイルの置き場所のディレクトリを指定することも可能です。
 
+    % loga create --glossary logaling-project --source_term en --target_term ja --logaling_home /home/foo/work/logaling-project
+
+
+##既存の用語集を利用する
+また、既に用語集がある場合には、 .logaling.d の下に 用語集名.原文言語.翻訳言語.yml というファイル名でシンボリックリンクを貼っておくと、設置場所を気にすることなく loga コマンドで用語集を編集することができます。
+
+    % ln -s /path/to/YAMLfile ~/.logaling.d/logaling-project.en.ja.yml
+
 
 ## 用語を登録する
 
