@@ -16,7 +16,7 @@ title: チュートリアル
 
 用語集を作成してみます。用語集を作成するには、任意のディレクトリで以下のコマンドを実行します。
 
-    % loga --glossary <用語集名> --source_term <原文言語> --target_term <翻訳言語>
+    % loga --glossary <用語集名> --source-language <原文言語> --target-language <翻訳言語>
 
 例えば、 **logaling-project** というプロジェクト名で、英語から日本語へ翻訳するための用語集だと以下のようになります。
 
@@ -40,20 +40,19 @@ title: チュートリアル
 
 用語集へ用語を登録するには、以下のコマンドを実行します。
 
-    % loga --glossary <用語集名> --source_term <原文言語> --target_term <翻訳言語> --source_term <用語> --target_term <対訳> --note <備考（省略可）>
+    % loga add <用語> <対訳> <備考（省略可）> --glossary <用語集名> --source-language <原文言語> --target-language <翻訳言語>
 
 先ほど作成した用語集 **logaling-project** へ **「user」** という用語を **「ユーザ」** という対訳を付けて登録してみましょう。
 
-    % loga add --glossary logaling-project --source_term en --target_term ja --source_term user --target_term 'ユーザ' --note 'ユーザーではない'
+    % loga add user ユーザ ユーザーではない --glossary logaling-project --source-language en --target-language ja
 
-備考やメモも `--note <備考やメモ>` として同時に登録することができます。
+対訳とあわせて備考やメモも同時に登録することができます。
 このコマンドを実行すると .logaling.d 下の用語集ファイルに yaml 形式で用語が登録されます。
 実際に登録されたファイルの中身はこんな感じです。
 
     - source_term: user
       target_term: ユーザ
       note: ユーザーではない
-
 
 
 ## 設定ファイルを作成する
@@ -65,17 +64,13 @@ loga コマンドを利用するディレクトリ内に **.logaling** という
 例えば、以下のようになります。
 
     --glossary logaling-project
-    --source_term en
-    --target_term ja
-    --logaling_home /path/to/logalinghome
+    --source-language en
+    --target-language ja
+    --logaling-home /path/to/logalinghome
 
 この設定ファイルがあると、前述の用語の登録は以下のようになります。
 
-    % loga add --source_term user --target_term 'ユーザ' --note 'ユーザーではない'
-
-また、 `--source_term` と `--target_term` と `--note` はそれぞれ、 `-s` と `-t` と `-n` に省略可能なので、これを使うと上記はさらに以下のようになります。
-
-    % loga add -s user -t 'ユーザ' -n 'ユーザーではない'
+    % loga add user ユーザ ユーザーではない
 
 だいぶ簡単になりました。
 
@@ -90,14 +85,14 @@ loga コマンドを利用するディレクトリ内に **.logaling** という
 このコマンドを実行すると、 .logaling.d の下に **.logadb** というディレクトリが作られます。そしてその中に groonga の DB が作成され、 .logaling.d 以下にある用語集が全てその DB に登録されます。
 
 これで、検索の準備ができました。用語を検索してみましょう。
-検索するには `loga lookup` として、 `--source_term（または -s ）` で用語を指定します。
+検索するには `loga lookup` として用語を指定します。
 
-    % loga lookup -s <用語>
+    % loga lookup <用語>
 
 この lookup では、.logaling 設定ファイルで指定された用語集だけでなく、.logaling.d 以下に置いてあった複数の用語集にまたがって検索を行います。その際、自分の用語集からの検索結果が一番上に表示されます。
 先ほど登録した「user」を検索してみると、以下のような結果が表示されます。
 
-    % loga lookup -s user
+    % loga lookup user
     
     lookup word : user
     
@@ -109,15 +104,15 @@ loga コマンドを利用するディレクトリ内に **.logaling** という
 
 ## 用語を変更する
 
-用語を変更するには、 `loga update` として、既に登録してある用語と対訳のペアと、`--new_target_term(または -nt )` で新しい対訳を指定します。
+用語を変更するには、 `loga update` として、既に登録してある用語と対訳のペアと新しい対訳を指定します。
 
-    % loga update -s <用語> -t <対訳> -n <備考> -nt <新しい対訳>
+    % loga update <用語> <対訳> <新しい対訳> <備考（省略可）>
 
 ここで、新しい対訳が省略されると、元あった用語と対訳のペアに対して、備考を更新します。また、備考を省略すると、元々の備考が適用されます。
 
 先ほど登録した「user」の対訳を変更してみましょう。
 
-    % loga update -s user -t ユーザ -n やっぱりユーザー --new_target_term ユーザー 
+    % loga update user ユーザ ユーザー やっぱりユーザーとする
 
 変更結果は `loga lookup` で確認できます。
 
@@ -128,7 +123,7 @@ loga コマンドを利用するディレクトリ内に **.logaling** という
     
       user
       ユーザー
-        note:やっぱりユーザー
+        note:やっぱりユーザーとする
         glossary:logaling-project
 
 
@@ -136,16 +131,16 @@ loga コマンドを利用するディレクトリ内に **.logaling** という
 
 用語を削除するには、 `loga delete` として、用語と対訳のペアを指定します。
 
-    % loga delete -s <用語> -t <対訳>
+    % loga delete <用語> <対訳>
 
 実際に先ほどの「user」を削除するには以下のようにコマンドを実行します。
 
-    % loga delete -s user -t ユーザー
+    % loga delete user ユーザー
 
 検索して削除されていることを確認します。
 
     % loga index
-    % loga lookup -s user
+    % loga lookup user
     source_term <user> not found
 
 
