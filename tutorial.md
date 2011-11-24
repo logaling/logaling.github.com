@@ -3,144 +3,242 @@ layout: default
 title: チュートリアル
 ---
 
-# チュートリアル
+チュートリアル
+==============
 
-## インストールする
-
-インストールするには gem コマンドを実行します。
-
-    % gem install logaling
-
-
-## 用語集を作成する
-
-用語集を作成してみます。用語集を作成するには、任意のディレクトリで以下のコマンドを実行します。
-
-    % loga --glossary <用語集名> --source-language <原文言語> --target-language <翻訳言語>
-
-例えば、 **logaling-project** というプロジェクト名で、英語から日本語へ翻訳するための用語集だと以下のようになります。
-
-    % loga create --glossary logaling-project --source_term en --target_term ja
-
-このコマンドを実行すると、あなたのホームディレクトリに **.logaling.d** というディレクトリが作成され、そのなかに、 **用語集名.原文言語.翻訳言語.yml** という空のファイルが作成されたと思います。それが、用語集ファイルです。
-
-もしかしたら、プロジェクトの git リポジトリ内で共有するなどして .logaling.d 以外のディレクトリに用語集ファイルを置いておきたいことがあるかもしれません。
-その場合は、`--logaling_home </path/to/logalinghome>` として、ファイルの置き場所のディレクトリを指定することも可能です。
-
-    % loga create --glossary logaling-project --source_term en --target_term ja --logaling_home /home/foo/work/logaling-project
+目次
+----
+1. [logaling-command をインストールする](#install)
+2. [logaling-command を使う準備する](#preparation)
+3. [既に対訳用語集があり、そこに登録されている用語を検索したい](#lookup)
+4. [用語集を作成して用語を登録する](#add)
+5. [登録されている用語を編集する](#update)
+6. [用語を削除する](#delete)
 
 
-##既存の用語集を利用する
-また、既に用語集がある場合には、 .logaling.d の下に 用語集名.原文言語.翻訳言語.yml というファイル名でシンボリックリンクを貼っておくと、設置場所を気にすることなく loga コマンドで用語集を編集することができます。
+<a name="install" />
+1. logaling-command をインストールする
+--------------------------------------
 
-    % ln -s /path/to/YAMLfile ~/.logaling.d/logaling-project.en.ja.yml
+まずは logaling-command をインストールします。
+logaling-command は RubyGems でインストールできます。
 
-
-## 用語を登録する
-
-用語集へ用語を登録するには、以下のコマンドを実行します。
-
-    % loga add <用語> <対訳> <備考（省略可）> --glossary <用語集名> --source-language <原文言語> --target-language <翻訳言語>
-
-先ほど作成した用語集 **logaling-project** へ **「user」** という用語を **「ユーザ」** という対訳を付けて登録してみましょう。
-
-    % loga add user ユーザ ユーザーではない --glossary logaling-project --source-language en --target-language ja
-
-対訳とあわせて備考やメモも同時に登録することができます。
-このコマンドを実行すると .logaling.d 下の用語集ファイルに yaml 形式で用語が登録されます。
-実際に登録されたファイルの中身はこんな感じです。
-
-    - source_term: user
-      target_term: ユーザ
-      note: ユーザーではない
+	% gem install logaling-command
 
 
-## 設定ファイルを作成する
-
-ここまでで、コマンド実行時のオプションの指定が多いと感じるかもしれません。その場合には、設定ファイルに設定をまとめてしまいましょう。
-loga コマンドを利用するディレクトリ内に **.logaling** というファイルを作成します。
-例えば、あるプロジェクトのディレクトリ内で実行するような場合は、そのプロジェクトのディレクトリ直下に作ると良いでしょう。loga コマンド実行時に root まで .logaling ファイルを探して、見つかった場合にはその設定が利用されます。
-.logaling ファイルには、コマンドラインオプションを1行につき1つ、そのまま書いていきます。
-例えば、以下のようになります。
-
-    --glossary logaling-project
-    --source-language en
-    --target-language ja
-    --logaling-home /path/to/logalinghome
-
-この設定ファイルがあると、前述の用語の登録は以下のようになります。
-
-    % loga add user ユーザ ユーザーではない
-
-だいぶ簡単になりました。
 
 
-## 用語を検索する
 
-登録された用語を検索してみましょう。
-まずは、検索するための準備として、groonga DB に用語集を登録します。
+<a name="preparation" />
+2. logaling-command を使う準備する
+-----------
 
-    % loga index
+インストールが無事終わったら、プロジェクトで logaling-command を使うための準備をします。
 
-このコマンドを実行すると、 .logaling.d の下に **.logadb** というディレクトリが作られます。そしてその中に groonga の DB が作成され、 .logaling.d 以下にある用語集が全てその DB に登録されます。
-
-これで、検索の準備ができました。用語を検索してみましょう。
-検索するには `loga lookup` として用語を指定します。
-
-    % loga lookup <用語>
-
-この lookup では、.logaling 設定ファイルで指定された用語集だけでなく、.logaling.d 以下に置いてあった複数の用語集にまたがって検索を行います。その際、自分の用語集からの検索結果が一番上に表示されます。
-先ほど登録した「user」を検索してみると、以下のような結果が表示されます。
-
-    % loga lookup user
-    
-    lookup word : user
-    
-      user
-      ユーザ
-        note:ユーザーではない。
-        glossary:logaling-project
+例えば、あなたが logaling というプロジェクトに関わっていて、そのリポジトリが`/Users/suzuki/logaling`に既に存在するとします。そして、そのプロジェクトにおいて、英語→日本語の用語集を作成したいとしましょう。その際には、そのリポジトリのトップディレクトリで以下のコマンドを実行して下さい。(
+新たに用語集は作らなくてもいい、既存の用語集をとりあえず使いたい、などという場合も、このコマンドを実行する必要があります。)
 
 
-## 用語を変更する
+	% cd /Users/suzuki/logaling
+	% loga new logaling en ja
+	Successfully created .logaling
 
-用語を変更するには、 `loga update` として、既に登録してある用語と対訳のペアと新しい対訳を指定します。
+`loga new` はプロジェクトで用語集を使うための設定ファイルやディレクトリなどを作成します。パラメータは「用語集名」と「原語の言語情報（jaとかenとか）」「変換後の言語情報（jaとかenとか。省略可能）」をこの順番で指定します。用語集名は必ずしもプロジェクト名と同じでなくても良いですが、後々プロジェクトを横断して検索を掛けたときにわかりやすくするためにも、プロジェクト名が分かるようにしておいたほうが良いでしょう。
 
-    % loga update <用語> <対訳> <新しい対訳> <備考（省略可）>
+さて、上記のコマンドを実行すると、.logalingというディレクトリが作成されました。.logaling の中は次のようになっています。
 
-ここで、新しい対訳が省略されると、元あった用語と対訳のペアに対して、備考を更新します。また、備考を省略すると、元々の備考が適用されます。
+	.logaling
+	├── config
+	└── glossary
 
-先ほど登録した「user」の対訳を変更してみましょう。
+config というのは、このプロジェクト内で logaling-command を使うときの設定ファイルです。中身は次のようになっていて、用語集名、原語の言語情報、変換後の言語情報が設定されています。
 
-    % loga update user ユーザ ユーザー やっぱりユーザーとする
+	% cat .logaling/config
+	--glossary logaling
+	--source-language en
+	--target-language ja
 
-変更結果は `loga lookup` で確認できます。
-
-    % loga index
-    % loga lookup -s user
-    
-    lookup word : user
-    
-      user
-      ユーザー
-        note:やっぱりユーザーとする
-        glossary:logaling-project
+glossary というのは、このプロジェクトの用語集を置くためのディレクトリで、現時点では何も用語集は置かれていません。
 
 
-## 用語を削除する
+次に、以下のコマンドを実行します。
 
-用語を削除するには、 `loga delete` として、用語と対訳のペアを指定します。
+	% loga link
+	Your project is now linked to /Users/suzuki/.logaling.d/projects/logaling.
 
-    % loga delete <用語> <対訳>
+`loga link` を実行すると、上で作ったこのプロジェクトの .logaling ディレクトリへ、ユーザホームの .logaling.d/projects というディレクトリの下からシンボリックリンクが貼られます。今後、別のプロジェクトでも logaling-command を利用したくなった場合にはこの projects に各プロジェクトの用語集が増えていくことになり、そうすると検索でプロジェクトの横断検索が可能になります。
 
-実際に先ほどの「user」を削除するには以下のようにコマンドを実行します。
+	% ls -al ~/.logaling.d/projects
+	total 8
+	drwxr-xr-x  3 suzuki  suzuki  102 11 24 14:06 .
+	drwxr-xr-x  5 suzuki  suzuki  170 11 22 11:46 ..
+	lrwxr-xr-x  1 suzuki  suzuki  34 11 24 14:01 logaling -> /Users/suzuki/logaling/.logaling
 
-    % loga delete user ユーザー
+これで、loglaing-commandを使うための準備が整いました。
 
-検索して削除されていることを確認します。
 
-    % loga index
-    % loga lookup user
-    source_term <user> not found
 
+
+<a name="lookup" />
+3. 既に対訳用語集があり、そこに登録されている用語を検索したい
+-------------------------------------------------------------
+
+既に「用語-対訳」のペアを用語集として何らかの形式で持っている場合があります。
+logaling-command では、そのような場合のために、1行1用語の CSV/TSV 形式を検索対象の用語集としてサポートしています。
+例えば、下記のような対訳用語集がある場合、
+
+	% cat logaling.csv
+	logaling,ろがりん
+	glossary,対訳用語集
+
+その用語集のファイル名に原語の言語情報(jaとかenとか)と変換後言語情(jaとかenとか)を明示して、.logaling/glossary へ置くことで検索対象の用語集にすることができるようになります。
+
+	% mv logaling.csv .logaling/glossary/logaling.en.ja.csv
+
+さっそく glossary という用語で検索してみましょう。
+検索するには `loga lookup <検索したい用語>` とします。
+
+	% loga lookup glossary
+	
+	lookup word : glossary
+	
+	  glossary
+	  対訳用語集
+	    note:
+	    glossary:logaling
+
+検索結果の見方は1行目の「glossary」が検索にマッチした用語、2行目の「対訳用語集」が対訳、3行目の「note:」は後述しますが logaling-command で作成された用語集で備考が設定されていた場合にその内容が表示されます。最後の行の「glossary:logaling」はマッチした用語集名です。マッチした用語が複数ある場合は、これらのセットが複数表示されます。
+
+
+
+
+<a name="add" />
+4. 用語集を作成して用語を登録する
+---------------------------------
+
+新たに用語を登録したくなった場合は次のようにします。
+
+	% loga add lookup 検索 ルックアップそのままでも良い
+
+`loga add <用語> <対訳> <備考(省略可能)>` とすると、そのプロジェクトの対訳用語集（なければ作成して）に用語を登録していくことができます。
+このコマンドを実行すると、.logaling/glossary 以下に logaling.en.ja.yml というファイルができたと思います。これが、logaling-command の用語集ファイルです。
+
+	% ls -l .logaling/glossary
+	total 16
+	-rw-r--r--  1 suzuki  staff  61 11 24 14:41 logaling.en.ja.csv
+	-rw-r--r--  1 suzuki  staff  99 11 24 15:14 logaling.en.ja.yml
+
+拡張子でわかるように、YAML形式のファイルになっています。
+
+	% cat .logaling/glossary/logaling.en.ja.yml
+	---
+	- source_term: lookup
+	  target_term: 検索
+	  note: ルックアップそのままでも良い
+
+登録した内容を検索してみましょう。
+
+	% loga lookup lookup
+	
+	lookup word : lookup
+	
+	  lookup
+	  検索
+	    note:ルックアップそのままでも良い
+	    glossary:logaling
+
+この用語登録は、ひとつの用語で複数の対訳を登録することが可能です。その場合も同じように`loga add`してください。
+
+	% loga add lookup ルックアップ 検索でも可
+
+結果を検索すると、次のようになります。
+
+	% loga lookup lookup
+	
+	lookup word : lookup
+	
+	  lookup
+	  ルックアップ
+	    note:検索でも可
+	    glossary:logaling
+	
+	  lookup
+	  検索
+	    note:ルックアップそのままでも良い
+	    glossary:logaling
+
+
+
+
+
+
+<a name="update" />
+5. 登録されている用語を編集する
+-------------------------------
+
+用語を登録する際に typo してしまった、または別の対訳にして登録したいときは、用語集を編集することができます。
+用語集を編集するには `loga update <用語> <登録されている対訳> <新しい対訳> <新しい備(省略可)>` とします。
+
+まずは編集したい用語を検索してみましょう。ここでは、先ほど登録した「lookup」とします。
+
+	% loga lookup lookup
+	
+	lookup word : lookup
+	
+	  lookup
+	  ルックアップ
+	    note:検索でも可
+	    glossary:logaling
+	
+	  lookup
+	  検索
+	    note:ルックアップそのままでも良い
+	    glossary:logaling
+
+この、一つ目の対訳を「検索(またはルックアップ)」とすることにします。
+
+	% loga update 'lookup' 'ルックアップ' '検索(またはルックアップ)' '文脈に応じてどちらでも可'
+
+
+結果を確認してみましょう。
+	% loga lookup lookup
+	
+	lookup word : lookup
+	
+	  lookup
+	  検索
+	    note:ルックアップそのままでも良い
+	    glossary:logaling
+	
+	  lookup
+	  検索(またはルックアップ)
+	    note:文脈に応じてどちらでも可
+	    glossary:logaling
+
+
+指定したとおりに更新されました。
+
+
+
+
+<a name="delete" />
+6. 用語を削除する
+-----------------
+
+用語集に登録してある用語が必要なくなった場合には`loga delete <用語> <対訳>` とすると、削除することができます。
+「lookup-検索」という用語と対訳のペアを削除してみます。
+
+	% loga delete lookup 検索
+
+結果を確認してみましょう。
+	% loga lookup lookup
+	
+	lookup word : lookup
+	
+	  lookup
+	  検索(またはルックアップ)
+	    note:文脈に応じてどちらでも可
+	    glossary:logaling
+
+指定したとおりに削除されました。
 
