@@ -112,7 +112,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 
 
-これで、loglaing-commandを使うための準備が整いました。
+これで、logaling-commandを使うための準備が整いました。
 
 [目次へ戻る](#index)
 
