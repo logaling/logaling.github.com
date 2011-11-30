@@ -9,7 +9,7 @@ title: チュートリアル
 <a name="index" />
 目次
 ----
-### プロジェクトに logaling-commmand を導入する ###
+### プロジェクトに logaling-command を導入する ###
 
 1. [logaling-command をインストールする](#install)
 2. [logaling-command を使う準備をする](#preparation)
@@ -30,8 +30,8 @@ title: チュートリアル
 
 
 
-プロジェクトに logaling-commmand を導入する
--------------------------------------------
+プロジェクトに logaling-command を導入する
+------------------------------------------
 
 <a name="install" />
 1. logaling-command をインストールする
