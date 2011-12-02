@@ -42,6 +42,27 @@ logaling-command は RubyGems でインストールできます。
 
 	% gem install logaling-command
 
+インストールが成功したことを確認するには、コマンドラインで `loga help` と打ってみてください。
+
+	% loga help
+	Tasks:
+	  loga add [SOURCE TERM] [TARGET TERM] [NOTE(optional)]                        # Add term to glossary.
+	  loga delete [SOURCE TERM] [TARGET TERM]                                      # Delete term.
+	  loga help [TASK]                                                             # Describe available tasks or one speci...
+	  loga lookup [TERM]                                                           # Lookup terms.
+	  loga new [PROJECT NAME] [SOURCE LANGUAGE] [TARGET LANGUAGE(optional)]        # Create .logaling
+	 loga register                                                                # Register .logaling
+	  loga unregister                                                              # Unregister .logaling
+	  loga update [SOURCE TERM] [TARGET TERM] [NEW TARGET TERM], [NOTE(optional)]  # Update term.
+	
+	Options:
+	  -g, [--glossary=GLOSSARY]
+	  -S, [--source-language=SOURCE-LANGUAGE]
+	  -T, [--target-language=TARGET-LANGUAGE]
+	  -h, [--logaling-home=LOGALING-HOME]
+
+上記のようなヘルプが表示されたら、インストールは成功です。
+
 [目次へ戻る](#index)
 
 
