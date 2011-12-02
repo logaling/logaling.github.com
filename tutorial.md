@@ -38,7 +38,7 @@ title: チュートリアル
 --------------------------------------
 
 まずは logaling-command をインストールします。
-logaling-command は RubyGems でインストールできます。
+logaling-command は RubyGems でインストールできます。（※logaling-command は Ruby1.9 環境で動作します。）
 
 	% gem install logaling-command
 
