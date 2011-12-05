@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Contribution
 ---
 
 logaling-command とは翻訳をするための対訳用語集を簡単に作成・編集でき、用語を検索できるようにするCUIツールです。
@@ -7,3 +8,6 @@ logaling-command とは翻訳をするための対訳用語集を簡単に作成
 [もっと詳しく](/about "logaling-command について")
 
 [チュートリアル](/tutorial "チュートリアル")
+
+[Contribution](/contribution "Contribution")
+
