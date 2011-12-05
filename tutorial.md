@@ -33,35 +33,29 @@ title: チュートリアル
 プロジェクトに logaling-command を導入する
 ------------------------------------------
 
+
 <a name="install" />
 1. logaling-command をインストールする
 --------------------------------------
 
 まずは logaling-command をインストールします。
-logaling-command は RubyGems でインストールできます。（※logaling-command は Ruby1.9 環境で動作します。）
+logaling-command は RubyGems でインストールできます。
 
 	% gem install logaling-command
 
-インストールが成功したことを確認するには、コマンドラインで `loga help` と打ってみてください。
+インストールが成功したことを確認するには、コマンドラインで `loga -v` と打ってみてください。
 
-	% loga help
-	Tasks:
-	  loga add [SOURCE TERM] [TARGET TERM] [NOTE(optional)]                        # Add term to glossary.
-	  loga delete [SOURCE TERM] [TARGET TERM]                                      # Delete term.
-	  loga help [TASK]                                                             # Describe available tasks or one speci...
-	  loga lookup [TERM]                                                           # Lookup terms.
-	  loga new [PROJECT NAME] [SOURCE LANGUAGE] [TARGET LANGUAGE(optional)]        # Create .logaling
-	 loga register                                                                # Register .logaling
-	  loga unregister                                                              # Unregister .logaling
-	  loga update [SOURCE TERM] [TARGET TERM] [NEW TARGET TERM], [NOTE(optional)]  # Update term.
-	
-	Options:
-	  -g, [--glossary=GLOSSARY]
-	  -S, [--source-language=SOURCE-LANGUAGE]
-	  -T, [--target-language=TARGET-LANGUAGE]
-	  -h, [--logaling-home=LOGALING-HOME]
+	% loga -v
+	logaling-command version 0.0.5
 
-上記のようなヘルプが表示されたら、インストールは成功です。
+上記のようなバージョン情報が表示されたら、インストールは成功です。
+
+### Requirements
+logaling-command は Ruby1.9 環境で動作します。
+また、内部で groonga を利用しているので、先に groonga をインストールしておく必要があります。
+
+* [Ruby1.9.x](http://www.ruby-lang.org/ja/)
+* [groonga](http://groonga.org/ja/docs/install.html)
 
 [目次へ戻る](#index)
 
