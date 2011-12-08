@@ -5,7 +5,7 @@ title: Contribution
 
 バグを見つけた場合
 ------------------
-バグを見つけたら[メーリングリスト](#)または、[Githubのinues](https://github.com/logaling/logaling-command/issues)へお願いします。
+バグを見つけたら[メーリングリスト](#)または、[Githubのissues](https://github.com/logaling/logaling-command/issues)へお願いします。
 
 
 サポートが必要な場合
@@ -15,4 +15,3 @@ title: Contribution
 
 その他
 ------
-
