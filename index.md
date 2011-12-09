@@ -1,13 +1,15 @@
 ---
-layout: default
-title: Contribution
+layout: home
+title: logaling 
 ---
 
-logaling-command とは翻訳をするための対訳用語集を簡単に作成・編集でき、用語を検索できるようにするCUIツールです。
-また、用語を検索する際に他プロジェクトの対訳用語集の横断検索も可能になります。
-[もっと詳しく](/about.html "logaling-command について")
+<div id="homeHowTo">
+<p>logaling-commandを使うと対訳用語集の作成/共有が簡単にできるようになります</p>
+</div>
+<ul id="step">
+<li>インストールして...<code>% gem install logaling-command</code><img alt="インストール" src="/images/homeStep01.png" width="300" height="200"></li>
+<li>プロジェクトの用語集を作って...<code>% loga new groonga en ja</code><img alt="用語集作成" src="/images/homeStep02.png" width="300" height="200"></li>
+<li>用語集に登録する<code>% loga add "storage engine" "ストレージ・エンジン"</code><img alt="登録" src="/images/homeStep03.png" width="300" height="200"></li>
+</ul>
 
-[チュートリアル](/tutorial.html "チュートリアル")
-
-[Contribution](/contribution.html "Contribution")
-
+詳しくは[チュートリアル](/tutorial.html)へ

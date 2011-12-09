@@ -3,6 +3,9 @@ layout: default
 title: logaling-command について
 ---
 
+もっと詳しく
+==============
+
 logaling-command とは
 ---------------------
 

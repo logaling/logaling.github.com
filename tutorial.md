@@ -55,7 +55,7 @@ logaling-command は Ruby1.9 環境で動作します。
 * [Ruby1.9.x](http://www.ruby-lang.org/ja/)
 * [groonga](http://groonga.org/ja/docs/install.html)
 
-[目次へ戻る](#index)
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
 
@@ -125,8 +125,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 これで、logaling-commandを使うための準備が整いました。
 
-[目次へ戻る](#index)
-
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
 <a id="lookup">3. 用語を検索する</a>
@@ -146,7 +145,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 2-1 の場合のように、既に用語集が存在していて、それを logaling-command で利用できるフォーマットに置き変えていた場合は、上記のような検索結果になります。
 検索結果の見方は1行目の「patricia-trie」が検索にマッチした用語、2行目の「パトリシアトライ」が対訳、3行目の「note:」は後述しますが logaling-command で作成された用語集で備考が設定されていた場合にその内容が表示されます。最後の行の「glossary:groonga」はマッチした用語集名です。マッチした用語が複数ある場合は、これらのセットが複数表示されます。
 
-[目次へ戻る](#index)
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
 
@@ -205,7 +204,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 	    note:
 	    glossary:groonga
 
-[目次へ戻る](#index)
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
 
@@ -257,8 +256,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 指定した通りに更新されました。
 
-[目次へ戻る](#index)
-
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
 
@@ -284,7 +282,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 指定した通りに削除されました。
 
-[目次へ戻る](#index)
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
 
@@ -300,7 +298,8 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 インストール方法は [プロジェクトに logaling-command を導入する](#install) 場合と同じです。
 
-[目次へ戻る](#index)
+
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
 
@@ -327,7 +326,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 	drwxr-xr-x  5 suzuki  suzuki  170 11 22 11:46 ..
 	lrwxr-xr-x  1 suzuki  suzuki  34 11 24 14:01 groonga -> /Users/suzuki/groonga/.logaling
 
-[目次へ戻る](#index)
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
 
@@ -338,28 +337,28 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 用語の検索方法は [プロジェクトに logaling-command を導入する](#lookup) 場合と同じです。
 
-[目次へ戻る](#index)
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 <a id="add-user">4. 用語を登録する</a>
 -----------------
 
 用語の登録方法は [プロジェクトに logaling-command を導入する](#add) 場合と同じです。
 
-[目次へ戻る](#index)
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 <a id="update-user">5. 登録されている用語を編集する</a>
 -------------------------------
 
 登録されている用語を編集する方法は [プロジェクトに logaling-command を導入する](#update) 場合と同じです。
 
-[目次へ戻る](#index)
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 <a id="delete-user">6. 用語を削除する</a>
 -----------------
 
 用語を削除する方法は [プロジェクトに logaling-command を導入する](#delete) 場合と同じです。
 
-[目次へ戻る](#index)
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
 
