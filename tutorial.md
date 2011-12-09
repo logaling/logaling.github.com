@@ -6,8 +6,7 @@ title: チュートリアル
 チュートリアル
 ==============
 
-<a name="index" />
-目次
+<a id="index">目次</a>
 ----
 ### プロジェクトに logaling-command を導入する ###
 
@@ -34,8 +33,7 @@ title: チュートリアル
 ------------------------------------------
 
 
-<a name="install" />
-1. logaling-command をインストールする
+<a id="install">1. logaling-command をインストールする</a>
 --------------------------------------
 
 まずは logaling-command をインストールします。
@@ -63,8 +61,7 @@ logaling-command は Ruby1.9 環境で動作します。
 
 
 
-<a name="preparation" />
-2. logaling-command を使う準備をする
+<a id="preparation">2. logaling-command を使う準備をする</a>
 -----------
 
 インストールが無事終わったら、プロジェクトで logaling-command を使うための準備をします。
@@ -107,8 +104,7 @@ glossary は、このプロジェクトの用語集を置くためのディレ�
 	lrwxr-xr-x  1 suzuki  suzuki  34 11 24 14:01 groonga -> /Users/suzuki/groonga/.logaling
 
 
-<a name="import" />
-2-1. 既にある対訳用語集を logaling-command で検索できるようにする
+<a id="import">2-1. 既にある対訳用語集を logaling-command で検索できるようにする</a>
 -----------------------------------------------------------------
 
 既に「用語-対訳」のペアを用語集として何らかの形式で持っている場合があります。
@@ -133,8 +129,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 
 
-<a name="lookup" />
-3. 用語を検索する
+<a id="lookup">3. 用語を検索する</a>
 -----------------
 キーワードで用語集を検索してみましょう。
 検索するには `loga lookup <検索したいキーワード>` とします。
@@ -157,8 +152,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 
 
-<a name="add" />
-4. 用語を登録する
+<a name="add">4. 用語を登録する</a>
 -----------------
 
 新たに用語を登録したくなった場合は次のようにします。
@@ -219,8 +213,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 
 
-<a name="update" />
-5. 登録されている用語を編集する
+<a id="update">5. 登録されている用語を編集する</a>
 -------------------------------
 
 用語を登録する際に typo してしまった、または別の対訳にして登録しなおしたいときは、用語集を編集することができます。
@@ -271,8 +264,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 
 
-<a name="delete" />
-6. 用語を削除する
+<a id="delete">6. 用語を削除する</a>
 -----------------
 
 用語集に登録してある用語が必要なくなった場合には`loga delete <用語> <対訳>` とすると、削除することができます。
@@ -303,8 +295,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 既に logaling-command を使用しているプロジェクトに参加する
 ----------------------------------------------------------
 
-<a name="install-user" />
-1. logaling-command をインストールする
+<a id="install-user">1. logaling-command をインストールする</a>
 --------------------------------------
 
 インストール方法は [プロジェクトに logaling-command を導入する](#install) 場合と同じです。
@@ -314,8 +305,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 
 
-<a name="preparation-user" />
-2. logaling-command を使う準備をする
+<a id="preparation-user">2. logaling-command を使う準備をする</a>
 ------------------------------------
 
 あなたが既に logaling-command を使用しているプロジェクトへ参加する場合、プロジェクトのリポジトリには .logaling というディレクトリが存在していると思います。(そのディレクトリの中に用語集があります。)
@@ -343,32 +333,28 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 
 
-<a name="lookup-user" />
-3. 用語を検索する
+<a id="lookup-user">3. 用語を検索する</a>
 -----------------
 
 用語の検索方法は [プロジェクトに logaling-command を導入する](#lookup) 場合と同じです。
 
 [目次へ戻る](#index)
 
-<a name="add-user" />
-4. 用語を登録する
+<a id="add-user">4. 用語を登録する</a>
 -----------------
 
 用語の登録方法は [プロジェクトに logaling-command を導入する](#add) 場合と同じです。
 
 [目次へ戻る](#index)
 
-<a name="update-user" />
-5. 登録されている用語を編集する
+<a id="update-user">5. 登録されている用語を編集する</a>
 -------------------------------
 
 登録されている用語を編集する方法は [プロジェクトに logaling-command を導入する](#update) 場合と同じです。
 
 [目次へ戻る](#index)
 
-<a name="delete-user" />
-6. 用語を削除する
+<a id="delete-user">6. 用語を削除する</a>
 -----------------
 
 用語を削除する方法は [プロジェクトに logaling-command を導入する](#delete) 場合と同じです。
@@ -381,7 +367,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 
 ----------
-<a name="kome1" />※1言語の名称の略号2文字（ja や en など）<http://ja.wikipedia.org/wiki/ISO_639>
+<a id="kome1">※1言語の名称の略号2文字（ja や en など）<http://ja.wikipedia.org/wiki/ISO_639></a>
 
-<a name="kome2" />※2ファイルの文字コードはUTF-8のみに対応しています。
+<a id="kome2">※2ファイルの文字コードはUTF-8のみに対応しています。</a>
 
