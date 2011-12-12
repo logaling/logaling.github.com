@@ -44,16 +44,17 @@ logaling-command は RubyGems でインストールできます。
 インストールが成功したことを確認するには、コマンドラインで `loga -v` と打ってみてください。
 
 	% loga -v
-	logaling-command version 0.0.5
+	logaling-command version 0.0.8
 
 上記のようなバージョン情報が表示されたら、インストールは成功です。
 
 ### Requirements
 logaling-command は Ruby1.9 環境で動作します。
-また、内部で groonga を利用しているので、先に groonga をインストールしておく必要があります。
+また、内部では groonga、rroonga を利用しています。もしインストールされていなければ、 logaling-command をインストールすると同時に groonga と rroonga もインストールされます。
 
 * [Ruby1.9.x](http://www.ruby-lang.org/ja/)
-* [groonga](http://groonga.org/ja/docs/install.html)
+* [groonga](http://groonga.org/ja/)
+* [rroonga](http://groonga.rubyforge.org/index.html.ja)
 
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
 
@@ -67,15 +68,15 @@ logaling-command は Ruby1.9 環境で動作します。
 インストールが無事終わったら、プロジェクトで logaling-command を使うための準備をします。
 
 例えば、あなたが groonga というプロジェクトに関わっていて、そのリポジトリが /Users/suzuki/groonga に既に存在するとします。そして、そのプロジェクトで英語→日本語の用語集を作成したいとしましょう。その場合は、そのリポジトリのトップディレクトリで以下のコマンドを実行して下さい。(
-新たに用語集は作らなくてもいい、既存の用語集をとりあえず使いたい、などという場合も、このコマンドを実行する必要があります。)
+新たに用語集は作らなくてもいい、既存の用語集をとりあえず使いたい、などという場合も、このコマンドを実行する必要があります。ただし、他プロジェクトの用語集から検索したいだけの場合はこの操作は必要ありません。)
 
 
 	% cd /Users/suzuki/groonga
 	% loga new groonga en ja
-	Your project is now registered to /Users/adzuki34/.logaling.d/projects/groonga.
+	Your project is now registered to logaling.
 	Successfully created .logaling
 
-`loga new` はプロジェクトで用語集を使うための設定ファイルやディレクトリなどを作成します。パラメータは「用語集名」と「原語の言語コード[※1](#kome1)」「変換後の言語コード(省略可能）」をこの順番で指定します。用語集名は必ずしもプロジェクト名と同じでなくても構いません。ですが、後々プロジェクトを横断して検索を掛けたときにわかりやすくするためにも、プロジェクト名が分かるようにしておいたほうが良いでしょう。
+*loga new* はプロジェクトで用語集を使うための設定ファイルやディレクトリなどを作成します。パラメータは「用語集名」と「原文の言語コード[※1](#kome1)」「変換後の言語コード(省略可能）」をこの順番で指定します。用語集名は必ずしもプロジェクト名と同じでなくても構いません。ですが、後々プロジェクトを横断して検索を掛けたときにわかりやすくするためにも、プロジェクト名が分かるようにしておいたほうが良いでしょう。
 
 さて、上記のコマンドを実行すると、 .logaling というディレクトリが作成されました。.logaling の中は次のようになっています。
 
@@ -83,7 +84,7 @@ logaling-command は Ruby1.9 環境で動作します。
 	├── config
 	└── glossary
 
-config はこのプロジェクト内で logaling-command を使うときの設定ファイルです。中身は次のようになっています。用語集名、原語の言語コード、変換後の言語コードが設定されています。
+config はこのプロジェクト内で logaling-command を使うときの設定ファイルです。中身は次のようになっています。用語集名、原文の言語コード、変換後の言語コードが設定されています。
 
 	% cat .logaling/config
 	--glossary groonga
@@ -92,7 +93,7 @@ config はこのプロジェクト内で logaling-command を使うときの設�
 
 glossary は、このプロジェクトの用語集を置くためのディレクトリです。現時点では何も用語集は置かれていません。
 
-`loga new` は上記を行うと共に、ユーザーホームに .logaling.d/projects というディレクトリを作成し、そのディレクトリ配下に前述の .logaling へのシンボリックリンクを作成します。
+*loga new* は上記を行うと共に、ユーザーホームに .logaling.d/projects というディレクトリを作成し、そのディレクトリ配下に前述の .logaling へのシンボリックリンクを作成します。
 後々、別のプロジェクトでも logaling-command を利用したくなった場合には、この .logaling.d/projects にプロジェクト毎の設定や用語集がリンクされることになるため、検索を行うときにプロジェクトの横断検索が可能になります。
 
 ユーザホームの .logaling.d にシンボリックリンクが正しく設定されていることを確認します。
@@ -116,7 +117,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 	patricia-trie,パトリシアトライ
 	hash,ハッシュテーブル
 
-その用語集のファイル名に原語の言語コードと変換後言語コードを明示して、.logaling/glossary へ置くことで検索対象の用語集にすることができるようになります。
+その用語集のファイル名に原文の言語コードと変換後言語コードを明示して、.logaling/glossary へ置くことで検索対象の用語集にすることができるようになります。
 
 	% mv groonga.csv .logaling/glossary/groonga.en.ja.csv
 
@@ -134,16 +135,13 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 検索するには `loga lookup <検索したいキーワード>` とします。
 
 	% loga lookup patricia
-	
-	lookup word : patricia
-	
-	  patricia-trie
-	  パトリシアトライ
-	    note:
-	    glossary:groonga
+	patricia-trie : パトリシアトライ
 
 2-1 の場合のように、既に用語集が存在していて、それを logaling-command で利用できるフォーマットに置き変えていた場合は、上記のような検索結果になります。
-検索結果の見方は1行目の「patricia-trie」が検索にマッチした用語、2行目の「パトリシアトライ」が対訳、3行目の「note:」は後述しますが logaling-command で作成された用語集で備考が設定されていた場合にその内容が表示されます。最後の行の「glossary:groonga」はマッチした用語集名です。マッチした用語が複数ある場合は、これらのセットが複数表示されます。
+検索結果の見方は最初の「patricia-trie」が検索にマッチした用語、コロンを挟んで次の「パトリシアトライ」が対訳です。
+もしマッチした用語が logaling-command で作成された用語で、そこに備考が設定されていた場合には対訳と用語集名の間にその内容が表示されます。
+また、用語集が複数（プロジェクト分）ある場合には、最後にカッコでマッチした用語集名が表示されます。
+マッチした用語が複数ある場合は、これらのセットが複数表示されます。
 
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
 
@@ -158,8 +156,8 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 	% loga add "storage engine" "ストレージエンジン" "groongaをベースとしたMySQLのストレージエンジン"
 
-`loga add <用語> <対訳> <備考(省略可能)>` とすると、そのプロジェクトの対訳用語集（なければ作成して）に用語を登録していくことができます。
-このコマンドを実行すると、.logaling/glossary 以下に groonga.en.ja.yml というファイルができたと思います。これが、logaling-command の用語集ファイルです。
+用語を登録する際には `loga add <用語> <対訳> <備考(省略可能)>` とすると、そのプロジェクトの対訳用語集（なければ作成して）に用語を登録していくことができます。
+このコマンドを実行すると .logaling/glossary 以下に groonga.en.ja.yml というファイルができたと思います。これが logaling-command の用語集ファイルです。
 
 	% ls -l .logaling/glossary
 	total 16
@@ -176,33 +174,17 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 登録した内容を検索してみましょう。
 
 	% loga lookup storage
-	
-	lookup word : storage
-	
-	  storage engine
-	  ストレージエンジン
-	    note:groongaをベースとしたMySQLのストレージエンジン
-	    glossary:groonga
+	  storage engine : ストレージエンジン # groongaをベースとしたMySQLのストレージエンジン
 
-この用語登録は、ひとつの用語で複数の対訳を登録することが可能です。その場合も同じように`loga add`してください。
+この用語登録は、ひとつの用語で複数の対訳を登録することが可能です。その場合も同じように *loga add* してください。
 
 	% loga add "storage engine" "ストレージ・エンジン"
 
 結果を検索すると、次のようになります。
 
 	% loga lookup storage
-	
-	lookup word : storage
-	
-	  storage engine
-	  ストレージエンジン
-	    note:groongaをベースとしたMySQLのストレージエンジン
-	    glossary:groonga
-	
-	  storage engine
-	  ストレージ・エンジン
-	    note:
-	    glossary:groonga
+	  storage engine : ストレージエンジン # groongaをベースとしたMySQLのストレージエンジン
+	  storage engine : ストレージ・エンジン
 
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
 
@@ -221,18 +203,8 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 まずは編集したい用語を検索してみましょう。ここでは、先ほど登録した「storage engine」とします。
 
 	% loga lookup storage
-	
-	lookup word : storage
-	
-	  storage engine
-	  ストレージエンジン
-	    note:groongaをベースとしたMySQLのストレージエンジン
-	    glossary:groonga
-	
-	  storage engine
-	  ストレージ・エンジン
-	    note:
-	    glossary:groonga
+	  storage engine : ストレージエンジン # groongaをベースとしたMySQLのストレージエンジン
+	  storage engine : ストレージ・エンジン
 
 この、2つ目の対訳を「ストレージ　エンジン」とすることにします。
 
@@ -243,16 +215,8 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 	% loga lookup storage
 	
 	lookup word : storage
-	
-	  storage engine
-	  ストレージ　エンジン
-	    note:ストレージとエンジンの間にスペース1つ
-	    glossary:groonga
-	
-	  storage engine
-	  ストレージエンジン
-	    note:groongaをベースとしたMySQLのストレージエンジン
-	    glossary:groonga
+	  storage engine : ストレージエンジン # groongaをベースとしたMySQLのストレージエンジン
+	  storage engine : ストレージ エンジン # ストレージとエンジンの間にスペース1つ
 
 指定した通りに更新されました。
 
@@ -266,19 +230,13 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 -----------------
 
 用語集に登録してある用語が必要なくなった場合には`loga delete <用語> <対訳>` とすると、削除することができます。
-[storage engine] - [ストレージ　エンジン]という用語と対訳のペアを削除してみます。
+[storage engine] - [ストレージ エンジン]という用語と対訳のペアを削除してみます。
 
-	% loga delete "storage engine" "ストレージ　エンジン"
+	% loga delete "storage engine" "ストレージ エンジン"
 
 結果を確認してみましょう。
 	% loga lookup storage
-	
-	lookup word : storage
-	
-	  storage engine
-	  ストレージエンジン
-	    note:groongaをベースとしたMySQLのストレージエンジン
-	    glossary:groonga
+	  storage engine : ストレージエンジン # groongaをベースとしたMySQLのストレージエンジン
 
 指定した通りに削除されました。
 
@@ -313,9 +271,9 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 そのためには、以下のコマンドを実行します。
 
 	% loga register
-	Your project is now registered to /Users/suzuki/.logaling.d/projects/groonga.
+	Your project is now registered to logaling.
 
-`loga register` を実行すると、ユーザーホームに .logaling.d/projects というディレクトリが作成され、そこに前述の .logaling へのシンボリックリンクが作成されます。
+*loga register* を実行すると、ユーザーホームに .logaling.d/projects というディレクトリが作成され、そこに前述の .logaling へのシンボリックリンクが作成されます。
 後々、別のプロジェクトでも logaling-command を利用したくなった場合にはこの .logaling.d/projects にプロジェクト毎の設定や用語集がリンクされることになるため、検索を行うときにプロジェクトの横断検索が可能になります。
 
 念のため、ユーザホームの .logaling.d を確認してみます。
