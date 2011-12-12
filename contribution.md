@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Contribution
+title: コミュニティ
 ---
 
-Contribution
+コミュニティ
 ==============
 
 バグを見つけた場合
