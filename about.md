@@ -25,3 +25,14 @@ logaling-command をつかうことで、翻訳作業に欠かせない作業が
 
 ライセンス
 ----------
+このプログラムはフリーソフトウェアです。
+あなたはこれを、フリーソフトウェア財団によって発行された
+<a href="http://www.gnu.org/licenses/gpl-3.0.txt">GNU GENERAL PUBLIC LICENSE Version 3</a>
+の定める条件の下で再頒布または改変することができます。
+
+このプログラムは有用であることを願って頒布されますが、
+*全くの無保証* です。商業可能性の保証や特定の目的への適合性は、
+言外に示されたものも含め全く存在しません。
+詳しくは<a href="http://www.gnu.org/licenses/gpl-3.0.txt">GNU GENERAL PUBLIC LICENSE Version 3</a>
+をご覧ください。
+
