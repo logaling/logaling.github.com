@@ -39,8 +39,8 @@ loga add [用語] [対訳] [備考(省略可)]
 原文の言語コードを指定する
 ##### -T, [--target-language=訳文の言語コード]
 訳文の言語コードを指定する
-##### -h, [--logaling-home=logaling-commandホームディレクトリ]
-logaling-commandホームディレクトリ
+##### -h, [--logaling-home=logaling-command ホームディレクトリ]
+logaling-command ホームディレクトリ
 
 
 
@@ -61,8 +61,8 @@ loga delete [用語] [対訳(省略可)]
 原文の言語コードを指定する
 ##### -T, [--target-language=訳文の言語コード]
 訳文の言語コードを指定する
-##### -h, [--logaling-home=logaling-commandホームディレクトリ]
-logaling-commandホームディレクトリ
+##### -h, [--logaling-home=logaling-command ホームディレクトリ]
+logaling-command ホームディレクトリ
 
 
 
@@ -100,8 +100,8 @@ loga lookup [用語]
 原文の言語コードを指定する
 ##### -T, [--target-language=訳文の言語コード]
 訳文の言語コードを指定する
-##### -h, [--logaling-home=logaling-commandホームディレクトリ]
-logaling-commandホームディレクトリ
+##### -h, [--logaling-home=logaling-command ホームディレクトリ]
+logaling-command ホームディレクトリ
 
 
 
@@ -111,11 +111,11 @@ logaling-commandホームディレクトリ
 loga new [用語集名] [原文の言語コード] [訳文の言語コード] [--no-register(省略可)]
 #### 説明
 プロジェクトの用語集を新規に作成します。
-同時にlogaling-commandホームディレクトリ（ユーザーフォームディレクトリ/.logaling.d）に
+同時に logaling-command ホームディレクトリ（ユーザーホームディレクトリ/.logaling.d）に
 プロジェクトのディレクトリへのシンボリックリンクを作成します。
 #### オプション
-##### -h, [--logaling-home=logaling-commandホームディレクトリ]
-logaling-commandホームディレクトリ
+##### -h, [--logaling-home=logaling-command ホームディレクトリ]
+logaling-command ホームディレクトリ
 ##### --no-register
 logaling-command ホームディレクトリにシンボリックリンクを作成したくない場合は指定します
 
@@ -135,8 +135,8 @@ logaling-command ホームディレクトリに指定した用語集のシンボ
 原文の言語コードを指定する
 ##### -T, [--target-language=訳文の言語コード]
 訳文の言語コードを指定する
-##### -h, [--logaling-home=logaling-commandホームディレクトリ]
-logaling-commandホームディレクトリ
+##### -h, [--logaling-home=logaling-command ホームディレクトリ]
+logaling-command ホームディレクトリ
 
 
 
@@ -154,8 +154,8 @@ loga update [用語] [対訳] [新しい対訳] [新しい備考(省略可)]
 原文の言語コードを指定する
 ##### -T, [--target-language=訳文の言語コード]
 訳文の言語コードを指定する
-##### -h, [--logaling-home=logaling-commandホームディレクトリ]
-logaling-commandホームディレクトリ
+##### -h, [--logaling-home=logaling-command ホームディレクトリ]
+logaling-command ホームディレクトリ
 
 
 
@@ -174,8 +174,8 @@ logaling-command ホームディレクトリに指定された用語集のシン
 原文の言語コードを指定する
 ##### -T, [--target-language=訳文の言語コード]
 訳文の言語コードを指定する
-##### -h, [--logaling-home=logaling-commandホームディレクトリ]
-logaling-commandホームディレクトリ
+##### -h, [--logaling-home=logaling-command ホームディレクトリ]
+logaling-command ホームディレクトリ
 
 
 
