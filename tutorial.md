@@ -263,8 +263,8 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 そういう場合には、プロジェクトのトップレベルにある *.logaling/config* は以下のように *--target-language* が省略されているでしょう。
 
 	% cat config
-	% --glossary notyet
-	% --source-language en
+	--glossary notyet
+	--source-language en
 
 この状態で *loga add* しようとすると、
 
