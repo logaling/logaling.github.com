@@ -300,9 +300,9 @@ myconfig を削除するには以下のコマンドを実行します。
 
 	% ls -l ~/.logaling.d
 	total 0
-	drwxr-xr-x   5 adzuki34  staff  170 12 14 15:11 cache
-	drwxr-xr-x  18 adzuki34  staff  612 12 15 17:33 db
-	drwxr-xr-x   4 adzuki34  staff  136 12 15 17:33 projects
+	drwxr-xr-x   5 suzuki  suzuki  170 12 14 15:11 cache
+	drwxr-xr-x  18 suzuki  suzuki  612 12 15 17:33 db
+	drwxr-xr-x   4 suzuki  suzuki  136 12 15 17:33 projects
 
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
 <!-------------- ここまで ----------------->
