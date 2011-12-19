@@ -119,6 +119,10 @@ glossary は、このプロジェクトの用語集を置くためのディレ�
 
 これで logaling-command を使うための準備が整いました。
 
+
+------
+<a id="kome1">※1言語の名称の略号2文字（ja や en など）<http://ja.wikipedia.org/wiki/ISO_639></a>
+
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
@@ -196,6 +200,11 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 	% loga lookup patricia
 	patricia-trie    パトリシアトライ
+
+
+----------
+<a id="kome2">※2ファイルの文字コードはUTF-8のみに対応しています。</a>
+
 
 
 ### <a id="import">1-2. 有名プロジェクトの用語集を logaling-command で検索できるようにする</a> ###
@@ -377,14 +386,3 @@ myconfig を削除するには以下のコマンドを実行します。
 指定した通りに削除されました。
 
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
-
-
-
-
-
-
-----------
-<a id="kome1">※1言語の名称の略号2文字（ja や en など）<http://ja.wikipedia.org/wiki/ISO_639></a>
-
-<a id="kome2">※2ファイルの文字コードはUTF-8のみに対応しています。</a>
-

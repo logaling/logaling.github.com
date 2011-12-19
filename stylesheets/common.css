@@ -215,6 +215,14 @@ p code {
   margin: 0 10px;
   display: inline-block; }
 
+hr {
+  margin-bottom: 10px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px dashed rgba(0,0,0,0.4);
+}
+
 header {
   width: 980px;
   padding: 0;
