@@ -8,16 +8,18 @@ title: コマンドリファレンス
 
 <a id="commands">コマンド一覧</a>
 ----------------------------
-* [add](#add)
-* [delete](#delete)
-* [help](#help)
-* [import](#import)
-* [lookup](#lookup)
-* [new](#new)
-* [register](#register)
-* [update](#update)
-* [unregister](#unregister)
-* [version](#version)
+<ul class="listMark">
+<li><a href="#add">add</a></li>
+<li><a href="#delete">delete</a></li>
+<li><a href="#help">help</a></li>
+<li><a href="#import">import</a></li>
+<li><a href="#lookup">lookup</a></li>
+<li><a href="#new">new</a></li>
+<li><a href="#register">register</a></li>
+<li><a href="#update">update</a></li>
+<li><a href="#unregister">unregister</a></li>
+<li><a href="#version">version</a></li>
+</ul>
 
 
 
