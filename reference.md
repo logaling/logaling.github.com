@@ -6,7 +6,7 @@ title: コマンドリファレンス
 コマンドリファレンス
 ====================
 
-<a id="command">コマンド</a>
+<a id="commands">コマンド一覧</a>
 ----------------------------
 * [add](#add)
 * [delete](#delete)
@@ -42,6 +42,7 @@ loga add [用語] [対訳] [備考(省略可)]
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
 
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
 
 ### <a id="delete">delete</a> - 用語集に登録されている用語を削除する ###
@@ -64,6 +65,7 @@ loga delete [用語] [対訳(省略可)]
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
 
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
 
 ### <a id="help">help</a> - ヘルプを表示する ###
@@ -73,6 +75,7 @@ loga help [タスク(省略可)]
 ヘルプを表示します。タスク名が指定されない場合は全体のヘルプを、
 指定された場合はそのタスクのヘルプを表示します。
 
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
 
 
@@ -87,6 +90,7 @@ logaling-command で利用できる形式の用語集が存在する
 ##### --list
 読み込むことが出来るプロジェクトを一覽表示する。
 
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
 
 
@@ -107,6 +111,7 @@ loga lookup [用語]
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
 
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
 
 
@@ -123,6 +128,7 @@ logaling-command ホームディレクトリ
 ##### --no-register
 logaling-command ホームディレクトリにシンボリックリンクを作成したくない場合は指定します
 
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
 
 
@@ -142,6 +148,7 @@ logaling-command ホームディレクトリに指定した用語集のシンボ
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
 
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
 
 
@@ -161,6 +168,7 @@ loga update [用語] [対訳] [新しい対訳] [新しい備考(省略可)]
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
 
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
 
 
@@ -181,6 +189,7 @@ logaling-command ホームディレクトリに指定された用語集のシン
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
 
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
 
 
@@ -190,3 +199,5 @@ logaling-command ホームディレクトリ
 loga version
 #### 説明
 インストールされている logaling-command のバージョンを表示する。
+
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>

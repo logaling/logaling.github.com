@@ -322,7 +322,7 @@ ul.listMark li {
 }
 
 .toTop {
-  margin-bottom: 50px;
+  margin: 10px 0 50px 0;
   height: 20px;
   line-height: 20px;
   text-align: right;
