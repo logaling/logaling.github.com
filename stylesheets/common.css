@@ -177,7 +177,7 @@ code {
   font-size: 80%;
   color: #e19296;
   letter-spacing: 1px;
-  font-family: 'Petrona', serif;
+  font-family: 'Droid Sans Mono', sans-serif;
 	margin: 20px 30px;
 	background: rgba(0,0,0,0.3);
   padding: 10px;
@@ -197,6 +197,10 @@ code {
   -moz-box-shadow: 0px 0px 3px #666666;
   box-shadow: 0px 0px 3px #666666;
 }
+
+p code {
+  margin: 0 10px;
+  display: inline-block; }
 
 header {
   width: 980px;
