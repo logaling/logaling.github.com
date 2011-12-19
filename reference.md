@@ -6,8 +6,9 @@ title: コマンドリファレンス
 コマンドリファレンス
 ====================
 
-<a id="commands">コマンド一覧</a>
-----------------------------
+
+<div id="indexDivision">
+<h2><a id="commands">コマンド一覧</a></h2>
 <ul class="listMark">
 <li><a href="#add">add</a></li>
 <li><a href="#delete">delete</a></li>
@@ -20,6 +21,7 @@ title: コマンドリファレンス
 <li><a href="#unregister">unregister</a></li>
 <li><a href="#version">version</a></li>
 </ul>
+</div>
 
 
 

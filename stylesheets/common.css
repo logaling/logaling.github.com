@@ -321,6 +321,38 @@ ul.listMark li {
   clear: both;
 }
 
+#indexDivision {
+  border: 10px solid rgba(0,0,0,0.4);
+  margin: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+#indexDivision h2 {
+  background: rgba(0,0,0,0.4);
+  margin: 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  height: 40px;
+  line-height: 40px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+#indexDivision h3,
+#indexDivision ul,
+#indexDivision ol {
+  margin: 20px;
+}
+
+#indexDivision ul li ul,
+#indexDivision ol li ol {
+  margin: 0 20px;
+}
+
 .toTop {
   margin: 10px 0 50px 0;
   height: 20px;

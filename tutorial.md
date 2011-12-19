@@ -6,25 +6,41 @@ title: チュートリアル
 チュートリアル
 ==============
 
-<a id="index">目次</a>
------------------------
 
-### logaling-command を使うための準備をする ###
-1. [logaling-command をインストールする](#install)
-2. [logaling-command を使う準備をする](#preparation)
-    1. [プロジェクトに logaling-command 導入する場合](#new)
-    2. [既に logaling-command を使用しているプロジェクトに参加する場合](#register)
-
-### logaling-command を使う ###
-1. [用語を検索する](#lookup)
-    1. [プロジェクトに既にある対訳用語集を logaling-command で検索できるようにする](#lookup-csv)
-    2. [有名プロジェクトの用語集を logaling-command で検索できるようにする](#import)
-2. [用語を登録する](#add)
-    1. [一つのプロジェクトで複数言語への翻訳が同時に進行している場合](#without-target-lang)
-3. [登録されている用語を編集する](#update)
-4. [用語を削除する](#delete)
+<div id="indexDivision">
+<h2><a id="index">目次</a></h2>
+<h3>logaling-command を使うための準備をす</h3>
+<ol>
+<li><a href="#install">logaling-command をインストールする</a></li>
+<li><a href="#preparation">logaling-command を使う準備をする</a>
+  <ol>
+  <li><a href="#new">プロジェクトに logaling-command 導入する場合</a></li>
+  <li><a href="#register">既に logaling-command を使用しているプロジェクトに参加する場合</a></li>
+  </ol>
+</li>
+</ol>
 
 
+
+<h3>logaling-command を使う</h3>
+
+<ol>
+<li><a href="#lookup">用語を検索する</a>
+  <ol>
+  <li><a href="#lookup-csv">プロジェクトに既にある対訳用語集を logaling-command で検索できるようにする</a></li>
+  <li><a href="#import">有名プロジェクトの用語集を logaling-command で検索できるようにする</a></li>
+  </ol>
+</li>
+<li><a href="#add">用語を登録する</a>
+  <ol>
+  <li><a href="#without-target-lang">一つのプロジェクトで複数言語への翻訳が同時に進行している場合</a></li>
+  </ol>
+</li>
+<li><a href="#update">登録されている用語を編集する</a></li>
+<li><a href="#delete">用語を削除する</a></li>
+</ol>
+
+</div>
 
 logaling-command を使うための準備をする
 ------------------------------------------
