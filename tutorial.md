@@ -205,6 +205,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 ----------
 <a id="kome2">※2ファイルの文字コードはUTF-8のみに対応しています。</a>
 
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
 ### <a id="import">1-2. 有名プロジェクトの用語集を logaling-command で検索できるようにする</a> ###
@@ -230,6 +231,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 先ほどインポートした postgresql_manual から検索できました。
 
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
 
