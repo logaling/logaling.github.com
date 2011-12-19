@@ -120,12 +120,19 @@ article h1 {
 }
 
 article h2,
-article h3 {
+article h3,
+article h4 {
   margin: 40px 0 10px 0;
   font-weight: bold;
-  font-size: 120%;
   color: #f9e9ea;
 }
+
+article h2,
+article h3 {
+  font-size: 120%; }
+
+article h4 {
+  font-size: 100%; }
 
 article h2 a,
 article h3 a {
@@ -158,6 +165,12 @@ article h3 {
   background: url(/images/commonHeaderFirebrickBorder.png) no-repeat bottom left;
   height: 40px;
   line-height: 40px;
+}
+
+article h4 {
+  background: url(/images/commonHeaderFirebrickBorderHalf.png) no-repeat bottom left;
+  height: 30px;
+  line-height: 30px;
 }
 
 article ul,
