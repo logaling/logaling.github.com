@@ -135,7 +135,8 @@ article h4 {
   font-size: 100%; }
 
 article h2 a,
-article h3 a {
+article h3 a,
+article h4 a {
   font-weight: bold;
   color: #f9e9ea;
 }
