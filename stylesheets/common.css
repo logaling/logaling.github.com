@@ -308,6 +308,13 @@ ul#step li code {
   margin: 10px 0 20px 0;
 }
 
+ul.listMark {
+  margin: 10px; }
+
+ul.listMark li {
+  background: url(/images/commonListMark.png) no-repeat top left;
+  padding: 0 0 0 25px; }
+
 .clearfix:after {
   content: "";
   display: block;
