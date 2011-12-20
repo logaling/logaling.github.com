@@ -8,7 +8,7 @@ title: コミュニティ
 
 バグを見つけた場合
 ------------------
-バグを見つけたら[メーリングリスト](http://lists.sourceforge.jp/mailman/listinfo/logaling-users)または、[Githubのissues](https://github.com/logaling/logaling-command/issues)へお願いします。
+バグを見つけたら[メーリングリスト](http://lists.sourceforge.jp/mailman/listinfo/logaling-users)または、[GitHubのissues](https://github.com/logaling/logaling-command/issues)へお願いします。
 
 
 サポートが必要な場合
