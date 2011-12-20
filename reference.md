@@ -11,6 +11,7 @@ title: コマンドリファレンス
 <h2><a id="commands">コマンド一覧</a></h2>
 <ul class="listMark">
 <li><a href="#add">add</a></li>
+<li><a href="#config">config</a></li>
 <li><a href="#delete">delete</a></li>
 <li><a href="#help">help</a></li>
 <li><a href="#import">import</a></li>
@@ -38,13 +39,34 @@ loga add [用語] [対訳] [備考(省略可)]
 設定に従って登録されますが、オプションで指定することも可能です。
 #### オプション
 ##### -g, [--glossary=用語集名]
-用語集名を指定する
+用語集名を指定します
 ##### -S, [--source-language=原文の言語コード]
-原文の言語コードを指定する
+原文の言語コードを指定します
 ##### -T, [--target-language=訳文の言語コード]
-訳文の言語コードを指定する
+訳文の言語コードを指定します
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
+
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
+
+
+### <a id="config">config</a> - 設定を書き換える ###
+#### 書式
+loga config [-S 原文の言語コード] [-T 対訳の言語コード]
+#### 説明
+プロジェクトまたはグローバルな設定を書き換えます。
+原文の言語コード、対訳の言語コードはどちらかを必ず指定してください。
+両方同時に指定することも可能です。
+--global オプションを指定しない場合は、プロジェクトの .logaling/config に書かれている設定を指定された内容で書き換えます。
+--global オプションを指定した場合は、ユーザホームにある .logaling.d/config に書かれている設定を指定された内容で書き換えます。
+また、このグローバルな設定ファイルがない場合は作成します。
+#### オプション
+##### -S, [--source-language=原文の言語コード]
+原文の言語コードを指定します
+##### -T, [--target-language=訳文の言語コード]
+訳文の言語コードを指定します
+##### --global
+グローバルな設定を書き換える場合は指定します
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
@@ -61,11 +83,11 @@ loga delete [用語] [対訳(省略可)]
 ##### --force
 指定すると一つの用語で複数の対訳がある用語を一括で削除することができます。
 ##### -g, [--glossary=用語集名]
-用語集名を指定する
+用語集名を指定します
 ##### -S, [--source-language=原文の言語コード]
-原文の言語コードを指定する
+原文の言語コードを指定します
 ##### -T, [--target-language=訳文の言語コード]
-訳文の言語コードを指定する
+訳文の言語コードを指定します
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
 
@@ -107,11 +129,11 @@ loga lookup [用語]
 複数プロジェクトにまたがって横断的に検索する。
 #### オプション
 ##### -g, [--glossary=用語集名]
-用語集名を指定する
+用語集名を指定します
 ##### -S, [--source-language=原文の言語コード]
-原文の言語コードを指定する
+原文の言語コードを指定します
 ##### -T, [--target-language=訳文の言語コード]
-訳文の言語コードを指定する
+訳文の言語コードを指定します
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
 
@@ -144,11 +166,11 @@ loga register -g [用語集名]
 logaling-command ホームディレクトリに指定した用語集のシンボリックリンクを作成します。
 #### オプション
 ##### -g, [--glossary=用語集名]
-用語集名を指定する
+用語集名を指定します
 ##### -S, [--source-language=原文の言語コード]
-原文の言語コードを指定する
+原文の言語コードを指定します
 ##### -T, [--target-language=訳文の言語コード]
-訳文の言語コードを指定する
+訳文の言語コードを指定します
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
 
@@ -164,11 +186,11 @@ loga update [用語] [対訳] [新しい対訳] [新しい備考(省略可)]
 指定された用語と対訳が用語集に存在していたら、対訳を新しい対訳で上書きする。
 #### オプション
 ##### -g, [--glossary=用語集名]
-用語集名を指定する
+用語集名を指定します
 ##### -S, [--source-language=原文の言語コード]
-原文の言語コードを指定する
+原文の言語コードを指定します
 ##### -T, [--target-language=訳文の言語コード]
-訳文の言語コードを指定する
+訳文の言語コードを指定します
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
 
@@ -185,11 +207,11 @@ logaling-command ホームディレクトリに指定された用語集のシン
 存在する場合、そのシンボリックリンクを削除する。
 #### オプション
 ##### -g, [--glossary=用語集名]
-用語集名を指定する
+用語集名を指定します
 ##### -S, [--source-language=原文の言語コード]
-原文の言語コードを指定する
+原文の言語コードを指定します
 ##### -T, [--target-language=訳文の言語コード]
-訳文の言語コードを指定する
+訳文の言語コードを指定します
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
 
