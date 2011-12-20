@@ -14,7 +14,7 @@ title: チュートリアル
 <li><a href="#install">logaling-command をインストールする</a></li>
 <li><a href="#preparation">logaling-command を使う準備をする</a>
   <ol>
-  <li><a href="#new">プロジェクトに logaling-command 導入する場合</a></li>
+  <li><a href="#new">プロジェクトに logaling-command を導入する場合</a></li>
   <li><a href="#register">既に logaling-command を使用しているプロジェクトに参加する場合</a></li>
   </ol>
 </li>
@@ -161,7 +161,7 @@ glossary は、このプロジェクトの用語集を置くためのディレ�
 
 
 
-logaling-comand を使う
+logaling-command を使う
 ----------------------
 
 ### <a id="lookup">1. 用語を検索する</a> ###
