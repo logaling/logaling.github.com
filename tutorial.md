@@ -52,7 +52,17 @@ logaling-command を使うための準備をする
 まずは logaling-command をインストールします。
 logaling-command は RubyGems でインストールできます。
 
+※logaling-command は Ruby 1.9 環境で動作します。
+
+<a href="#requirements"></a>
+
 	% gem install logaling-command
+
+もし、以下のようなエラーメッセージが出てしまってインストールできないようであれば、それはあなたの環境が Ruby 1.8 だということなので、Ruby1.9.2をインストールしてから再度インストールしてみてください。
+
+	logaling-command requires Ruby version >= 1.9.2.
+	ERROR:  Error installing logaling-command:
+
 
 インストールが成功したことを確認するには、コマンドラインで `loga -v` と打ってみてください。
 
@@ -61,8 +71,8 @@ logaling-command は RubyGems でインストールできます。
 
 上記のようなバージョン情報が表示されたら、インストールは成功です。
 
-#### Requirements ####
-logaling-command は Ruby 1.9 環境で動作します。
+#### <a id="requirements">Requirements</a> ####
+※logaling-command は Ruby 1.9 環境で動作します。
 また、内部では groonga、rroonga を利用しています。もしインストールされていなければ、 logaling-command をインストールすると同時に groonga と rroonga もインストールされます。
 
 <ul class="listMark">
