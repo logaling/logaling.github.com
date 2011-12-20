@@ -9,7 +9,7 @@ title: チュートリアル
 
 <div id="indexDivision">
 <h2><a id="index">目次</a></h2>
-<h3>logaling-command を使うための準備をす</h3>
+<h3>logaling-command を使うための準備をする</h3>
 <ol>
 <li><a href="#install">logaling-command をインストールする</a></li>
 <li><a href="#preparation">logaling-command を使う準備をする</a>
@@ -33,7 +33,8 @@ title: チュートリアル
 </li>
 <li><a href="#add">用語を登録する</a>
   <ol>
-  <li><a href="#without-target-lang">一つのプロジェクトで複数言語への翻訳が同時に進行している場合</a></li>
+  <li><a href="#add-term">プロジェクトの対訳用語集に用語を登録する</a></li>
+  <li><a href="#config">一つのプロジェクトで複数言語への翻訳が同時に進行している場合</a></li>
   </ol>
 </li>
 <li><a href="#update">登録されている用語を編集する</a></li>
@@ -237,8 +238,8 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 
 ### <a name="add">2. 用語を登録する</a> ###
-
-新たに用語を登録したい場合は次のようにします。
+#### <a id="add-term">2-1. プロジェクトの対訳用語集に用語を登録する</a> ###
+プロジェクトの対訳用語集に新たに用語を登録するには次のようにします。
 
 	% loga add "storage engine" "ストレージエンジン" "groongaをベースとしたMySQLのストレージエンジン"
 
@@ -277,21 +278,14 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 
 
-
-
-
-
-
-<!-------------- ここから ----------------->
-#### <a id="without-target-lang">2-1. 一つのプロジェクトで複数言語への翻訳が同時に進行している場合</a> ###
-（！！※未実装なので、内容は変わる可能性があります！！）
+#### <a id="config">2-2. 一つのプロジェクトで複数言語への翻訳が同時に進行している場合</a> ###
 一つのプロジェクトで複数言語への翻訳が同時に進行している場合には、プロジェクトのリポジトリに含める設定としての「翻訳言語（target-language）」を決めたくない場合があるかもしれません。
 例えば、元のドキュメントは英語で、それを日本語とフランス語に翻訳したい。さらに、後から別の言語にも翻訳していく可能性があるような場合です。
 
 そういう場合には、プロジェクトのトップレベルにある *.logaling/config* は以下のように *--target-language* が省略されているでしょう。
 
-	% cat config
-	--glossary notyet
+	% cat .logaling/config
+	--glossary groonga
 	--source-language en
 
 この状態で *loga add* しようとすると、
@@ -301,44 +295,28 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 このように翻訳言語の言語コードを指定するようにメッセージが表示されて追加できません。
 もちろん、1つの用語だけを用語集に追加したいだけなら、このメッセージ通りにオプションとして翻訳言語を指定することで問題なく追加することができます。
-ですが、次々に用語を追加していきたい場合には毎回オプションで翻訳言語を指定するのは面倒です。
+ですが、次々に用語を追加していきたい場合には毎回オプションで翻訳言語の言語コードを指定するのは面倒です。
 
-そのような場合には *loga myconfig* を利用します。
+そのような場合には *loga config* を利用します。
 
-	% loga myconfig groonga en ja
-	Create myconfig.
+	% loga config target-language ja --global
+	Successfully set config.
 
-*loga myconfig [用語集名] [原文の言語コード] [翻訳言語の言語コード]* とすると、プロジェクトの .logaling ではなく、ユーザーホームの *.logaling.d* に myconfig という設定ファイルが作成されます。
+`loga config [設定キー] [設定の値] --global` とすると、プロジェクトの .logaling/config ではなく、ユーザーホームの *.logaling.d/config* という設定ファイルが（なければ作成され、）書き換えられます。
 
 	% ls -l ~/.logaling.d
 	total 8
 	drwxr-xr-x   5 suzuki  suzuki  170 12 14 15:11 cache
 	drwxr-xr-x  18 suzuki  suzuki  612 12 15 17:33 db
-	-rw-r--r--   1 suzuki  suzuki   61 12 16 15:38 myconfig
+	-rw-r--r--   1 suzuki  suzuki   61 12 16 15:38 config
 	drwxr-xr-x   4 suzuki  suzuki  136 12 15 17:33 projects
 
-設定ファイルの中身は .logaling/config とまったく同じですが、 logaling-command は実行時に myconfig の設定の方を優先します。
-myconfig で自分専用の設定を持つことができるので、一つのプロジェクトで複数の言語への翻訳が同時進行していても普段と同じように用語集の編集ができるようになります。
+この設定はグローバルな設定となるので、どこの階層にいても参照されることになります。設定ファイルの中身は .logaling/config と同じですが logaling-command は実行時に、 **コマンドラインオプション ＞ プロジェクトごとの設定 ＞ ユーザホームのグローバルな設定** という順序で設定を参照します。
+.logaling.d/config に自分専用のグローバルな設定を持つことができるので、一つのプロジェクトで複数の言語への翻訳が同時進行していても普段と同じように用語集の編集ができるようになります。
 
-myconfig は便利ですが、注意したいのは myconfig をそのままにしておくと、他のプロジェクトでの翻訳作業時にもこの設定を利用してしまうことです。そうならないためにも翻訳作業が終わったら myconfig は必ず削除しておいて下さい。
-myconfig を削除するには以下のコマンドを実行します。
-
-	% loga remove-myconfig
-	Remove myconfig.
-
-	% ls -l ~/.logaling.d
-	total 0
-	drwxr-xr-x   5 suzuki  suzuki  170 12 14 15:11 cache
-	drwxr-xr-x  18 suzuki  suzuki  612 12 15 17:33 db
-	drwxr-xr-x   4 suzuki  suzuki  136 12 15 17:33 projects
+*loga config* の使い方の詳細は[コマンドリファレンス](reference.html#config)を参照して下さい。
 
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
-<!-------------- ここまで ----------------->
-
-
-
-
-
 
 
 
