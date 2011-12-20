@@ -62,11 +62,11 @@ logaling-command は RubyGems でインストールできます。
 上記のようなバージョン情報が表示されたら、インストールは成功です。
 
 #### Requirements ####
-logaling-command は Ruby1.9 環境で動作します。
+logaling-command は Ruby 1.9 環境で動作します。
 また、内部では groonga、rroonga を利用しています。もしインストールされていなければ、 logaling-command をインストールすると同時に groonga と rroonga もインストールされます。
 
 <ul class="listMark">
-<li> <a href="http://www.ruby-lang.org/ja/">Ruby1.9.x</a></li>
+<li> <a href="http://www.ruby-lang.org/ja/">Ruby 1.9.x</a></li>
 <li> <a href="http://groonga.org/ja/">groonga</a></li>
 <li> <a href="http://groonga.rubyforge.org/index.html.ja">rroonga</a></li>
 </ul>
