@@ -15,6 +15,3 @@ title: コミュニティ
 --------------------
 疑問点やご意見がある場合も、[メーリングリスト](http://lists.sourceforge.jp/mailman/listinfo/logaling-users)へお願いします。
 
-
-その他
-------
