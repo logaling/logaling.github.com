@@ -223,11 +223,10 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 コマンドの結果から、インポート出来る用語集が3種類あることがわかりました。それでは、このうちの postgresql_manual をインポートしてみましょう。実際に用語集をインポートするためには *loga import* に用語集名をパラメータとして渡してあげます。この用語集名は上記のリストのコロンの前にある項目です。
 
 	% loga import postgresql_manual
-	loga import postgresql_manual  2.83s user 0.38s system 74% cpu 4.331 total
 
 これでインポートができたので、試しに検索してみましょう。
 
-	% /Users/suzuki/work/logaling/logaling-command/bin/loga lookup db 
+	% loga lookup db
 	DBA        DBA         (postgresql_manual)
 
 先ほどインポートした postgresql_manual から検索できました。
