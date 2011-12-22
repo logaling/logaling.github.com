@@ -117,16 +117,7 @@ config はこのプロジェクト内で logaling-command を使うときの設�
 
 glossary は、このプロジェクトの用語集を置くためのディレクトリです。現時点では何も用語集は置かれていません。
 
-*loga new* は上記を行うと共に、ユーザーホームに .logaling.d/projects というディレクトリを作成し、そのディレクトリ配下に前述の .logaling へのシンボリックリンクを作成します。
-後々、別のプロジェクトでも logaling-command を利用したくなった場合には、この .logaling.d/projects にプロジェクト毎の設定や用語集がリンクされることになるため、検索を行うときにプロジェクトの横断検索が可能になります。
-
-ユーザホームの .logaling.d にシンボリックリンクが正しく設定されていることを確認します。
-
-	% ls -al ~/.logaling.d/projects
-	total 8
-	drwxr-xr-x  3 suzuki  suzuki  102 11 24 14:06 .
-	drwxr-xr-x  5 suzuki  suzuki  170 11 22 11:46 ..
-	lrwxr-xr-x  1 suzuki  suzuki  34 11 24 14:01 groonga -> /Users/suzuki/groonga/.logaling
+*loga new* は上記を行うと共に、ユーザーホームに .logaling.d/projects というディレクトリを作成し、そのディレクトリ配下にプロジェクトを登録します。
 
 これで logaling-command を使うための準備が整いました。
 
@@ -148,17 +139,7 @@ glossary は、このプロジェクトの用語集を置くためのディレ�
 	% loga register
 	Your project is now registered to logaling.
 
-*loga register* を実行すると、ユーザーホームに .logaling.d/projects というディレクトリが作成され、そこに前述の .logaling へのシンボリックリンクが作成されます。
-後々、別のプロジェクトでも logaling-command を利用したくなった場合にはこの .logaling.d/projects にプロジェクト毎の設定や用語集がリンクされることになるため、検索を行うときにプロジェクトの横断検索が可能になります。
-
-念のため、ユーザホームの .logaling.d を確認してみます。
-
-	% ls -al ~/.logaling.d/projects
-	total 8
-	drwxr-xr-x  3 suzuki  suzuki  102 11 24 14:06 .
-	drwxr-xr-x  5 suzuki  suzuki  170 11 22 11:46 ..
-	lrwxr-xr-x  1 suzuki  suzuki  34 11 24 14:01 groonga -> /Users/suzuki/groonga/.logaling
-
+*loga register* を実行すると、ユーザーホームに .logaling.d/projects というディレクトリが作成され、そのディレクトリ配下にプロジェクトが登録されます。
 
 これで logaling-command を使うための準備が整いました。
 
