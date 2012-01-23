@@ -7,7 +7,7 @@ title: logalimacsについて
 
 ---
 
-| [チュートリアル](/logalimacs_tutorial_ja.html) | [コマンド](/logalimacs_commands_ja.html) | [インストール方法](/logalimacs_install_ja.html) | [新機能](/logalimacs_WhatsNew_ja.html) | [コミュニティ](/contribution.html) | [github](https://github.com/logaling/logalimacs) |
+| [チュートリアル](/logalimacs/tutorial.html) | [コマンド](/logalimacs/commands.html) | [インストール方法](/logalimacs/install.html) | [新機能](/logalimacs/whatsnew.html) | [github](https://github.com/logaling/logalimacs) |
 
 ---
 
@@ -15,7 +15,7 @@ logalimacsはlogaling-command用のフロントエンドです。logalimacsを�
 わからない単語の検索(lookup)や登録(add)をしたりできます。
 logalimacs独自の機能としては、アイドル時間に、カーソルの単語を
 検索する機能があります。
-詳しい使い方は、|[チュートリアル](/logalimacs_tutorial_ja.html) や [コマンド](/logalimacs_commands_ja.html) を参照して下さい。
+詳しい使い方は、[チュートリアル](/logalimacs_tutorial_ja.html) や [コマンド](/logalimacs_commands_ja.html) を参照して下さい。
 
 ## [githubで開発しています](https://github.com/logaling/logalimacs)
 ハックしてくださる方は、随時募集しています。
@@ -24,6 +24,11 @@ logalimacs独自の機能としては、アイドル時間に、カーソルの�
 この不具合?を修正したものが[github](https://github.com/logaling/logalimacs)にありますのでよければ利用して下さい。
 又、marmalade用にrakefileを作ったので、パッケージをアップロードしたい方は、
 よかったら利用して下さい。
+
+## 問題点、要望
+logaling-command共通の問題点、要望などはlogalingと同じ[コミュニティ](/contribution.html)からお願いします。
+logalimacsに対する問題点は[issues](https://github.com/logaling/logalimacs/issues)にお願いします。
+
 ## バージョン情報 1.0.0 2012/2/13にリリース予定です。
 ## ライセンス
 このプラグラムは、フリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行された[GNU GENERAL PUBLIC LICENSE Version 3](www.gnu.org/licenses/gpl-3.0.txt)の定める条件の下で再頒布または、改変する事が出来ます。
