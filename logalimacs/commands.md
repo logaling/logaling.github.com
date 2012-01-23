@@ -4,11 +4,9 @@ title: logalimacsで利用できるコマンド
 ---
 
 # logalimacsで利用できるコマンド
-(logaling-commandについては、[ここ](/about.html)を参照してください。)
-
 ## loga-interactive-command
 対話的に、logalimacsを実行します。  
-ワンコマンドで、logaling-commandを利用したい時に便利です。  
+一つのキーで、logaling-commandを利用したい時に便利です。  
 
 
 実行すると、以下の様にミニバッファに利用可能なタスクが表示されると思います。  
@@ -18,7 +16,7 @@ title: logalimacsで利用できるコマンド
 
 上のメッセージで、a)ddから始まる文字が利用可能なタスクです。
 もしadd(単語の追加)をしたい場合は、キーボードで_a_をタイプします。  
-すると、\*logalimacs\*バッファが開き、へルプメッセージが表示されます。
+すると、\*logalimacs\*バッファが開き、へルプメッセージが表示されます。  
 そのメッセージを参考にミニバッファに内容を打ち込みます。  
 (logaling-commandをラップしているものは、全て処理前にヘルプメッセージが表示されます。)
 
@@ -26,11 +24,11 @@ title: logalimacsで利用できるコマンド
 他のタスクも頭文字を指定して同様に、選択可能です。
 
 ## loga-add-word
-ターミナルからの "% loga add source target note"をラップするコマンドです。  
+ターミナルからの"% loga add source target note"をラップするコマンドです。  
 ターミナル上では、英語で複数の単語をスペース区切りで登録するのに、  
 クオートする必要がありますがlogalimacsでこのコマンドを利用する場合は、  
 必要ありません。
-コマンド実行後、source(元の単語)、target(翻訳後の単語)、注釈を
+コマンド実行後、source(元の単語)、target(翻訳後の単語)、note(任意の注釈)を
 個別に聞いてきます。  
 
 ## loga-update
@@ -38,7 +36,7 @@ title: logalimacsで利用できるコマンド
 ターミナル上では、英語で複数の単語をスペース区切りで登録するのに、  
 クオートする必要がありますがlogalimacsでこのコマンドを利用する場合は、  
 必要ありません。
-コマンド実行後、source(元の単語)、target(変更前の単語)、target(変更後の単語)、注釈を個別に聞いてきます。  
+コマンド実行後、source(元の単語)、target(変更前の単語)、target(変更後の単語)、note(任意の注釈)を個別に聞いてきます。  
 
 ## loga-lookup-in-hand-or-region
 ターミナルからの "% loga lookup target"をラップするコマンドです。
