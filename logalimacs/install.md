@@ -19,8 +19,8 @@ rvmを使っている場合:
 
 rvmをEmacsで使う場合の設定
 [rvm.el](https://github.com/senny/rvm.el)が必要です。  
-端末で先に % rvm use 1.9.2 --defaultでデフォルトを1.9系にして、
-以下のコードを.emacs等に書きます。
+端末で先に % rvm use 1.9.2 --defaultでデフォルトを1.9系にして、以下のコードを.emacs等に書きます。
+(パスを通した所にrvm.elを置くかrvmをloadして下さい。わからなければ_6. 雑多な設定_へ)
 
 ---
 
@@ -96,7 +96,7 @@ logalimacsはpopwinを利用するとより便利になります。
       (global-set-key (kbd "M-g M-l") 'loga-lookup-in-hand-or-region)
       (global-set-key (kbd "M-g M-a") 'loga-add-word))
 
-    ;;又は
+    ;; 又は
 
     ;; コマンド実行時に読み込み
     (autoload 'loga-interactive-command "logalimacs")
@@ -120,7 +120,7 @@ Emacs24経由でlogalimacsをインストールした場合は、自動で設定
     (setq popwin:special-display-config
           (append '(
                 ("*logalimacs*" :position bottom :height 10 :noselect t :stick t)
-                ;;if need to other configuration, add for like below:
+                ;; if need to other configuration, add for like below:
                 ;("*Backtrace*")
                 )
               popwin:special-display-config))
@@ -130,8 +130,8 @@ Emacs24経由でlogalimacsをインストールした場合は、自動で設定
 ---
 .emacsとは:  
 emacs用の設定ファイルで、通常は、~/.emacs.d/init.el又は、  
-~/.emacs(昔はこれでしたが今は.emacs.d/init.elに書くのがナウイようです)になります
-もし、設定ファイルを分割したいと思ったら、init.elに下の様に書きます。
+~/.emacs(昔はこれでしたが今は.emacs.d/init.elに書くのがナウイようです)になります。  
+もし、設定ファイルを分割したいと思ったらinit.elに下の様に書きます。
 
     (load "ディレクトリを含めた設定したいファイルパス")
     ;; ~/.emacs.d/以下に設定ファイルを追加したいなら、
@@ -139,11 +139,15 @@ emacs用の設定ファイルで、通常は、~/.emacs.d/init.el又は、
 
 この二つ目の例は、~/.emacs.d/以下のlogalimacs.elcまたはlogalimacs_config.el
 を読むようにしています。
+(init.elをバイトコンパイルしている場合、init.elcファイルが優先されますので
+ディレクトリ表示画面で対象のファイルに合わせて"B"を押すか、  
+"M-x dired-do-byte-compile"を実行します。)
+
 
 ---
 ロードパスを追加するには:  
 add-to-list関数を使います。
 以下をあなたの.emacsに設定します。
 
-    ;;"~/.emacs.d/package/hoge/以下にパスを通す場合
+    ;; "~/.emacs.d/package/hoge/以下にパスを通す場合
     (add-to-list 'load-path "~/.emacs.d/package/hoge")
