@@ -1,7 +1,7 @@
---
+---
 layout: default
 title: logalimacsのインストール方法
---
+---
 
 # logalimacsのインストール方法,設定
 ## 1. logaling-commandをインストール(Ruby 1.9専用)
