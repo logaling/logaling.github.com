@@ -1,17 +1,27 @@
-# logalimacs
-| [チュートリアル](/logalimacs_tutorial_ja.html) | [コマンド](/logalimacs_commands_ja.html) | [インストール方法](/logalimacs_install_ja.html) | [新機能](/logalimacs_WhatsNew_ja.html) | [コミュニティ](/contribution.html) | [Fork me on github](https://github.com/logaling/logalimacs) |
+---
+layout: default
+title: logalimacsについて
+---
 
 ## logalimacsについて
+
+---
+
+| [チュートリアル](/logalimacs_tutorial_ja.html) | [コマンド](/logalimacs_commands_ja.html) | [インストール方法](/logalimacs_install_ja.html) | [新機能](/logalimacs_WhatsNew_ja.html) | [コミュニティ](/contribution.html) | [github](https://github.com/logaling/logalimacs) |
+
+---
+
 logalimacsはlogaling-command用のフロントエンドです。logalimacsを使って、
 わからない単語の検索(lookup)や登録(add)をしたりできます。
 logalimacs独自の機能としては、アイドル時間に、カーソルの単語を
 検索する機能があります。
 詳しい使い方は、|[チュートリアル](/logalimacs_tutorial_ja.html) や [コマンド](/logalimacs_commands_ja.html) を参照して下さい。
-## [Fork me on github](https://github.com/logaling/logalimacs)
+
+## [githubで開発しています](https://github.com/logaling/logalimacs)
 ハックしてくださる方は、随時募集しています。
 又、Emacsで翻訳する方は、po-modeを使われると思いますがバッファを3画面以上開くと、
 編集モードから出た時に画面が元の.poのファイルの位置がずれます。
-この不具合?を修正したものがgithubにありますのでよければ利用して下さい。
+この不具合?を修正したものが[github](https://github.com/logaling/logalimacs)にありますのでよければ利用して下さい。
 又、marmalade用にrakefileを作ったので、パッケージをアップロードしたい方は、
 よかったら利用して下さい。
 ## バージョン情報 1.0.0 2012/2/13にリリース予定です。
