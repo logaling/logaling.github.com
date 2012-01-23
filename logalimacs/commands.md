@@ -14,7 +14,7 @@ title: logalimacsで利用できるコマンド
     types prefix of feature that want you :
     a)dd,c)onfig,d)elete,h)elp,i)mport,l)ookup,n)ew,r)egister,U)nregister,u)pdate,v)ersion,f)ly-mode
 
-上のメッセージで、a)ddから始まる文字が利用可能なタスクです。
+上のメッセージで、a)ddから始まる文字が利用可能なタスクです。  
 もしadd(単語の追加)をしたい場合は、キーボードで_a_をタイプします。  
 すると、\*logalimacs\*バッファが開き、へルプメッセージが表示されます。  
 そのメッセージを参考にミニバッファに内容を打ち込みます。  
