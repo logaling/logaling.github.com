@@ -3,10 +3,8 @@ layout: home
 title: logalimacs
 ---
 
-# logalimacs
 logalimacsは、Logaling-commandをEmacsで使用するフロントエンドです。  
 Emacsから一つのキーバインドでlogaling-commandを使う事ができます。
-
 
 * [logalimacsについて](/logalimacs/about.html)
 * [インストール](/logalimacs/install.html)
