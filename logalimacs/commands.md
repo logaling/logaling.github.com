@@ -1,5 +1,10 @@
+---
+layout: default
+title: logalimacsで利用できるコマンド
+---
+
 # logalimacsで利用できるコマンド
-(logaling-commandのについては、[ここ](/about.html)を参照してください。)
+(logaling-commandについては、[ここ](/about.html)を参照してください。)
 
 ## loga-interactive-command
 対話的に、logalimacsを実行します。  
@@ -45,8 +50,8 @@ logalimacs独自の機能として、リージョンを選択していた場合�
 logalimacs独自の機能で、カーソル位置にある単語を"loga lookup"(検索)します。
 (空白では、その位置より左側の単語になります。)
 この機能は、通常はoffで_loga-interactive-command_から実行するか、
-_M-x loga-fly-mode_又は、任意のキーバインドで実行する事で、
-onとoffをトグルできます。
+_M-x loga-fly-mode_または、任意のキーバインドで実行する事で、
+onとoffをトグルで実行できます。
 
 ## loga-get-flymake-error
-flymakeでのエラーをlogalimacsバッファに出力します。
+実行するとflymakeでのエラーをlogalimacsバッファに出力します。
