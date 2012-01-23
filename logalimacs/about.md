@@ -19,15 +19,15 @@ logalimacs独自の機能としては、アイドル時間に、カーソルの�
 
 ## [githubで開発しています](https://github.com/logaling/logalimacs)
 ハックしてくださる方は、随時募集しています。
-又、Emacsで翻訳する方は、po-modeを使われると思いますがバッファを3画面以上開くと、
+またEmacsで翻訳する方は、po-modeを使われると思いますがバッファを3画面以上開くと、
 編集モードから出た時に画面が元の.poのファイルの位置がずれます。
 この不具合?を修正したものが[github](https://github.com/logaling/logalimacs)にありますのでよければ利用して下さい。
-又、marmalade用にrakefileを作ったので、パッケージをアップロードしたい方は、
+またmarmalade用にrakefileを作ったので、パッケージをアップロードしたい方は、
 よかったら利用して下さい。
 
 ## 問題点、要望
 logaling-command共通の問題点、要望などはlogalingと同じ[コミュニティ](/contribution.html)からお願いします。
-logalimacsに対する問題点は[issues](https://github.com/logaling/logalimacs/issues)にお願いします。
+logalimacsに対する問題点、要望は[issues](https://github.com/logaling/logalimacs/issues)にお願いします。
 
 ## バージョン情報 1.0.0 2012/2/13にリリース予定です。
 ## ライセンス
