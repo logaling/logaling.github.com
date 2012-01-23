@@ -5,19 +5,20 @@ title: logalimacsのインストール方法
 
 # logalimacsのインストール方法,設定
 ## 1. logaling-commandをインストール(Ruby 1.9専用)
-Ruby1.9を既にインストールしている場合は、次の項に飛ばして下さい。
+Ruby1.9を既にインストールしている場合は、次の項へ飛ばして下さい。
 
-システムからruby1.9を使っている場合:
+システムのruby1.9を使っている場合:
 
     % sudo gem install logaling-command
 
 rvmを使っている場合:
-(ruby1.9をインストールしていなかったら -> % rvm install 1.9.2)
+(rvmを使っていてruby1.9系をインストールしていなかったら  
+ "% rvm install 1.9.2"でインストールできます。)
 
     % gem install logaling-command
 
 rvmをEmacsで使う場合の設定
-[rvm.el](https://github.com/senny/rvm.el)が必要です。
+[rvm.el](https://github.com/senny/rvm.el)が必要です。  
 端末で先に % rvm use 1.9.2 --defaultでデフォルトを1.9系にして、
 以下のコードを.emacs等に書きます。
 
@@ -29,12 +30,13 @@ rvmをEmacsで使う場合の設定
 ---
 
 ## 2. Emacs24でのインストール方法
-Emacs24でない方は、次の項に飛ばして下さい。
+Emacs24でない方は、次の項へ飛ばして下さい。
 
 Emacs24では標準でパッケージインストーラ(package.el)が入っているので、
-以下の様にする事で、インストール可能です。  
-marmaladeの設定をしていない場合(Emacs24用):
-以下の設定を.emacs等の設定ファイルに書く事でmarmaladeからElispをインストールできるようになります。既に設定している方は飛ばして"1. M-x list~"の所を見て下さい。
+以下の様にする事でインストール可能です。  
+注意: marmaladeの設定をしていない場合(Emacs24用):  
+以下の設定を.emacs等の設定ファイルに書く事でmarmaladeからElispをインストールできるようになります。
+既に設定している方は飛ばして"1. M-x list~"の所を見て下さい。
 
     (require 'package)
     (add-to-list 'package-archives
@@ -46,13 +48,12 @@ marmaladeの設定をしていない場合(Emacs24用):
 
 
 1. "M-x list-packages"とタイプする。
-2. インストール可能なパッケージが表示されるので、
-その中から、logalimacsを探します。
+2. インストール可能なパッケージが表示されるので、その中からlogalimacsを探します。
 3. logalimacsのパッケージ名の先頭行で"i"をタイプするとマークできます。
 他にインストールするものがなければ、"x"でインストールを開始します。
 4. 必要な設定は、自動で設定されますが、自分でカスタマイズしたい場合、  
-.emacsへの設定の項を変更する事で自分好みにカスタマイズする時の参考になると思います。(パッケージ依存の設定で自動でpopwinがインストールされますが、
-これは規定の動作です)
+.emacsへの設定の項を変更する事で自分好みにカスタマイズする時の参考になると思います。  
+(パッケージ依存の設定で自動でpopwinがインストールされますが、これは規定の動作です)
 
 ## 3. それ以外の場合のインストール方法
 
@@ -70,7 +71,7 @@ Emacs24以外の方はgitが使用可能であれば、下記のコマンドで�
 logalimacsはpopwinを利用するとより便利になります。  
 もし興味があれば、popwin.el用の便利な設定を試して見て下さい。
 
-## .emacsへの設定
+## 4. .emacsへの設定
 
 あなたの設定用の.emacsへ(~/.emacs.d/init.elでもいいですし、
 他にload関数で読み込んだ所でもいいです)以下のように書込みます。
@@ -108,10 +109,10 @@ logalimacsはpopwinを利用するとより便利になります。
     
 ---
 
-## popwin.el用の便利な設定
+## 5. popwin.el用の便利な設定
 
 注意:この設定を利用する為には、
-[_popwin.el_](http://www.emacswiki.org/emacs/PopWin)が必要です。
+[_popwin.el_](http://www.emacswiki.org/emacs/PopWin)が必要です。  
 Emacs24経由でlogalimacsをインストールした場合は、自動で設定されます。
 
     (require 'popwin)
@@ -124,10 +125,10 @@ Emacs24経由でlogalimacsをインストールした場合は、自動で設定
                 )
               popwin:special-display-config))
 
-## 雑多な設定
+## 6. 雑多な設定
 
 ---
-.emacs:  
+.emacsとは:  
 emacs用の設定ファイルで、通常は、~/.emacs.d/init.el又は、  
 ~/.emacs(昔はこれでしたが今は.emacs.d/init.elに書くのがナウイようです)になります
 もし、設定ファイルを分割したいと思ったら、init.elに下の様に書きます。
