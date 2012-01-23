@@ -1,3 +1,8 @@
+--
+layout: default
+title: logalimacsのインストール方法
+--
+
 # logalimacsのインストール方法,設定
 ## 1. logaling-commandをインストール(Ruby 1.9専用)
 Ruby1.9を既にインストールしている場合は、次の項に飛ばして下さい。
@@ -34,9 +39,9 @@ marmaladeの設定をしていない場合(Emacs24用):
     (require 'package)
     (add-to-list 'package-archives
         '("marmalade" . "http://marmalade-repo.org/packages/"))
-    ;;パッケージインストールするディレクトリを指定(任意)
-    ;;(setq package-user-dir "~/.emacs.d/elpa")
-    ;;インストールしたパッケージにロードパスを通してロードする
+    ;; パッケージインストールするディレクトリを指定(任意)
+    ;; (setq package-user-dir "~/.emacs.d/elpa")
+    ;; インストールしたパッケージにロードパスを通してロードする
     (package-initialize)
 
 
@@ -46,7 +51,8 @@ marmaladeの設定をしていない場合(Emacs24用):
 3. logalimacsのパッケージ名の先頭行で"i"をタイプするとマークできます。
 他にインストールするものがなければ、"x"でインストールを開始します。
 4. 必要な設定は、自動で設定されますが、自分でカスタマイズしたい場合、  
-.emacsへの設定の項を変更する事で自分好みにカスタマイズする時の参考になると思います。
+.emacsへの設定の項を変更する事で自分好みにカスタマイズする時の参考になると思います。(パッケージ依存の設定で自動でpopwinがインストールされますが、
+これは規定の動作です)
 
 ## 3. それ以外の場合のインストール方法
 
@@ -56,8 +62,7 @@ Emacs24以外の方はgitが使用可能であれば、下記のコマンドで�
 
 
     % cd YOUR-CLONE-DIRECTORY
-    % git clone https://yuutayamada@github.com/logaling/logalimacs.git
-
+    % git clone https://github.com/logaling/logalimacs.git
 
 ダウンロードしたら、./logalimacs/の中のlogalimacs.elを、
 あなたのパッケージを管理している所へ写すか、インストールした場所へパスを通してください(わからなければ雑多な設定の項へ)。その後に.emacsへの設定の項へ進んで下さい。
@@ -66,11 +71,12 @@ logalimacsはpopwinを利用するとより便利になります。
 もし興味があれば、popwin.el用の便利な設定を試して見て下さい。
 
 ## .emacsへの設定
+
 あなたの設定用の.emacsへ(~/.emacs.d/init.elでもいいですし、
 他にload関数で読み込んだ所でもいいです)以下のように書込みます。
 これで、logalimacsを利用できるようになります。
 
-注意1:もしエラーが出るのであれば、閉じ括弧後ろでC-x C-e(又は、M-x eval last sexp)をタイプする事で、その行を評価でき、行単位でのチェックできます。  
+注意1:もしエラーが出るのであれば、閉じ括弧後ろでC-x C-e(又は、M-x eval-last-sexp)をタイプする事で、その行を評価でき、行単位でのチェックできます。  
 注意2:キーバインド(kbd "ここの部分")は、あなたが使いやすい所に設定して下さい。
 
 
@@ -119,8 +125,6 @@ Emacs24経由でlogalimacsをインストールした場合は、自動で設定
               popwin:special-display-config))
 
 ## 雑多な設定
-logalimacsを設定する上でのEmacs初心者が躓きそうな所を、フォローするような事を書こうと思います。  
-(初心者に毛が生えた程度の拙い説明かもしれませんが、ご容赦願います。)  
 
 ---
 .emacs:  
@@ -129,10 +133,10 @@ emacs用の設定ファイルで、通常は、~/.emacs.d/init.el又は、
 もし、設定ファイルを分割したいと思ったら、init.elに下の様に書きます。
 
     (load "ディレクトリを含めた設定したいファイルパス")
-    ;;~/.emacs.d/以下に設定ファイルを追加したいなら、
+    ;; ~/.emacs.d/以下に設定ファイルを追加したいなら、
     (load "~/.emacs.d/logalimacs_config")
 
-この二つ目の例は、~/.emacs.d/以下のlogalimacs_config.el又は、logalimacs.elc
+この二つ目の例は、~/.emacs.d/以下のlogalimacs.elcまたはlogalimacs_config.el
 を読むようにしています。
 
 ---
