@@ -77,7 +77,7 @@ logalimacsはpopwinを利用するとより便利になります。
 これで、logalimacsを利用できるようになります。
 
 注意1:もしエラーが出るのであれば、  
-閉じ括弧後ろでC-x C-e(又は、M-x eval-last-sexp)をタイプする事で、その行を評価でき行単位でのチェックができます。  
+閉じ括弧後ろでC-x C-e(または、M-x eval-last-sexp)をタイプする事で、その行を評価でき行単位でのチェックができます。  
 注意2:キーバインド(kbd "ここの部分")は、あなたが使いやすい所に設定して下さい。
 
 
@@ -96,7 +96,7 @@ logalimacsはpopwinを利用するとより便利になります。
       (global-set-key (kbd "M-g M-l") 'loga-lookup-in-hand-or-region)
       (global-set-key (kbd "M-g M-a") 'loga-add-word))
 
-    ;; 又は
+    ;; または
 
     ;; コマンド実行時に読み込み
     (autoload 'loga-interactive-command "logalimacs")
@@ -129,7 +129,7 @@ Emacs24経由でlogalimacsをインストールした場合は、自動で設定
 
 ---
 .emacsとは:  
-emacs用の設定ファイルで、通常は、~/.emacs.d/init.el又は、  
+emacs用の設定ファイルで、通常は、~/.emacs.d/init.elまたは、  
 ~/.emacs(昔はこれでしたが今は.emacs.d/init.elに書くのがナウイようです)になります。  
 もし、設定ファイルを分割したいと思ったらinit.elに下の様に書きます。
 
