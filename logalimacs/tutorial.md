@@ -1,34 +1,73 @@
 ---
 layout: default
-title: logalimacsで何ができるの?
+title: チュートリアル
 ---
+ 
+# チュートリアル
 
-# logalimacsで何ができるの?
-
----
-## 英語のドキュメントを見ている時に...
-英語のドキュメントを見ている時に、カーソル位置より手前の単語を調べられます。  
-ツールチップで表示したり(loga-lookup-for-popup)、  
-リージョンの単語を検索するか、ミニバッファから任意の単語を入力し  
-logalimacs用のバッファに表示できます。(loga-lookup-in-hand-or-region)
+インストールから英単語を検索する方法を紹介します。
 
 ---
-## 一つのキーバインドで複数の機能
-logalimacsは、[logaling-command](/about.html)のフロントエンドなので、  
-logaling-commandが利用できるコマンドはEmacs経由で実行できます。  
-ターミナルでlogaling-commandを利用する場合、  
-"% loga [行いたいタスク] [任意の引数].."  
-となりますがlogalimacsでは、  
-_M-x loga-interactive-command_とタイプするか、  
-これを割り当てたキーバインドを入力すると対話的に、  
-logalingコマンドを呼び出す事が出来ます。  
-これを行うとミニバッファ上に利用できるコマンドが出るので、  
-その頭文字をタイプする事で、そのコマンドを利用できます。
+
+* logalimacsをインストールします。
+
+Emacs23と24でインストール方法が違うので、
+詳しくは[インストール方法](/logalimacs/install.html)を参照してください。
+
+* 英和,和英辞書のインストール
+
+ターミナルから以下のコマンドを入力し辞書をインポートします:
 
 ---
-## logalimacsだと少ない入力で済みます。
-良く使うであろう検索と単語の追加、更新については、  
-ターミナル上では、英語で複数の単語をスペース区切りで登録するのに、  
-クオートする必要がありますがlogalimacsの場合は、  
-元の単語、翻訳された単語、注釈(任意)の順にミニバッファにリクエストが出るので、  
-この点を気にする必要はありません。(loga addの場合)
+
+    % loga import gene95
+    % loga import edict
+    (loga import --listでインストールできる項目が確認できます。)
+
+---
+
+* カーソル上の英単語を検索する(loga-lookup-for-popup)
+
+例えば、英語のドキュメントがありcatという単語があり意味を調べたいとします。
+
+---
+
+    ここの"a"の部分にカーソルがあるとします
+            V
+    I like cat.
+
+---
+
+調べたい単語の上で"M-x loga-lookup-for-popup"と入力するか、
+インストールの項であったglobal-set-keyで自分で
+loga-lookup-for-popupを登録したキーバインドを
+入力すると、カーソル上の単語が辞書から検索されpopupで表示されます。
+
+
+
+* 自分で検索する英単語を入力する(loga-lookup-region-or-manually)
+
+例えば、テレビで見た英単語の意味を調べる等、コピペではなく
+どうしても、自分で検索する用語を入力したい時は、
+"M-x loga-lookup-region-or-manually"と入力するか、
+インストールの項であったglobal-set-keyで自分で、
+loga-lookup-region-or-manuallyを登録したキーバインドを
+入力するとミニバッファに調べたい単語を聞かれるので、
+あなたが調べたい単語を入力して、入力が終わったらRETを押すと
+logalingで検索され結果が\*logalimacs\*バッファに表示されます。
+
+* リージョンで選択した単語or文章を検索する
+
+例えば、以下の英語ドキュメントで辞書から"go up in smoke"のイディオムを検索したい場合、
+go up in smokeの部分をリージョン選択します。"M-x set-mark-command"を入力するか
+"C-SPC"または、"C-@"(Emacsのデフォルトのキーバインドを変更していなければ)で、
+リージョンの開始をマークできます。
+リージョンの範囲指定をしたら、そこで(この場合はgo up in smoke)、
+"M-x loga-lookup-region-or-manually"または"M-x loga-lookup-fof-popup"または、 
+上のコマンドを登録したキーバインドを入力します。
+お気づきかもしれませんが、これらのコマンドはリージョン選択時はリージョンを検索、
+非選択時は、カーソル位置や入力を求めるという動作になっています。
+
+    I make up documentation, however if you not read it, go up in smoke.
+    Of course, you are looked this will have nothing to do with.
+    Thank you for reading :)
