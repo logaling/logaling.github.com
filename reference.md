@@ -15,9 +15,11 @@ title: コマンドリファレンス
 <li><a href="#delete">delete</a></li>
 <li><a href="#help">help</a></li>
 <li><a href="#import">import</a></li>
+<li><a href="#list">list</a></li>
 <li><a href="#lookup">lookup</a></li>
 <li><a href="#new">new</a></li>
 <li><a href="#register">register</a></li>
+<li><a href="#show">show</a></li>
 <li><a href="#update">update</a></li>
 <li><a href="#unregister">unregister</a></li>
 <li><a href="#version">version</a></li>
@@ -123,6 +125,17 @@ logaling-command で利用できる形式の用語集が存在する
 
 
 
+### <a id="list">list</a> - 登録されている用語集名を一覽表示する ###
+#### 書式
+loga list
+#### 説明
+現在登録されている用語集名の一覽を表示します。
+
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
+
+
+
+
 ### <a id="lookup">lookup</a> - 用語を検索する###
 #### 書式
 loga lookup [用語]
@@ -166,6 +179,28 @@ loga register -g [用語集名]
 #### 説明
 ローカルディレクトリにある用語集を検索対象とするために
 logaling-command ホームディレクトリに指定した用語集のシンボリックリンクを作成します。
+#### オプション
+##### -g, [--glossary=用語集名]
+用語集名を指定します
+##### -S, [--source-language=原文の言語コード]
+原文の言語コードを指定します
+##### -T, [--target-language=訳文の言語コード]
+訳文の言語コードを指定します
+##### -h, [--logaling-home=logaling-command ホームディレクトリ]
+logaling-command ホームディレクトリ
+
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
+
+
+
+### <a id="show">show</a> - 用語集に登録されている用語を一覧表示する###
+#### 書式
+loga show -g [用語集名]
+#### 説明
+用語集に登録されている用語を一覽表示します。
+logaling-command を利用しているプロジェクトのディレクトリ配下で
+このコマンドを使用する場合は、用語集を明示的に指定しなくても
+用語の一覽を表示することができます。
 #### オプション
 ##### -g, [--glossary=用語集名]
 用語集名を指定します
