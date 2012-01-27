@@ -4,8 +4,12 @@ title: logalimacsのインストール方法
 ---
 
 # logalimacsのインストール方法,設定
-## 1. logaling-commandをインストール(Ruby 1.9専用)
-Ruby1.9を既にインストールしている場合は、次の項へ飛ばして下さい。
+
+| [チュートリアル](/logalimacs/tutorial.html) | [コマンド](/logalimacs/commands.html) | [logalimacsについて](/logalimacs/about.html) | [新機能](/logalimacs/whatsnew.html) | [github](https://github.com/logaling/logalimacs) |
+
+## 1. logaling-commandをインストールする
+[logaling-command](/about.html)を既にインストールしている場合は、次の項へ飛ばして下さい。(またlogaling-commandを翻訳用の対訳用語集として使用したい場合は
+[こちら](/tutorial.html)をご覧ください)
 
 システムのruby1.9を使っている場合:
 
@@ -35,7 +39,7 @@ Emacs24では標準でパッケージインストーラ(package.el)が入って�
 以下の様にする事でインストール可能です。  
 注意: marmaladeの設定をしていない場合:  
 以下の設定を.emacs等の設定ファイルに書く事でmarmaladeからElispをインストールできるようになります。
-既に設定している方は飛ばして"1. M-x list~"の所を見て下さい。
+既に設定している方は飛ばして"1. M-x list-packages"の所を見て下さい。
 
     (require 'package)
     (add-to-list 'package-archives
@@ -50,9 +54,8 @@ Emacs24では標準でパッケージインストーラ(package.el)が入って�
 2. インストール可能なパッケージが表示されるので、その中からlogalimacsを探します。
 3. logalimacsのパッケージ名の先頭行で"i"をタイプするとマークできます。
 他にインストールするものがなければ、"x"でインストールを開始します。
-4. 必要な設定は、自動で設定されますが、自分でカスタマイズしたい場合、  
-.emacsへの設定の項を変更する事で自分好みにカスタマイズする時の参考になると思います。  
-(パッケージ依存の設定で自動でpopwinがインストールされますが、これは規定の動作です)
+4. .emacsへの設定の項を参照してキーバインドを設定して下さい
+(パッケージ依存の設定で自動でpopwin.elとpopup.elがインストールされますが、これは規定の動作です)
 
 ## 3. それ以外の場合のインストール方法
 
@@ -67,8 +70,8 @@ Emacs24以外の方はgitが使用可能であれば、下記のコマンドで�
 ダウンロードしたら、./logalimacs/の中のlogalimacs.elを、
 あなたのパッケージを管理している所へ写すか、インストールした場所へパスを通してください(わからなければ雑多な設定の項へ)。その後に.emacsへの設定の項へ進んで下さい。
 
-logalimacsはpopwinを利用するとより便利になります。  
-もし興味があれば、popwin.el用の便利な設定を試して見て下さい。
+logalimacsはpopwin.elとpopup.elを利用するとより便利になります。  
+もし興味があれば、popwin.el,popup.el用の便利な設定を試して見て下さい。
 
 ## 4. .emacsへの設定
 
@@ -83,38 +86,25 @@ logalimacsはpopwinを利用するとより便利になります。
 
 ---
 
-    ;;; loga-fly-mode用の秒単位の設定
-    ;; "0.5"なども設定可能です。
-    (setq loga-fly-mode-interval "1")
-
----
-
     ;;; keybinds
     ;; Emacs起動時から動作させる場合
     (when (require 'logalimacs nil t)
       (global-set-key (kbd "M-g M-i") 'loga-interactive-command)
-      (global-set-key (kbd "M-g M-l") 'loga-lookup-in-hand-or-region)
-      (global-set-key (kbd "M-g M-a") 'loga-add-word))
-
-    ;; または
-
-    ;; コマンド実行時に読み込み
-    (autoload 'loga-interactive-command "logalimacs")
-    (autoload 'loga-lookup-in-hand-or-region "logalimacs")
-    (autoload 'loga-add-word "logalimacs")
-    (global-set-key (kbd "M-g M-i") 'loga-interactive-command)
-    (global-set-key (kbd "M-g M-l") 'loga-lookup-in-hand-or-region)
-    (global-set-key (kbd "M-g M-a") 'loga-loga-add-word)
-
+      (global-set-key (kbd "M-g M-l") 'loga-lookup-region-or-manually)
+      (global-set-key (kbd "M-g M-a") 'loga-add-word)
+      (global-set-key (kbd "C-:") 'loga-lookup-for-popup))
     
 ---
 
-## 5. popwin.el用の便利な設定
+## 5. popwin.el、popup.el用の設定
 
 注意:この設定を利用する為には、
-[_popwin.el_](http://www.emacswiki.org/emacs/PopWin)が必要です。  
+[_popwin.el_](https://github.com/m2ym/popwin-el)と[_popup.el_](https://github.com/m2ym/popup-el)が必要です。  
 Emacs24経由でlogalimacsをインストールした場合は、自動で設定されます。
 
+---
+
+    ;; configuration for popwin.el
     (require 'popwin)
     (setq display-buffer-function 'popwin:display-buffer)
     (setq popwin:special-display-config
@@ -124,6 +114,13 @@ Emacs24経由でlogalimacsをインストールした場合は、自動で設定
                 ;("*Backtrace*")
                 )
               popwin:special-display-config))
+
+---
+
+    ;; configuration for popup.el
+    (require 'popup)
+    
+---
 
 ## 6. 雑多な設定
 

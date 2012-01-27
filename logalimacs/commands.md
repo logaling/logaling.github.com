@@ -4,6 +4,10 @@ title: logalimacsで利用できるコマンド
 ---
 
 # logalimacsで利用できるコマンド
+
+| [チュートリアル](/logalimacs/tutorial.html) | [logalimacsについて](/logalimacs/about.html) | [インストール方法](/logalimacs/install.html) | [新機能](/logalimacs/whatsnew.html) | [github](https://github.com/logaling/logalimacs) |
+
+
 ## loga-interactive-command
 対話的に、logalimacsを実行します。  
 一つのキーで、logaling-commandを利用したい時に便利です。  

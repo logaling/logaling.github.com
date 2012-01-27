@@ -11,8 +11,9 @@ title: logalimacsについて
 
 ---
 
-logalimacsはlogaling-command用のフロントエンドです。
-特徴としては以下のようになります:  
+logalimacsはlogaling-command用のフロントエンドです。  
+特徴としては以下のようになります:
+
 
 * 英語のドキュメントを見ている時に...
 英語のドキュメントを見ている時に、
@@ -51,7 +52,7 @@ logalingコマンドを呼び出す事が出来ます。
 よかったら利用して下さい。
 
 ## 問題点、要望
-logaling-command共通の問題点、要望などはlogalingと同じ[コミュニティ](/contribution.html)からお願いします。
+logaling-command共通の問題点、要望などはlogalingと同じ[コミュニティ](/contribution.html)からお願いします。  
 logalimacsに対する問題点、要望は[issues](https://github.com/logaling/logalimacs/issues)にお願いします。
 
 ## バージョン情報 1.0.0 2012/2/13にリリース予定です。
