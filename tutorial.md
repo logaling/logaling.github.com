@@ -139,7 +139,12 @@ glossary は、このプロジェクトの用語集を置くためのディレ�
 	% loga register
 	Your project is now registered to logaling.
 
-*loga register* を実行すると、ユーザーホームに .logaling.d/projects というディレクトリが作成され、そのディレクトリ配下にプロジェクトが登録されます。
+*loga register* を実行すると、データベースがなければ作成され、その中にプロジェクトが登録されます。
+
+プロジェクトが登録されたかどうかは以下のコマンドで確認することができます。(ここでは、 groonga プロジェクトを例とします。)
+
+	% loga list
+	groonga
 
 これで logaling-command を使うための準備が整いました。
 
@@ -234,32 +239,33 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 	% loga add "storage engine" "ストレージエンジン" "groongaをベースとしたMySQLのストレージエンジン"
 
 用語を登録する際には `loga add <用語> <対訳> <備考(省略可能)>` とすると、そのプロジェクトの対訳用語集（なければ作成して）に用語を登録していくことができます。
-このコマンドを実行すると .logaling/glossary 以下に groonga.en.ja.yml というファイルができたと思います。これが logaling-command の用語集ファイルです。
+
+用語集に登録されている用語のリストは `loga show` で確認することができます。
+
+	% loga show
+	now index groonga...
+	  storage engine    ストレージエンジン    #groongaをベースとしたMySQLのストレージエンジン
+
+実際には用語集は YAML 形式のファイルで、`loga add` が最初に実行されると .logaling/glossary 以下に groonga.en.ja.yml というファイルが作成されます。これが logaling-command の用語集ファイルです。
 
 	% ls -l .logaling/glossary
 	total 16
 	-rw-r--r--  1 suzuki  suzuki  61 11 24 14:41 groonga.en.ja.csv
 	-rw-r--r--  1 suzuki  suzuki  99 11 24 15:14 groonga.en.ja.yml
 
-用語集ファイルは拡張子でわかるように、YAML形式のファイルになっています。
-
-	% cat .logaling/glossary/groonga.en.ja.yml
-	- source_term: storage engine
-	  target_term: ストレージエンジン
-	  note: groongaをベースとしたMySQLのストレージエンジン
-
-登録した内容を検索してみましょう。
+試しに登録した内容を検索してみましょう。
 
 	% loga lookup storage
-	  storage engine : ストレージエンジン # groongaをベースとしたMySQLのストレージエンジン
+	  storage engine    ストレージエンジン   # groongaをベースとしたMySQLのストレージエンジン
 
-この用語登録は、ひとつの用語で複数の対訳を登録することが可能です。その場合も同じように *loga add* してください。
+また、この用語登録はひとつの用語で複数の対訳を登録することが可能です。その場合も同じように *loga add* してください。
 
 	% loga add "storage engine" "ストレージ・エンジン"
 
 結果を検索すると、次のようになります。
 
 	% loga lookup storage
+	now index groonga...
 	  storage engine    ストレージエンジン    # groongaをベースとしたMySQLのストレージエンジン
 	  storage engine    ストレージ・エンジン
 
