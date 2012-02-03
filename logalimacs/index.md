@@ -12,4 +12,4 @@ logaling-commandをインストールする必要があります。
 * [利用可能なコマンド](/logalimacs/commands.html)
 
 
-[logalimacsで何ができるの?](/loglimacs/tutorial.html)
+[logalimacsで何ができるの?](/logalimacs/tutorial.html)
