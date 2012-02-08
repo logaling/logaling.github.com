@@ -11,9 +11,8 @@ title: logalimacsについて
 
 ---
 
-logalimacsはlogaling-command用のフロントエンドです。  
-特徴としては以下のようになります:
-
+## logalimacsはlogaling-command用のフロントエンドです。  
+   特徴としては以下のようになります:
 
 ### 英語のドキュメントを見ている時に...
 英語のドキュメントを見ている時に、

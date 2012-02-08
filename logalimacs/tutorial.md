@@ -7,7 +7,7 @@ title: チュートリアル
 
 | [logalimacsについて](/logalimacs/about.html) | [コマンド](/logalimacs/commands.html) | [インストール方法](/logalimacs/install.html) | [新機能](/logalimacs/whatsnew.html) | [github](https://github.com/logaling/logalimacs) |
 
-インストールから英単語を検索する方法を紹介します。
+## インストールから英単語を検索する方法を紹介します。
 
 ---
 
@@ -37,13 +37,13 @@ edictの辞書をインポートする
 
 * カーソル上の英単語を検索するには
 
-例えば、英語のドキュメントがありrubyという単語があり意味を調べたいとします。
-調べたい単語の上で"M-x loga-lookup-for-popup"と入力するか、
-インストールの項であったglobal-set-keyで自分で
-loga-lookup-for-popupを登録したキーバインドを
-入力すると、カーソル上の単語が辞書から検索されpopupで表示されます。
+例えば、英語のドキュメントがありrubyという単語があり意味を調べたいとします。  
+調べたい単語の上で"M-x loga-lookup-in-popup"と入力するか、  
+インストールの項であったglobal-set-keyで自分で  
+loga-lookup-in-popupを登録したキーバインドを  
+入力すると、カーソル上の単語が辞書から検索されpopupで表示されます。  
 (画像のRubyの部分は私が単語を登録したので、表示されているだけです。  
-gene95とedictをインポートしただけでは通常表示されません。)
+gene95とedictをインポートしただけでは通常表示されません。)  
 
 ---
 
@@ -51,22 +51,30 @@ gene95とedictをインポートしただけでは通常表示されません。
 
 ---
 
-* 自分で検索する英単語を入力するには
+* 自分で検索する英単語を入力するには -1
 
 例えば、テレビで見た英単語の意味を調べる等、コピペではなく  
 どうしても、自分で検索する用語を入力したい時は、  
-"M-x loga-lookup-region-or-manually"と入力するか、  
+"M-x loga-lookup-at-manually"と入力するか、  
 インストールの項であったglobal-set-keyで自分で、  
-loga-lookup-region-or-manuallyを登録したキーバインドを  
+loga-lookup-at-manuallyを登録したキーバインドを  
 入力するとミニバッファに調べたい単語を聞かれるので、  
 あなたが調べたい単語を入力して、入力が終わったらRETを押すと  
 logalingで検索され結果が\*logalimacs\*バッファに表示されます。  
 注意:  
 Emacs23の方でもしpopwinの設定をしていない場合は、  
-選択していないバッファに表示されますのでご注意ください。
+選択していないバッファに表示されますのでご注意ください。  
 
 
 ![自分で入力して検索](/logalimacs/images/outputBuffer.png)
+
+* 自分で検索する英単語を入力するには -2
+
+もう一つの検索方法として、loga-lookup-in-popupでも  
+自分で入力して検索できます。
+このコマンドは通常は、カーソル位置で検索しますが  
+C-uのuniversal-argumentコマンドを利用する事で、
+挙動を変更し、自分で入力して検索する様にできます。
 
 * リージョンで選択した単語or文章を検索するには
 
@@ -85,7 +93,7 @@ go up in smokeの部分をリージョン選択します。"M-x set-mark-command
 "C-SPC"または、"C-@"(Emacsのデフォルトのキーバインドを変更していなければ)で、  
 リージョンの開始をマークできます。カーソルを動かして、  
 リージョンの範囲指定をしたら、そこで(この場合はgo up in smoke)、  
-"M-x loga-lookup-region-or-manually"または"M-x loga-lookup-fof-popup"または、 
+"M-x loga-lookup-at-manually"または"M-x loga-lookup-in-popup"または、 
 上のコマンドを登録したキーバインドを入力します。  
 お気づきかもしれませんが、これらのコマンドはリージョン選択時はリージョンを検索、  
 非選択時は、カーソル位置や入力を求めるという動作になっています。  
