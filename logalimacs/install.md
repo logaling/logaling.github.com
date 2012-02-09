@@ -1,43 +1,44 @@
 ---
-layout: default
+layout: logalimacs_default
 title: logalimacsのインストール方法
 ---
 
 # logalimacsのインストール方法,設定
 
-| [チュートリアル](/logalimacs/tutorial.html) | [コマンド](/logalimacs/commands.html) | [logalimacsについて](/logalimacs/about.html) | [新機能](/logalimacs/whatsnew.html) | [github](https://github.com/logaling/logalimacs) |
+
+※ logaling-commandをインストールする必要があります。
+
+<a href="/"><img src="/logalimacs/images/commonLogalingLink.png" width="550" height="100" alt="logaling-commandのインストールはこちら"></a>
 
 ## 1. logaling-commandをインストールする
 [logaling-command](/about.html)を既にインストールしている場合は、次の項へ飛ばして下さい。(またlogaling-commandを翻訳用の対訳用語集として使用したい場合は
 [こちら](/tutorial.html)をご覧ください)
 
-システムのruby1.9を使っている場合:
+### システムのruby1.9を使っている場合:
 
     % sudo gem install logaling-command
 
-rvmを使っている場合:  
+### rvmを使っている場合:
 (rvmを使っていてruby1.9系をインストールしていなかったら "% rvm install 1.9.2" でインストールできます。)
 
     % gem install logaling-command
 
-rvmをEmacsで使う場合の設定
-[rvm.el](https://github.com/senny/rvm.el)が必要です。  
+### rvmをEmacsで使う場合の設定:
+[rvm.el](https://github.com/senny/rvm.el)が必要です。
 端末で先に % rvm use 1.9.2 --defaultでデフォルトを1.9系にして、以下のコードを.emacs等に書きます。
 (パスを通した所にrvm.elを置くかloadして下さい。わからなければ_6. 雑多な設定_へ)
 
----
-
-    (require 'rvm)
-    (rvm-use-default)
-    
----
+	(require 'rvm)
+	(rvm-use-default)
 
 ## 2. Emacs24でのインストール方法
 Emacs24でない方は、次の項へ飛ばして下さい。
 
 Emacs24では標準でパッケージインストーラ(package.el)が入っているので、
-以下の様にする事でインストール可能です。  
-注意: marmaladeの設定をしていない場合:  
+以下の様にする事でインストール可能です。
+
+### 注意: marmaladeの設定をしていない場合:
+
 以下の設定を.emacs等の設定ファイルに書く事でmarmaladeからElispをインストールできるようになります。
 既に設定している方は飛ばして"1. M-x list-packages"の所を見て下さい。
 
@@ -67,82 +68,68 @@ Emacs24以外の方はgitが使用可能であれば、下記のコマンドで�
     % cd YOUR-CLONE-DIRECTORY
     % git clone https://github.com/logaling/logalimacs.git
 
-ダウンロードしたら、./logalimacs/の中のlogalimacs.elを、
-あなたのパッケージを管理している所へ写すか、インストールした場所へパスを通してください(わからなければ雑多な設定の項へ)。その後に.emacsへの設定の項へ進んで下さい。
+ダウンロードしたら、./logalimacs/の中のlogalimacs.elを、あなたのパッケージを管理している所へ写すか、インストールした場所へパスを通してください(わからなければ雑多な設定の項へ)。その後に.emacsへの設定の項へ進んで下さい。
 
-logalimacsはpopwin.elとpopup.elを利用するとより便利になります。  
+logalimacsはpopwin.elとpopup.elを利用するとより便利になります。
 もし興味があれば、popwin.el,popup.el用の便利な設定を試して見て下さい。
 
 ## 4. .emacsへの設定
 
-あなたの設定用の.emacsへ(~/.emacs.d/init.elでもいいですし、
-他にload関数で読み込んだ所でもいいです)以下のように書込みます。
+あなたの設定用の.emacsへ(~/.emacs.d/init.elでもいいですし、他にload関数で読み込んだ所でもいいです)以下のように書込みます。
 これで、logalimacsを利用できるようになります。
 
-注意1:もしエラーが出るのであれば、  
-閉じ括弧後ろでC-x C-e(または、M-x eval-last-sexp)をタイプする事で、その行を評価でき行単位でのチェックができます。  
-注意2:キーバインド(kbd "ここの部分")は、あなたが使いやすい所に設定して下さい。
+注意1: もしエラーが出るのであれば、閉じ括弧後ろでC-x C-e(または、M-x eval-last-sexp)をタイプする事で、その行を評価でき行単位でのチェックができます。
+注意2: キーバインド(kbd "ここの部分")は、あなたが使いやすい所に設定して下さい。
 
 
----
+	;;; keybinds
+	;; Emacs起動時から動作させる場合
+	(when (require 'logalimacs nil t)
+	(global-set-key (kbd "M-g M-i") 'loga-interactive-command)
+	(global-set-key (kbd "M-g M-l") 'loga-lookup-region-or-manually)
+	(global-set-key (kbd "M-g M-a") 'loga-add-word)
+	(global-set-key (kbd "C-:") 'loga-lookup-for-popup))
 
-    ;;; keybinds
-    ;; Emacs起動時から動作させる場合
-    (when (require 'logalimacs nil t)
-      (global-set-key (kbd "M-g M-i") 'loga-interactive-command)
-      (global-set-key (kbd "M-g M-l") 'loga-lookup-region-or-manually)
-      (global-set-key (kbd "M-g M-a") 'loga-add-word)
-      (global-set-key (kbd "C-:") 'loga-lookup-for-popup))
-    
----
 
 ## 5. popwin.el、popup.el用の設定
 
 注意:この設定を利用する為には、
-[_popwin.el_](https://github.com/m2ym/popwin-el)と[_popup.el_](https://github.com/m2ym/popup-el)が必要です。  
+[_popwin.el_](https://github.com/m2ym/popwin-el)と[_popup.el_](https://github.com/m2ym/popup-el)が必要です。
 Emacs24経由でlogalimacsをインストールした場合は、自動で設定されます。
 
----
+	;; configuration for popwin.el
+	(require 'popwin)
+	(setq display-buffer-function 'popwin:display-buffer)
+	(setq popwin:special-display-config
+	      (append '(
+	            ("*logalimacs*" :position bottom :height 10 :noselect t :stick t)
+	            ;; if need to other configuration, add for like below:
+	            ;("*Backtrace*")
+	            )
+	          popwin:special-display-config))
 
-    ;; configuration for popwin.el
-    (require 'popwin)
-    (setq display-buffer-function 'popwin:display-buffer)
-    (setq popwin:special-display-config
-          (append '(
-                ("*logalimacs*" :position bottom :height 10 :noselect t :stick t)
-                ;; if need to other configuration, add for like below:
-                ;("*Backtrace*")
-                )
-              popwin:special-display-config))
 
----
+	;; configuration for popup.el
+	(require 'popup)
 
-    ;; configuration for popup.el
-    (require 'popup)
-    
----
 
 ## 6. 雑多な設定
 
----
-.emacsとは:  
-emacs用の設定ファイルで、通常は、~/.emacs.d/init.elまたは、  
-~/.emacs(昔はこれでしたが今は.emacs.d/init.elに書くのがナウイようです)になります。  
+### .emacsとは:
+
+emacs用の設定ファイルで、通常は、~/.emacs.d/init.elまたは、~/.emacs(昔はこれでしたが今は.emacs.d/init.elに書くのがナウイようです)になります。
 もし、設定ファイルを分割したいと思ったらinit.elに下の様に書きます。
 
     (load "ディレクトリを含めた設定したいファイルパス")
     ;; ~/.emacs.d/以下に設定ファイルを追加したいなら、
     (load "~/.emacs.d/logalimacs_config")
 
-この二つ目の例は、~/.emacs.d/以下のlogalimacs.elcまたはlogalimacs_config.el
-を読むようにしています。
-(init.elをバイトコンパイルしている場合、init.elcファイルが優先されますので
-ディレクトリ表示画面で対象のファイルに合わせて"B"を押すか、  
-"M-x dired-do-byte-compile"を実行します。)
+この二つ目の例は、~/.emacs.d/以下のlogalimacs.elcまたはlogalimacs_config.elを読むようにしています。
+(init.elをバイトコンパイルしている場合、init.elcファイルが優先されますのでディレクトリ表示画面で対象のファイルに合わせて"B"を押すか、`M-x dired-do-byte-compile`を実行します。)
 
 
----
-ロードパスを追加するには:  
+### ロードパスを追加するには:
+
 add-to-list関数を使います。
 以下をあなたの.emacsに設定します。
 

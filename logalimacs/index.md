@@ -1,10 +1,8 @@
 ---
-layout: home
+layout: logalimacs_home
 title: logalimacs
 ---
 
-logalimacsは、Logaling-commandをEmacsで使用するフロントエンドです。  
-Emacsから一つのキーバインドでlogaling-commandを使う事ができます。
 # What's New
 
 ## varsion 1.0.0
