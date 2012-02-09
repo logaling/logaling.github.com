@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="author" content={{ site.author }}>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/stylesheets/common.css" type="text/css" media="screen,tv">
+    <link rel="stylesheet" href="/stylesheets/logalimacs.css" type="text/css" media="screen,tv">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  </head>
+  <body>
+    <header>
+      <a href="https://github.com/logaling/logalimacs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
+      <div id="homeMessage">
+        <h1 id="homeLogo"><a href="/logalimacs"><img alt="{{ site.title }}" src="/logalimacs/images/homeLogo.png" width="500" height="200"></a></h1>
+        <p>logalimacsは、Logaling-commandをEmacsで使用するフロントエンドです。Emacsから一つのキーバインドでlogaling-commandを使う事ができます。</p>
+      </div>
+      <p><img alt="loga lookup word" src="images/homeImage.png" width="440" height="440"></p>
+      <ul class="button">
+        <li><a href="/logalimacs/about.html">logalimacsについて</a></li>
+        <li><a href="/logalimacs/install.html">インストール</a></li>
+        <li><a href="/logalimacs/commands.html">利用可能なコマンド</a></li>
+        <li><a href="/logalimacs/tutorial.html">チュートリアル</a></li>
+      </ul>
+    </header>
+    <article>
+      {{ content }}
+    </article>
+    <footer>
+      <p>※ logaling-commandをインストールする必要があります。</p>
+      <p><a href="/"><img src="/logalimacs/images/commonLogalingLink.png" width="550" height="100" alt="logaling-commandのインストールはこちら"></a></p>
+      <p id="copyright">&copy; logaling project</p>
+    </footer>
+  </body>
+</html>

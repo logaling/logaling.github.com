@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+html {
+  background: url(../logalimacs/images/commonBg.png) repeat top center;
+}
+
+#homeMessage {
+  width: 500px;
+}
+
+article img {
+  margin: 10px 20px; }
