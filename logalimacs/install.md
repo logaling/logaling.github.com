@@ -5,31 +5,33 @@ title: logalimacsのインストール方法
 
 # logalimacsのインストール方法,設定
 
+## 1. logaling-commandをインストールする
+logalimacsではlogaling-commandをインストールする必要があります。
+もしインストールしていない場合次のリンクを参照してインストールして下さい。
 
-※ logaling-commandをインストールする必要があります。
 
 <a href="/"><img src="/logalimacs/images/commonLogalingLink.png" width="550" height="100" alt="logaling-commandのインストールはこちら"></a>
 
-## 1. logaling-commandをインストールする
-[logaling-command](/about.html)を既にインストールしている場合は、次の項へ飛ばして下さい。(またlogaling-commandを翻訳用の対訳用語集として使用したい場合は
-[こちら](/tutorial.html)をご覧ください)
 
-### システムのruby1.9を使っている場合:
-
-    % sudo gem install logaling-command
-
-### rvmを使っている場合:
-(rvmを使っていてruby1.9系をインストールしていなかったら "% rvm install 1.9.2" でインストールできます。)
-
-    % gem install logaling-command
-
-### rvmをEmacsで使う場合の設定:
+### rvmを利用している場合の設定:
 [rvm.el](https://github.com/senny/rvm.el)が必要です。
 端末で先に % rvm use 1.9.2 --defaultでデフォルトを1.9系にして、以下のコードを.emacs等に書きます。
 (パスを通した所にrvm.elを置くかloadして下さい。わからなければ_6. 雑多な設定_へ)
 
 	(require 'rvm)
 	(rvm-use-default)
+
+### logalingのconfig設定をする
+登録したい翻訳元の言語と翻訳された後の言語を、
+ホームディレクトリの~/.logaling/configに設定します。
+以下はmy-dictionaryという用語集名で、翻訳元が英語(en)で翻訳後が日本語(ja)で
+設定しています。
+
+    --glossary my-dictionary
+    --source-language en
+    --target-language ja
+
+詳しくは[こちら](/tutorial.html)をご覧ください
 
 ## 2. Emacs24でのインストール方法
 Emacs24でない方は、次の項へ飛ばして下さい。
@@ -68,50 +70,28 @@ Emacs24以外の方はgitが使用可能であれば、下記のコマンドで�
     % cd YOUR-CLONE-DIRECTORY
     % git clone https://github.com/logaling/logalimacs.git
 
-ダウンロードしたら、./logalimacs/の中のlogalimacs.elを、あなたのパッケージを管理している所へ写すか、インストールした場所へパスを通してください(わからなければ雑多な設定の項へ)。その後に.emacsへの設定の項へ進んで下さい。
-
-logalimacsはpopwin.elとpopup.elを利用するとより便利になります。
-もし興味があれば、popwin.el,popup.el用の便利な設定を試して見て下さい。
+ダウンロードしたら、./logalimacs/の中へロードパスを通します。  
+次の.emacsへの設定をご覧下さい。  
 
 ## 4. .emacsへの設定
 
 あなたの設定用の.emacsへ(~/.emacs.d/init.elでもいいですし、他にload関数で読み込んだ所でもいいです)以下のように書込みます。
-これで、logalimacsを利用できるようになります。
 
-注意1: もしエラーが出るのであれば、閉じ括弧後ろでC-x C-e(または、M-x eval-last-sexp)をタイプする事で、その行を評価でき行単位でのチェックができます。
-注意2: キーバインド(kbd "ここの部分")は、あなたが使いやすい所に設定して下さい。
+    ;; "~/.emacs.d/package/hoge/以下にパスを通す場合
+    (add-to-list 'load-path "~/.emacs.d/package/hoge")
 
-
-	;;; keybinds
-	;; Emacs起動時から動作させる場合
-	(when (require 'logalimacs nil t)
-	(global-set-key (kbd "M-g M-i") 'loga-interactive-command)
-	(global-set-key (kbd "M-g M-l") 'loga-lookup-region-or-manually)
-	(global-set-key (kbd "M-g M-a") 'loga-add-word)
-	(global-set-key (kbd "C-:") 'loga-lookup-for-popup))
+    ;;; keybinds
+    (when (require 'logalimacs nil t)
+      (global-set-key (kbd "M-g M-i") 'loga-interactive-command)
+      (global-set-key (kbd "M-g M-l") 'loga-lookup-at-manually)
+      (global-set-key (kbd "M-g M-a") 'loga-add)
+      (global-set-key (kbd "C-:") 'loga-lookup-in-popup))
 
 
-## 5. popwin.el、popup.el用の設定
 
-注意:この設定を利用する為には、
-[_popwin.el_](https://github.com/m2ym/popwin-el)と[_popup.el_](https://github.com/m2ym/popup-el)が必要です。
-Emacs24経由でlogalimacsをインストールした場合は、自動で設定されます。
-
-	;; configuration for popwin.el
-	(require 'popwin)
-	(setq display-buffer-function 'popwin:display-buffer)
-	(setq popwin:special-display-config
-	      (append '(
-	            ("*logalimacs*" :position bottom :height 10 :noselect t :stick t)
-	            ;; if need to other configuration, add for like below:
-	            ;("*Backtrace*")
-	            )
-	          popwin:special-display-config))
-
-
-	;; configuration for popup.el
-	(require 'popup)
-
+注意1: もしエラーが出るのであれば、閉じ括弧後ろでC-x C-e(または、M-x eval-last-sexp)をタイプする事で、その行を評価でき行単位でのチェックができます。  
+注意2: キーバインド(kbd "ここの部分")は、あなたが使いやすい所に設定して下さい。  
+注意3: logalimacsは[_popwin.el_](https://github.com/m2ym/popwin-el)と[_popup.el_](https://github.com/m2ym/popup-el)を利用しています。githubからcloneしたファイルを移動する場合、これらも必要となります。  
 
 ## 6. 雑多な設定
 

@@ -24,7 +24,7 @@ title: logalimacsで利用できるコマンド
 この例で打ち込む内容は、loga-add-wordの項を参照してください。
 他のタスクも頭文字を指定して同様に、選択可能です。
 
-## loga-add-word
+## loga-add
 ターミナルからの"% loga add SOURCE TARGET NOTE"をラップするコマンドです。
 ターミナル上では、英語で複数の単語をスペース区切りで登録するのに、クオートする必要がありますがlogalimacsでこのコマンドを利用する場合は、必要ありません。
 コマンド実行後、source(元の単語)、target(翻訳後の単語)、note(任意の注釈)を個別に聞いてきます。
@@ -45,7 +45,7 @@ popup(ツールチップ)で検索内容を表示します。
 C-uのuniversal-argumentを押してから実行すると挙動が変わります。
 
 ### C-u無し:
-カーソル位置の文字※1を検索対象にしてlogalingでlookup検索します。
+カーソル位置の文字※を検索対象にしてlogalingでlookup検索します。
 入力後popupで検索結果を表示します。
 
 ### C-u有り:
@@ -61,8 +61,6 @@ popup表示後に特定のキーを押すと動作します。
 --------|------
 d | bufferに表示を切り替えます。
 q | popupの表示を消します。
-p | bufferを上に画面移動します。
-n | bufferを下に画面移動します。
 
 ※ カーソル位置の検索についての注意点:
 ひらがなと漢字を含んだ文字の場合、漢字が名詞の場合が多いので、漢字だけで検索するようにしています。
@@ -76,15 +74,15 @@ buffer表示後に受付けるコマンドが違います。
 
 コマンド | 動作
 --------|------
-d | bufferをdeleteします。
-q | bufferをdeleteします。
+d | bufferを削除します。
+q | bufferを削除します。
 p | bufferを上に画面移動します。
 n | bufferを下に画面移動します。
 
-## loga-fly-mode
-logalimacs独自の機能で、カーソル位置にある単語を`loga lookup (検索)`します。
-(空白では、その位置より左側の単語になります。)
-この機能は、通常はoffで`_loga-interactive-command_`から実行するか、`_M-x loga-fly-mode_`または、任意のキーバインドで実行する事で、onとoffをトグルで実行できます。
+<!-- ## loga-fly-mode -->
+<!-- logalimacs独自の機能で、カーソル位置にある単語を`loga lookup (検索)`します。 -->
+<!-- (空白では、その位置より左側の単語になります。) -->
+<!-- この機能は、通常はoffで`loga-interactive-command`から実行するか、`M-x loga-fly-mode`または、任意のキーバインドで実行する事で、onとoffをトグルできます。 -->
 
-## loga-get-flymake-error
-実行するとflymakeでのエラーをlogalimacsバッファに出力します。
+<!-- ## loga-get-flymake-error -->
+<!-- 実行するとflymakeでのエラーをlogalimacsバッファに出力します。 -->
