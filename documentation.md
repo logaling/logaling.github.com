@@ -8,4 +8,4 @@ title: ドキュメント
 
 1. [チュートリアル](/tutorial.html)
 2. [コマンドリファレンス](/reference.html)
-3. [関連プロジェクト](/related-projects.html)
+3. [APIリファレンス](http://rubydoc.info/gems/logaling-command/frames)
