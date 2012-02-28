@@ -5,7 +5,7 @@ title: logalimacs
 
 # What's New
 
-## varsion 0.9.0
+## version 0.9.0
 1. カーソル位置の単語を辞書から検索し、popupまたはbufferに表示
 2. リージョンで指定した単語を辞書から検索し、popupまたはbufferに表示
 3. ミニバッファに入力した文字から検索してbufferに表示
