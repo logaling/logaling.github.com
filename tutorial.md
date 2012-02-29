@@ -30,7 +30,7 @@ title: チュートリアル
   <li><a href="#lookup-csv">プロジェクトに既にある対訳用語集を logaling-command で検索できるようにする</a></li>
   <li><a href="#import">有名プロジェクトの用語集を logaling-command で検索できるようにする</a></li>
   <li><a href="#dictionary">logaling-command を辞書検索として使う</a></li>
-  <li><a href="#output">検索結果を別の形式で出力する</a></li>
+  <li><a href="#output">検索結果を特定の形式で出力する</a></li>
   </ol>
 </li>
 <li><a href="#add">用語を登録する</a>
