@@ -29,6 +29,8 @@ title: チュートリアル
   <ol>
   <li><a href="#lookup-csv">プロジェクトに既にある対訳用語集を logaling-command で検索できるようにする</a></li>
   <li><a href="#import">有名プロジェクトの用語集を logaling-command で検索できるようにする</a></li>
+  <li><a href="#dictionary">logaling-command を辞書検索として使う</a></li>
+  <li><a href="#output">検索結果を別の形式で出力する</a></li>
   </ol>
 </li>
 <li><a href="#add">用語を登録する</a>
@@ -226,6 +228,48 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 	DBA        DBA         (postgresql_manual)
 
 先ほどインポートした postgresql_manual から検索できました。
+
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
+
+
+
+#### <a id="dictionary">1-3. logaling-command を辞書検索として使う</a> ###
+
+logaling-command の検索機能は翻訳を目的とした用語集からの用語の検索を主としているため、
+訳文からの検索ができなかったり、言語コードが違うために欲しかった情報が検索結果に
+表示されないことがあるかもしれません。
+けれど、翻訳を進めるに当たり、単純にインポートしてきた edict などの辞書を引きたい場合があるかもしれません。
+そのような場合には --dictionary オプションを使用します。
+ --dictionary オプションを使用すると、原文だけではなく、訳文からも検索を行い、完全マッチしたものから順に結果出力します。
+検索の優先度は、原文の完全一致 > 原文の部分一致 > 訳文の完全一致 > 訳文の部分一致 となっています。
+
+	% loga lookup インタフェース --dictionary
+	  インタフェース           (n) (comp) interface/  edict
+	    (中略)
+	  ユーザインタフェース     (n) (comp) user interface/  edict
+	  ユーザーインタフェース   (n) (comp) user interface/ edict
+	  INTERFACES            インタフェース(.Sh)[jpman,section4]   freebsd_jpman
+	  interface             インタフェース        postgresql_manual
+	  interface             インタフェース(インターフェース,インターフェイスでなく)[POSIX,kana]   freebsd_jpman
+	  terminal interface    端末インタフェース[POSIX]     freebsd_jpman
+
+----------
+※--dictionary は --dict でも同様に動作します。
+
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
+
+
+#### <a id="output">1-4. 検索結果を別の形式で出力する</a> ###
+
+logaling-command はCUIツールですが、テキストエディタから利用したい場合は多々あると思います。
+そのような場合には、[関連プロジェクト](related-projects.html) にある
+ Emacs や Vim 、zsh などから logaling-command を利用できるツールを利用するか、あるいは自作することもあるかもしれません。
+そういったツールで検索結果を扱う場合には検索結果が構造化されていてほしいものです。
+そのような場合には、 --output オプションを使います。
+ lookup 時にオプションとして --output=csv (または、--output=json) とすると、結果を指定した形式で出力します。
+
+	% loga lookup patricia --output=csv
+	  patricia-trie,パトリシアトライ,,en,ja
 
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
 
