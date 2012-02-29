@@ -48,6 +48,8 @@ loga add [用語] [対訳] [備考(省略可)]
 訳文の言語コードを指定します
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
+##### -c, [--logaling-config=logaling-command プロジェクト設定ディレクトリ]
+logaling-command プロジェクト設定ディレクトリ
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
@@ -63,7 +65,6 @@ loga config [KEY] [VALUE]
 * source-language（原文の言語コード）
 * target-language（訳文の言語コード）
 * glossary（用語集名）
-* logaling-home（logaling-command ホームディレクトリ）
 
 --global オプションを指定しない場合は、プロジェクトの .logaling/config に書かれている設定を指定された内容で書き換えます。
 --global オプションを指定した場合は、ユーザホームにある .logaling.d/config に書かれている設定を指定された内容で書き換えます。
@@ -94,6 +95,8 @@ loga delete [用語] [対訳(省略可)]
 訳文の言語コードを指定します
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
+##### -c, [--logaling-config=logaling-command プロジェクト設定ディレクトリ]
+logaling-command プロジェクト設定ディレクトリ
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
@@ -130,6 +133,9 @@ logaling-command で利用できる形式の用語集が存在する
 loga list
 #### 説明
 現在登録されている用語集名の一覽を表示します。
+#### オプション
+##### --no-pager
+ページングを無効にします。
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
@@ -140,8 +146,16 @@ loga list
 #### 書式
 loga lookup [用語]
 #### 説明
-指定された用語を検索する。複数のプロジェクトがインデックスされている場合は、
-複数プロジェクトにまたがって横断的に検索する。
+指定された用語を検索します。複数のプロジェクトがインデックスされている場合は、
+複数プロジェクトにまたがって横断的に検索します。
+--output オプションを使用すると、出力形式を CSV 又は JSON に変えることができます。
+通常 lookup では原文や訳文の言語コードを見て検索を行いますが、
+--dictionary オプションを使用すると、言語コードを無視して検索できるようになります。
+また、このオプションを使用すると、訳語の方でマッチした用語も結果として表示されます。
+
+検索結果が多い場合は通常は自動でページングを行いますが、--no-pager オプションを使用すると
+ページング無しで出力します。
+
 #### オプション
 ##### -g, [--glossary=用語集名]
 用語集名を指定します
@@ -151,6 +165,17 @@ loga lookup [用語]
 訳文の言語コードを指定します
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
+##### -c, [--logaling-config=logaling-command プロジェクト設定ディレクトリ]
+logaling-command プロジェクト設定ディレクトリ
+##### --output, [--output=出力形式 ( csv 又は json )]
+出力形式を指定します。CSVとJSONが利用できます。
+##### --dictionary, [--dict]
+原文/訳文の言語コードを無視して辞書的に検索を行います。訳語も検索対象とします。
+##### --no-pager
+ページングを無効にします。
+##### --no-color
+検索結果の色付けを無効にします。
+
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
@@ -166,6 +191,8 @@ loga new [用語集名] [原文の言語コード] [訳文の言語コード] [-
 #### オプション
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
+##### -c, [--logaling-config=logaling-command プロジェクト設定ディレクトリ]
+logaling-command プロジェクト設定ディレクトリ
 ##### --no-register
 logaling-command ホームディレクトリにシンボリックリンクを作成したくない場合は指定します
 
@@ -188,6 +215,8 @@ logaling-command ホームディレクトリに指定した用語集のシンボ
 訳文の言語コードを指定します
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
+##### -c, [--logaling-config=logaling-command プロジェクト設定ディレクトリ]
+logaling-command プロジェクト設定ディレクトリ
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
@@ -210,6 +239,10 @@ logaling-command を利用しているプロジェクトのディレクトリ配
 訳文の言語コードを指定します
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
+##### -c, [--logaling-config=logaling-command プロジェクト設定ディレクトリ]
+logaling-command プロジェクト設定ディレクトリ
+##### --no-pager
+ページングを無効にします。
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
@@ -230,6 +263,8 @@ loga update [用語] [対訳] [新しい対訳] [新しい備考(省略可)]
 訳文の言語コードを指定します
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
+##### -c, [--logaling-config=logaling-command プロジェクト設定ディレクトリ]
+logaling-command プロジェクト設定ディレクトリ
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
@@ -251,6 +286,8 @@ logaling-command ホームディレクトリに指定された用語集のシン
 訳文の言語コードを指定します
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
+##### -c, [--logaling-config=logaling-command プロジェクト設定ディレクトリ]
+logaling-command プロジェクト設定ディレクトリ
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
