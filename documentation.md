@@ -7,5 +7,6 @@ title: ドキュメント
 ==============
 
 1. [チュートリアル](/tutorial.html)
-2. [コマンドリファレンス](/reference.html)
-3. [APIリファレンス](http://rubydoc.info/gems/logaling-command/frames)
+2. [レシピ集（詳しい使い方はこちら）](/recipe.html)
+3. [コマンドリファレンス](/reference.html)
+4. [APIリファレンス](http://rubydoc.info/gems/logaling-command/frames)
