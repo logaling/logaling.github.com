@@ -1,10 +1,10 @@
 ---
 layout: default
-title: チュートリアル
+title: logaling-command レシピ集
 ---
 
-チュートリアル
-==============
+logaling-command レシピ集
+=========================
 
 
 <div id="indexDivision">
