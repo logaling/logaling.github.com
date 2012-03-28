@@ -105,14 +105,20 @@ doc/locale/${LANGUAGE}/LC_MESSAGES ディレクトリで make update を実行�
 ### .po の編集の仕方
 .po ファイルを編集するためのツールがあります。.po ファイルは単なるテキストなので好きなエディタで編集できます。以下は .po ファイルの編集に特化したエディタのリストです。
 
-* Emacs's po-mode : gettextに同梱されています。
-* Poedit : .po専用エディタです。たくさんのプラットフォームで動作します。
+* Emacs's [po-mode](http://www.gnu.org/savannah-checkouts/gnu/gettext/manual/html_node/PO-Mode.html) : gettextに同梱されています。
+* [Poedit](http://www.poedit.net/) : .po専用エディタです。たくさんのプラットフォームで動作します。
 * gted : これも.po専用エディタです。Eclipseプラグインとして実装されています。
 
 ここでは、Poedit を使用することにします。
 Poedit は大雑把に言うと上部と下部に分かれていて、上部は左に原文、右に訳文（訳がついていれば）
 というリスト表示になっていて、そのリストの中でどれか一つを選択すると下部のエディタ部分に
 原文と訳文（訳がついていれば）が表示されます。
+
+Poeditサンプル：
+
+![参考](images/poedit_sample.png)
+
+
 翻訳をする場合には、この下部のエディタで原文に対して訳を入れていきます。
 
 さっそく、characteristic.po を編集しながら見て行きましょう。
