@@ -3,13 +3,15 @@ layout: default
 title: 翻訳のはじめ方（ mroonga プロジェクトの場合）
 ---
 
-翻訳のはじめ方（ mroonga プロジェクトの場合）
-============================================
+logaling-command を使った翻訳の進め方
+=====================================
 
 このページでは翻訳する時にどうやって logaling-command を使っていけばいいのかを、
 実際のプロジェクトを通して説明していきます。
 
-それでは、[mroonga](http://mroonga.github.com/ja/) プロジェクトの翻訳を例に見て行きましょう。
+### mroonga プロジェクトの場合
+
+[mroonga](http://mroonga.github.com/ja/) プロジェクトの翻訳を例に見て行きましょう。
 
 mroonga では gettext ベースの [Sphinx](http://sphinx.pocoo.org/index.html) を使って
 ドキュメントの国際化対応を行っています。この仕組みではベースの言語として英語を使い、
