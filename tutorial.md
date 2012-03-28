@@ -155,3 +155,5 @@ glossary は、このプロジェクトの用語集を置くためのディレ�
 もっと詳しく logaling-command を知りたい方は[詳しい使い方](usage.html) を参照して下さい。
 また、各コマンドの詳細については [コマンドリファレンス](reference.html) を参照して下さい。
 
+### 翻訳プロジェクトでの利用方法については...
+実際に翻訳プロジェクトで logaling-command をどのように使えばいいのかを知りたい場合は [logaling-command を使った翻訳の進め方](handbook.html) を参照してください。
