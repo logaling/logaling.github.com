@@ -71,7 +71,7 @@ clone した後は configure する必要があります。
     % loga new mroonga en
 
 この logaling-command 関連の操作でできたディレクトリやファイルは Github で共有するので、コミットした後に push して、pull request を送って master に取り込んでおいてもらいましょう。
-( pull request の送り方については、本稿「翻訳の成果の送り方」に詳細がありますので、わからない場合はそちらを参考にしてみて下さい。)
+( pull request の送り方については、後述の「翻訳の成果の送り方」で説明します)
 
 プロジェクトにはじめてlogaling-commandを導入する人のための文章はここまでです。
 
@@ -233,7 +233,7 @@ HTML ファイルは doc/locale/${LANGUAGE}/html/ 以下に出力されます。
 翻訳の成果は GitHub の pull request かメールで送ってください。メールで送る場合はパッチでも .po ファイルそのものでも構いません。
 
 #### pull request の送り方
-pull request を送るためのコマンドライン
+pull request を送るためのコマンドは以下のようになります。
 
 	% git add doc/locale/ja/LC_MESSAGES/*.po
 	% git commit
@@ -244,7 +244,7 @@ pull request を送るためのコマンドライン
 
 
 #### パッチの送り方
-パッチを作るためのコマンドライン
+パッチを作るためのコマンドは以下のようになります。
 
 	% git add doc/locale/ja/LC_MESSAGES/*.po
 	% git commit
@@ -261,7 +261,7 @@ doc/locale/${LANGUAGE}/LC_MESSAGES/ 以下を .tar.gz や .zip などでアー�
 
 
 ### 新しい言語の追加方法
-新しい翻訳対象の言語を追加するコマンドライン
+新しい翻訳対象の言語を追加するコマンドは以下のようになります。
 
 	% cd doc/locale
 	% make add LOCALE=${LANGUAGE} # specify your language code such as 'de'.
