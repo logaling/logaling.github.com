@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 翻訳のはじめ方（ mroonga プロジェクトの場合）
+title: logaling-command を使った翻訳の進め方（ mroonga プロジェクトの場合）
 ---
 
 logaling-command を使った翻訳の進め方
