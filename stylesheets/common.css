@@ -187,6 +187,9 @@ article p {
   line-height: 150%;
 }
 
+article img {
+  margin: 10px 20px; }
+
 article {
   clear: both;
   width: 980px;
