@@ -12,7 +12,7 @@ title: 詳しい使い方
 <h3>logaling-command を使うための準備をする</h3>
 <ol>
 <li><a href="#install">logaling-command をインストールする</a></li>
-<li><a href="#preparation">logaling-command を使う準備をする</a>
+<li>logaling-command を使う準備をする
   <ol>
   <li><a href="#new">プロジェクトに logaling-command を導入する場合</a></li>
   <li><a href="#register">既に logaling-command を使用しているプロジェクトに参加する場合</a></li>
@@ -25,15 +25,14 @@ title: 詳しい使い方
 <h3>logaling-command を使う</h3>
 
 <ol>
-<li><a href="#lookup">用語を検索する</a>
+<li>用語を検索する
   <ol>
-  <li><a href="#lookup-csv">プロジェクトに既にある対訳用語集を logaling-command で検索できるようにする</a></li>
-  <li><a href="#import">有名プロジェクトの用語集を logaling-command で検索できるようにする</a></li>
+  <li><a href="#lookup">用語を検索する</a></li>
   <li><a href="#dictionary">logaling-command を辞書検索として使う</a></li>
   <li><a href="#output">検索結果を特定の形式で出力する</a></li>
   </ol>
 </li>
-<li><a href="#add">用語を登録する</a>
+<li>用語を登録する
   <ol>
   <li><a href="#add-term">プロジェクトの対訳用語集に用語を登録する</a></li>
   <li><a href="#config">一つのプロジェクトで複数言語への翻訳が同時に進行している場合</a></li>
@@ -41,6 +40,12 @@ title: 詳しい使い方
 </li>
 <li><a href="#update">登録されている用語を編集する</a></li>
 <li><a href="#delete">用語を削除する</a></li>
+<li>用語集をインポートする
+  <ol>
+  <li><a href="#import-csv">CSV / TSV 形式の用語集が既にあるのでそれをインポートしたい</a></li>
+  <li><a href="#import">有名プロジェクトの用語集を logaling-command にインポートしたい</a></li>
+  </ol>
+</li>
 </ol>
 
 </div>
@@ -87,7 +92,7 @@ logaling-command は RubyGems でインストールできます。
 
 
 
-### <a id="preparation">2. logaling-command を使う準備をする</a> ###
+### 2. logaling-command を使う準備をする ###
 
 #### <a id="new">2-1.プロジェクトに logaling-command 導入する場合</a> ####
 
@@ -162,7 +167,8 @@ glossary は、このプロジェクトの用語集を置くためのディレ�
 logaling-command を使う
 ----------------------
 
-### <a id="lookup">1. 用語を検索する</a> ###
+### 1. 用語を検索する ###
+#### <a id="lookup">1-1. 用語を検索する</a> ###
 キーワードで用語集を検索してみましょう。
 検索するには `loga lookup <検索したいキーワード>` とします。
 
@@ -180,60 +186,7 @@ logaling-command を使う
 
 
 
-#### <a id="lookup-csv">1-1. プロジェクトに既にある対訳用語集を logaling-command で検索できるようにする</a> ###
-
-プロジェクトで既に「用語-対訳」のペアを用語集として何らかの形式で持っている場合があります。
-logaling-command では、そのような場合のために、1行1用語ペアの CSV/TSV 形式を検索対象の用語集としてサポートしています。[※2](#kome2)
-
-例えば、下記のような対訳用語集がある場合、
-
-	% cat groonga.csv
-	patricia-trie,パトリシアトライ
-	hash,ハッシュテーブル
-
-その用語集のファイル名に原文の言語コードと変換後言語コードを明示して .logaling/glossary へ置くことで検索対象の用語集にすることができるようになります。
-
-	% mv groonga.csv .logaling/glossary/groonga.en.ja.csv
-
-実際に検索すると以下のような結果になります。
-
-	% loga lookup patricia
-	patricia-trie    パトリシアトライ
-
-
-----------
-<a id="kome2">※2ファイルの文字コードはUTF-8のみに対応しています。</a>
-
-<p class="toTop"><a href="#index">目次へ戻る</a></p>
-
-
-#### <a id="import">1-2. 有名プロジェクトの用語集を logaling-command で検索できるようにする</a> ###
-
-自分が参加しているプロジェクト以外で、同じ用語がどのように訳されているのかを知りたい場合があるかもしれません。 *loga import* で、いくつかの有名プロジェクトで利用されている用語集をインポートすることができます。
-
-まずは、インポートできるプロジェクトの種類がどれくらいあるのかを知るために、以下のコマンドを実行して下さい。
-
-	% loga import --list
-	debian_project : Debian JP Project (http://www.debian.or.jp/community/translate/)
-	gnome_project : GNOME Translation Project Ja (http://live.gnome.org/TranslationProjectJa)
-	postgresql_manual : PostgreSQL7.1 Manual (http://osb.sraoss.co.jp/PostgreSQL/Manual/)
-
-コマンドの結果から、インポート出来る用語集が3種類あることがわかりました。それでは、このうちの postgresql_manual をインポートしてみましょう。実際に用語集をインポートするためには *loga import* に用語集名をパラメータとして渡してあげます。この用語集名は上記のリストのコロンの前にある項目です。
-
-	% loga import postgresql_manual
-
-これでインポートができたので、試しに検索してみましょう。
-
-	% loga lookup db
-	DBA        DBA         (postgresql_manual)
-
-先ほどインポートした postgresql_manual から検索できました。
-
-<p class="toTop"><a href="#index">目次へ戻る</a></p>
-
-
-
-#### <a id="dictionary">1-3. logaling-command を辞書検索として使う</a> ###
+#### <a id="dictionary">1-2. logaling-command を辞書検索として使う</a> ###
 
 logaling-command の lookup サブコマンドは、対訳用語集に登録されている用語の検索を目的としているため、用語が検索対象となっています。
 けれど、edict や gene95 といった辞書をインポートして使用している場合など、
@@ -258,7 +211,7 @@ logaling-command の lookup サブコマンドは、対訳用語集に登録さ�
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
-#### <a id="output">1-4. 検索結果を特定の形式で出力する</a> ###
+#### <a id="output">1-3. 検索結果を特定の形式で出力する</a> ###
 
 logaling-command は CUI ツールですが、テキストエディタから利用したい場合は多々あると思います。
 そのような場合には、[関連プロジェクト](related-projects.html) にある
@@ -405,3 +358,58 @@ lookup サブコマンド実行時に --output=csv (または、--output=json) �
 指定した通りに削除されました。
 
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
+
+
+
+### 6. 用語集をインポートする ###
+#### <a id="import-csv">6-1. CSV / TSV 形式の用語集が既にあるのでそれをインポートしたい</a> ###
+
+プロジェクトで既に「用語-対訳」のペアを用語集として何らかの形式で持っている場合があります。
+logaling-command では、そのような場合のために、1行1用語ペアの CSV/TSV 形式を検索対象の用語集としてサポートしています。[※2](#kome2)
+
+例えば、下記のような対訳用語集がある場合、
+
+	% cat groonga.csv
+	patricia-trie,パトリシアトライ
+	hash,ハッシュテーブル
+
+その用語集のファイル名に原文の言語コードと変換後言語コードを明示して .logaling/glossary へ置くことで検索対象の用語集にすることができるようになります。
+
+	% mv groonga.csv .logaling/glossary/groonga.en.ja.csv
+
+実際に検索すると以下のような結果になります。
+
+	% loga lookup patricia
+	patricia-trie    パトリシアトライ
+
+
+----------
+<a id="kome2">※2ファイルの文字コードはUTF-8のみに対応しています。</a>
+
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
+
+
+#### <a id="import">6-2. 有名プロジェクトの用語集を logaling-command にインポートしたい</a> ###
+
+自分が参加しているプロジェクト以外で、同じ用語がどのように訳されているのかを知りたい場合があるかもしれません。 *loga import* で、いくつかの有名プロジェクトで利用されている用語集をインポートすることができます。
+
+まずは、インポートできるプロジェクトの種類がどれくらいあるのかを知るために、以下のコマンドを実行して下さい。
+
+	% loga import --list
+	debian_project : Debian JP Project (http://www.debian.or.jp/community/translate/)
+	gnome_project : GNOME Translation Project Ja (http://live.gnome.org/TranslationProjectJa)
+	postgresql_manual : PostgreSQL7.1 Manual (http://osb.sraoss.co.jp/PostgreSQL/Manual/)
+
+コマンドの結果から、インポート出来る用語集が3種類あることがわかりました。それでは、このうちの postgresql_manual をインポートしてみましょう。実際に用語集をインポートするためには *loga import* に用語集名をパラメータとして渡してあげます。この用語集名は上記のリストのコロンの前にある項目です。
+
+	% loga import postgresql_manual
+
+これでインポートができたので、試しに検索してみましょう。
+
+	% loga lookup db
+	DBA        DBA         (postgresql_manual)
+
+先ほどインポートした postgresql_manual から検索できました。
+
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
+
