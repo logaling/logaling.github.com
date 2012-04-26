@@ -202,13 +202,11 @@ logaling-command ホームディレクトリにシンボリックリンクを作
 
 ### <a id="register">register</a> - logaling-command ホームディレクトリにシンボリックリンクを作成する###
 #### 書式
-loga register -g [用語集名]
+loga register
 #### 説明
 ローカルディレクトリにある用語集を検索対象とするために
 logaling-command ホームディレクトリに指定した用語集のシンボリックリンクを作成します。
 #### オプション
-##### -g, [--glossary=用語集名]
-用語集名を指定します
 ##### -S, [--source-language=原文の言語コード]
 原文の言語コードを指定します
 ##### -T, [--target-language=訳文の言語コード]
@@ -273,13 +271,11 @@ logaling-command プロジェクト設定ディレクトリ
 
 ### <a id="unregister">unregister</a> - logaling-command ホームディレクトリに作成されているシンボリックリンクを削除する ###
 #### 書式
-loga unregister -g [用語集]
+loga unregister
 #### 説明
 logaling-command ホームディレクトリに指定された用語集のシンボリックリンクが
 存在する場合、そのシンボリックリンクを削除する。
 #### オプション
-##### -g, [--glossary=用語集名]
-用語集名を指定します
 ##### -S, [--source-language=原文の言語コード]
 原文の言語コードを指定します
 ##### -T, [--target-language=訳文の言語コード]
