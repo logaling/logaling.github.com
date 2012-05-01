@@ -44,6 +44,7 @@ title: 詳しい使い方
   <ol>
   <li><a href="#import-csv">CSV / TSV 形式の用語集が既にあるのでそれをインポートしたい</a></li>
   <li><a href="#import">有名プロジェクトの用語集を logaling-command にインポートしたい</a></li>
+  <li><a href="#import-tmx">TMX(Translation Memory eXchange)形式の用語集を logaling-command にインポートしたい</a></li>
   </ol>
 </li>
 </ol>
@@ -412,4 +413,29 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 先ほどインポートした postgresql_manual から検索できました。
 
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
+
+
+#### <a id="import-tmx">6-3. TMX(Translation Memory eXchange) 形式の用語集を logaling-command にインポートしたい</a> ###
+
+翻訳ツールなどを利用して翻訳を行なっている場合には、CSV や TSV だけでなく、TMX 形式で用語集を扱っているかもしれません。
+そのような場合にも  `loga import tmx <用語集名> <url/path 原文の言語コード> <訳文の言語コード>` で用語集をインポートすることができます。
+
+例えば、TMX 形式の用語集ファイル groonga.tmx がカレントディレクトリにあるとします。その場合は以下のコマンドを実行することで用語集をインポートすることができます。
+
+	% loga import tmx groonga ./groonga.tmx en ja
+
+ここで、最後の「原文の言語コード」と「訳文の言語コード」ですが、英語( en )→日本語( ja )をデフォルトとして扱うため、同様の言語コードの場合は省略できます。
+ですので、上記コマンドは以下のように実行しても、同様の動作をします。
+
+	% loga import tmx groonga ./groonga.tmx
+
+TMX 形式のファイルを指定するには、ローカルファイルのパスだけでなく、URL でも可能です。そのような場合でもコマンドパス指定と同様に以下のようになります。
+
+	% loga import tmx groonga http://example.com/groonga.tmx
+
+
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
+
+
+
 
