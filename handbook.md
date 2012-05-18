@@ -17,7 +17,7 @@ mroonga では gettext ベースの [Sphinx](http://sphinx.pocoo.org/index.html)
 ドキュメントの国際化対応を行っています。この仕組みではベースの言語として英語を使い、
 日本語などの他の言語には英語からその言語に翻訳します。
 すべてのドキュメントは doc/source/ 以下に置いて、それを Sphinx で処理します。
-ここでは Sphoinx がインストールされている状態で話を進めていきます。
+ここでは Sphinx がインストールされている状態で話を進めていきます。
 Sphinx のインストール方法や使い方については Sphinx-Users.jp の
 [Sphinxをはじめよう](http://sphinx-users.jp/gettingstarted/index.html) を参照してください。
 
@@ -70,7 +70,7 @@ clone した後は configure する必要があります。
     % cd ../../../
     % loga new mroonga en
 
-この logaling-command 関連の操作でできたディレクトリやファイルは Github で共有するので、コミットした後に push して、pull request を送って master に取り込んでおいてもらいましょう。
+この logaling-command 関連の操作でできたディレクトリやファイルは GitHub で共有するので、コミットした後に push して、pull request を送って master に取り込んでおいてもらいましょう。
 ( pull request の送り方については、後述の「翻訳の成果の送り方」で説明します)
 
 プロジェクトにはじめてlogaling-commandを導入する人のための文章はここまでです。
@@ -188,7 +188,7 @@ logaling-command では、いくつかの有名プロジェクトの用語集を
 FreeBSD などは(インターフェース,インターフェイスでなく)と但し書きまであってわかりやすいですね。
 
 どのタイプを選んでもいいと思いますが、mroonga プロジェクトでは「インタフェース」を採用することにします。
-それでは、先ほどと同じ手順で用語集に登録しましょう。 freeBSD を習って備考も入れてみます。
+それでは、先ほどと同じ手順で用語集に登録しましょう。 FreeBSD を習って備考も入れてみます。
 
 	% loga add interface インタフェース 'インターフェース,インターフェイスでなく'
 
