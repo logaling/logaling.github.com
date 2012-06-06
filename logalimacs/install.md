@@ -77,6 +77,7 @@ Emacs24以外の方はgitが使用可能であれば、下記のコマンドで�
 
 あなたの設定用の.emacsへ(~/.emacs.d/init.elでもいいですし、他にload関数で読み込んだ所でもいいです)以下のように書込みます。
 
+    ;;; logalimacsディレクトリへのロードパスを通す
     ;; ~/.emacs.d/package/logalimacs/logalimacs.elが存在する場合
     (add-to-list 'load-path "~/.emacs.d/package/logalimacs")
 
