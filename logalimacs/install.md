@@ -70,8 +70,8 @@ Emacs24以外の方はgitが使用可能であれば、下記のコマンドで�
     % cd YOUR-CLONE-DIRECTORY
     % git clone https://github.com/logaling/logalimacs.git
 
-ダウンロードしたら、./logalimacs/の中へロードパスを通します。  
-次の.emacsへの設定をご覧下さい。  
+ダウンロードしたら、./logalimacs/の中へロードパスを通します。
+次の.emacsへの設定をご覧下さい。
 
 ## 4. .emacsへの設定
 
@@ -90,7 +90,7 @@ Emacs24以外の方はgitが使用可能であれば、下記のコマンドで�
 
 
 注意1: もしエラーが出るのであれば、閉じ括弧後ろでC-x C-e(または、M-x eval-last-sexp)をタイプする事で、その行を評価でき行単位でのチェックができます。  
-注意2: キーバインド(kbd "ここの部分")は、あなたが使いやすい所に設定して下さい。  
+注意2: キーバインド(kbd "ここの部分")は、あなたが使いやすい所に設定して下さい。
 注意3: logalimacsは[_popwin.el_](https://github.com/m2ym/popwin-el)と[_popup.el_](https://github.com/m2ym/popup-el)を利用しています。githubからcloneしたファイルを移動する場合、これらも必要となります。  
 
 ## 6. 雑多な設定
