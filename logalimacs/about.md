@@ -27,7 +27,7 @@ logalimacsは、[logaling-command](/about.html)のフロントエンドなので
 ハックしてくださる方は、随時募集しています。
 またEmacsで翻訳する方は、po-modeを使われると思いますがバッファを3画面以上開くと、編集モードから出た時に画面が元の.poのファイルの位置がずれます。
 この不具合?を修正したものが[github](https://github.com/logaling/logalimacs)にありますのでよければ利用して下さい。
-またmarmalade用にrakefileを作ったので、パッケージをアップロードしたい方は、よかったら利用して下さい。
+またMarmalade用にrakefileを作ったので、パッケージをアップロードしたい方は、よかったら利用して下さい。
 
 ## 問題点、要望
 

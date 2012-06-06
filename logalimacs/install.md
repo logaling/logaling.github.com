@@ -39,9 +39,9 @@ Emacs24でない方は、次の項へ飛ばして下さい。
 Emacs24では標準でパッケージインストーラ(package.el)が入っているので、
 以下の様にする事でインストール可能です。
 
-### 注意: marmaladeの設定をしていない場合:
+### 注意: Marmaladeの設定をしていない場合:
 
-以下の設定を.emacs等の設定ファイルに書く事でmarmaladeからElispをインストールできるようになります。
+以下の設定を.emacs等の設定ファイルに書く事でMarmaladeからElispをインストールできるようになります。
 既に設定している方は飛ばして"1. M-x list-packages"の所を見て下さい。
 
     (require 'package)
