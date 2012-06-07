@@ -32,40 +32,41 @@ logalimacsではlogaling-commandをインストールする必要があります
     --target-language ja
 
 詳しくは[こちら](/tutorial.html)をご覧ください
+<!-- =====現在Marmaladeにアップロードできないので一時的にコメントアウトします====== -->
+<!-- ## 2. Emacs24でのインストール方法 -->
+<!-- Emacs24でない方は、次の項へ飛ばして下さい。 -->
 
-## 2. Emacs24でのインストール方法
-Emacs24でない方は、次の項へ飛ばして下さい。
+<!-- Emacs24では標準でパッケージインストーラ(package.el)が入っているので、 -->
+<!-- 以下の様にする事でインストール可能です。 -->
 
-Emacs24では標準でパッケージインストーラ(package.el)が入っているので、
-以下の様にする事でインストール可能です。
+<!-- ### 注意: Marmaladeの設定をしていない場合: -->
 
-### 注意: Marmaladeの設定をしていない場合:
+<!-- 以下の設定を.emacs等の設定ファイルに書く事でMarmaladeからElispをインストールできるようになります。 -->
+<!-- 既に設定している方は飛ばして"1. M-x list-packages"の所を見て下さい。 -->
 
-以下の設定を.emacs等の設定ファイルに書く事でMarmaladeからElispをインストールできるようになります。
-既に設定している方は飛ばして"1. M-x list-packages"の所を見て下さい。
-
-    (require 'package)
-    (add-to-list 'package-archives
-        '("marmalade" . "http://marmalade-repo.org/packages/"))
-    ;; パッケージインストールするディレクトリを指定(任意)
-    ;; (setq package-user-dir "~/.emacs.d/elpa")
-    ;; インストールしたパッケージにロードパスを通してロードする
-    (package-initialize)
+<!--     (require 'package) -->
+<!--     (add-to-list 'package-archives -->
+<!--         '("marmalade" . "http://marmalade-repo.org/packages/")) -->
+<!--     ;; パッケージインストールするディレクトリを指定(任意) -->
+<!--     ;; (setq package-user-dir "~/.emacs.d/elpa") -->
+<!--     ;; インストールしたパッケージにロードパスを通してロードする -->
+<!--     (package-initialize) -->
 
 
-1. "M-x list-packages"とタイプする。
-2. インストール可能なパッケージが表示されるので、その中からlogalimacsを探します。
-3. logalimacsのパッケージ名の先頭行で"i"をタイプするとマークできます。
-他にインストールするものがなければ、"x"でインストールを開始します。
-4. .emacsへの設定の項を参照してキーバインドを設定して下さい
-(パッケージ依存の設定で自動でpopwin.elとpopup.elがインストールされますが、これは規定の動作です)
+<!-- 1. "M-x list-packages"とタイプする。 -->
+<!-- 2. インストール可能なパッケージが表示されるので、その中からlogalimacsを探します。 -->
+<!-- 3. logalimacsのパッケージ名の先頭行で"i"をタイプするとマークできます。 -->
+<!-- 他にインストールするものがなければ、"x"でインストールを開始します。 -->
+<!-- 4. .emacsへの設定の項を参照してキーバインドを設定して下さい -->
+<!-- (パッケージ依存の設定で自動でpopwin.elとpopup.elがインストールされますが、これは規定の動作です) -->
 
-## 3. それ以外の場合のインストール方法
+<!-- ## 3. それ以外の場合のインストール方法 -->
+<!-- Emacs24以外の方はgitが使用可能であれば、下記のコマンドでダウンロード可能です。 -->
+<!-- (Emacs23でも、package.elを入れればinstall可能と思いましたが、 -->
+<!-- 私が試した所、パッケージインストール中にエラーが出た為、こちらの方法をお勧めします。) -->
+## 2. インストール方法
 
-Emacs24以外の方はgitが使用可能であれば、下記のコマンドでダウンロード可能です。
-(Emacs23でも、package.elを入れればinstall可能と思いましたが、
-私が試した所、パッケージインストール中にエラーが出た為、こちらの方法をお勧めします。)
-
+gitが使用可能であれば、下記のコマンドでダウンロード可能です。
 
     % cd YOUR-CLONE-DIRECTORY
     % git clone https://github.com/logaling/logalimacs.git
@@ -73,7 +74,7 @@ Emacs24以外の方はgitが使用可能であれば、下記のコマンドで�
 ダウンロードしたら、./logalimacs/の中へロードパスを通します。
 次の.emacsへの設定をご覧下さい。
 
-## 4. .emacsへの設定
+## 3. .emacsへの設定
 
 あなたの設定用の.emacsへ(~/.emacs.d/init.elでもいいですし、他にload関数で読み込んだ所でもいいです)以下のように書込みます。
 
@@ -100,7 +101,7 @@ Emacs24以外の方はgitが使用可能であれば、下記のコマンドで�
 注意2: キーバインド(kbd "ここの部分")は、あなたが使いやすい所に設定して下さい。
 注意3: logalimacsは[_popwin.el_](https://github.com/m2ym/popwin-el)と[_popup.el_](https://github.com/m2ym/popup-el)を利用しています。githubからcloneしたファイルを移動する場合、これらも必要となります。  
 
-## 6. 雑多な設定
+## 4. 雑多な設定
 
 ### .emacsとは:
 
