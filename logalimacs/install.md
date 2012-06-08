@@ -32,38 +32,63 @@ logalimacsではlogaling-commandをインストールする必要があります
     --target-language ja
 
 詳しくは[こちら](/tutorial.html)をご覧ください
-<!-- =====現在Marmaladeにアップロードできないので一時的にコメントアウトします====== -->
-<!-- ## 2. Emacs24でのインストール方法 -->
-<!-- Emacs24でない方は、次の項へ飛ばして下さい。 -->
 
-<!-- Emacs24では標準でパッケージインストーラ(package.el)が入っているので、 -->
-<!-- 以下の様にする事でインストール可能です。 -->
-
-<!-- ### 注意: Marmaladeの設定をしていない場合: -->
-
-<!-- 以下の設定を.emacs等の設定ファイルに書く事でMarmaladeからElispをインストールできるようになります。 -->
-<!-- 既に設定している方は飛ばして"1. M-x list-packages"の所を見て下さい。 -->
-
+<!-- ====MELPAにpull requestが通ったらコメントアウトを外す==== -->
+<!-- ## 2. インストール方法 -->
+<!-- Emacs23ユーザーの方もpackage.elによるインストールを行うようになりました -->
+<!-- MELPAを用います。 -->
+<!-- ### package.elをインストール -->
+<!-- (Emacs24を利用している方はpackage.el用の設定に進んで下さい) -->
+<!-- Emacs23ユーザーはpackage.elが必要なので先に準備する(Emacs24は標準添付) -->
+<!-- Emacs23用と24用があるので注意してください。 -->
+<!-- Emacs23用にpackage.elをダウンロードします -->
+<!-- 以下はターミナルのコマンドでpackage.elを~/.emacs.d/elisp以下にダウンロードします -->
+<!--     $ mkdir -p ~/.emacs.d/elisp -->
+<!--     $ cd ~/.emacs.d/elisp -->
+<!--     $ wget http://repo.or.cz/w/emacs.git/blob_plain/1a0a666f941c99882093d7bd08ced15033bc3f0c:/lisp/emacs-lisp/package.el -->
+<!-- 上記を行うと~/.emacs.d/elisp/ディレクトリ以下にpackage.elが作成されるはずです。 -->
+<!-- ### Emacsにpackage.el用の設定を追加します -->
+<!-- ~/.emacs.d/init.elなどに以下の設定を追加します -->
+<!-- --- -->
+<!--     ;; ~/.emacs.d/elisp/以下にロードパスを通して -->
+<!--     (add-to-list 'load-path "~/.emacs.d/elisp") -->
+<!--     ;; 後でrequire packageをする -->
 <!--     (require 'package) -->
-<!--     (add-to-list 'package-archives -->
-<!--         '("marmalade" . "http://marmalade-repo.org/packages/")) -->
-<!--     ;; パッケージインストールするディレクトリを指定(任意) -->
-<!--     ;; (setq package-user-dir "~/.emacs.d/elpa") -->
-<!--     ;; インストールしたパッケージにロードパスを通してロードする -->
+<!--     ;;; リポジトリにMELPAを追加 -->
+<!--     (add-to-list 'package-archives ("melpa" . "http://melpa.milkbox.net/packages/")) -->
+<!--     お好み設定: -->
+<!--     ;;インストールするディレクトリを指定 -->
+<!--     (setq package-user-dir "インストールされるディレクトリ") -->
+<!--     ;;以下は必要な設定です -->
+<!--     ;;インストールしたパッケージにロードパスを通してロードする -->
 <!--     (package-initialize) -->
+<!--     ;;; logalimacsの設定 -->
+<!--     ;; keybinds -->
+<!--     (global-set-key (kbd "M-g M-i") 'loga-interactive-command) -->
+<!--     (global-set-key (kbd "M-g M-l") 'loga-lookup-at-manually) -->
+<!--     (global-set-key (kbd "M-g M-a") 'loga-add) -->
+<!--     (global-set-key (kbd "C-:") 'loga-lookup-in-popup) -->
+<!--     ;; 以下はお好みで設定してください(version1.0から) -->
+<!--     ;; lookupに--dictionaryオプションを利用する場合 -->
+<!--     (setq loga-use-dictionary-option t) -->
+<!--     ;; 'autoがデフォルトでカーソル位置の近くにpopup -->
+<!--     ;; 'maxにするとbuffer一杯までpopupをのばし行の最初から表示します -->
+<!--     (setq loga-popup-output-type 'max) -->
+<!-- --- -->
+<!-- M-x load-fileコマンドを実行しミニバッファに~/.emacs.d/init.elなどの -->
+<!-- 上で入力した設定ファイルへのパスを入力して実行します -->
+<!-- (Emacsを再起動する事で再読み込みしてもよいです) -->
+<!-- ### logalimacsのpackageをインストールします -->
+<!-- これで準備が整いました。 -->
+<!-- EmacsからM-x list-packageコマンドを入力します。 -->
+<!-- packageのリストが表示されるので -->
+<!-- C-sなどでlogalimacsを検索します。 -->
+<!-- 同じ行にカーソルを合わせて"i"でpackageのマーク, -->
+<!-- "x"でインストールの実行になります。 -->
+<!-- (実行するとpackage-user-dirで指定したディレクトリか -->
+<!-- デフォルトの???にインストールされます) -->
+<!-- ===================================================== -->
 
-
-<!-- 1. "M-x list-packages"とタイプする。 -->
-<!-- 2. インストール可能なパッケージが表示されるので、その中からlogalimacsを探します。 -->
-<!-- 3. logalimacsのパッケージ名の先頭行で"i"をタイプするとマークできます。 -->
-<!-- 他にインストールするものがなければ、"x"でインストールを開始します。 -->
-<!-- 4. .emacsへの設定の項を参照してキーバインドを設定して下さい -->
-<!-- (パッケージ依存の設定で自動でpopwin.elとpopup.elがインストールされますが、これは規定の動作です) -->
-
-<!-- ## 3. それ以外の場合のインストール方法 -->
-<!-- Emacs24以外の方はgitが使用可能であれば、下記のコマンドでダウンロード可能です。 -->
-<!-- (Emacs23でも、package.elを入れればinstall可能と思いましたが、 -->
-<!-- 私が試した所、パッケージインストール中にエラーが出た為、こちらの方法をお勧めします。) -->
 ## 2. インストール方法
 
 gitが使用可能であれば、下記のコマンドでダウンロード可能です。
