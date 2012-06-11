@@ -6,7 +6,15 @@ title: logalimacs
 # What's New
 
 <!-- ## version 1.0.x -->
-<!-- 1. loga-popup-output-typeに'maxの様なシンボル記法も対応しました -\-> -->
+<!-- ?? 単語が見つからなかった場合text-translatorによるfallbackをできるようにしました -->
+<!-- MELPAで自動でダウンロードした方がよいと思うが現状text-translatorはパッケージ依存の -->
+<!-- フォーマットに対応してないのでtext-translatorの作者にpull request, -->
+<!-- MELPAの作者にpull request後アナウンスしようと思っています -->
+
+## version 1.0.1
+1. Emacsリポジトリサイトのダウンロード方法がMermaladeからMELPAになりました。
+   (現在Marmaladeがpackageのアップロードができないようなので)
+2. loga-popup-output-typeに'maxの様なシンボル記法も対応しました
 
 ## version 1.0.0
 1. logalingの--dictionaryオプションに対応しました
