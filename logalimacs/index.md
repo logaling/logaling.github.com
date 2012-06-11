@@ -5,6 +5,9 @@ title: logalimacs
 
 # What's New
 
+<!-- ## version 1.0.x -->
+<!-- 1. loga-popup-output-typeに'maxの様なシンボル記法も対応しました -\-> -->
+
 ## version 1.0.0
 1. logalingの--dictionaryオプションに対応しました
 2. 多階層ポップアップを利用するようにしました
