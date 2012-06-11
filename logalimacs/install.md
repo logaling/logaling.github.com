@@ -35,18 +35,18 @@ logalimacsではlogaling-commandをインストールする必要があります
 
 <!-- ====MELPAにpull requestが通ったらコメントアウトを外す==== -->
 <!-- ## 2. インストール方法 -->
-<!-- Emacs23ユーザーの方もpackage.elによるインストールを行うようになりました -->
+<!-- Emacs23ユーザーの方もpackage.elによるインストールを行えるようになりました -->
 <!-- MELPAを用います。 -->
 <!-- ### package.elをインストール -->
-<!-- (Emacs24を利用している方はpackage.el用の設定に進んで下さい) -->
-<!-- Emacs23ユーザーはpackage.elが必要なので先に準備する(Emacs24は標準添付) -->
-<!-- Emacs23用と24用があるので注意してください。 -->
-<!-- Emacs23用にpackage.elをダウンロードします -->
+<!-- (Emacs24を利用している方は次のpackage.el用の設定に進んで下さい) -->
+<!-- Emacs23ユーザーの方はpackage.elが必要なので先に準備する必要があります(Emacs24は標準添付) -->
+<!-- ではpackage.elのダウンロード方法を説明します -->
 <!-- 以下はターミナルのコマンドでpackage.elを~/.emacs.d/elisp以下にダウンロードします -->
 <!--     $ mkdir -p ~/.emacs.d/elisp -->
 <!--     $ cd ~/.emacs.d/elisp -->
 <!--     $ wget http://repo.or.cz/w/emacs.git/blob_plain/1a0a666f941c99882093d7bd08ced15033bc3f0c:/lisp/emacs-lisp/package.el -->
 <!-- 上記を行うと~/.emacs.d/elisp/ディレクトリ以下にpackage.elが作成されるはずです。 -->
+<!-- 作成するディレクトリは適宜変更してください -->
 <!-- ### Emacsにpackage.el用の設定を追加します -->
 <!-- ~/.emacs.d/init.elなどに以下の設定を追加します -->
 <!-- --- -->
@@ -68,25 +68,26 @@ logalimacsではlogaling-commandをインストールする必要があります
 <!--     (global-set-key (kbd "M-g M-l") 'loga-lookup-at-manually) -->
 <!--     (global-set-key (kbd "M-g M-a") 'loga-add) -->
 <!--     (global-set-key (kbd "C-:") 'loga-lookup-in-popup) -->
-<!--     ;; 以下はお好みで設定してください(version1.0から) -->
+<!--     ;; 以下はお好みで設定してください(version1.0.0から) -->
 <!--     ;; lookupに--dictionaryオプションを利用する場合 -->
 <!--     (setq loga-use-dictionary-option t) -->
-<!--     ;; 'autoがデフォルトでカーソル位置の近くにpopup -->
-<!--     ;; 'maxにするとbuffer一杯までpopupをのばし行の最初から表示します -->
-<!--     (setq loga-popup-output-type 'max) -->
+<!--     ;; :autoがデフォルトでカーソル位置の近くにpopup -->
+<!--     ;; :maxにするとbuffer一杯までpopupをのばし行の最初から表示します -->
+<!--     ;; Version: 1.0.xから'maxの様なシンボル記法も対応しました -->
+<!--     (setq loga-popup-output-type :max) -->
 <!-- --- -->
 <!-- M-x load-fileコマンドを実行しミニバッファに~/.emacs.d/init.elなどの -->
 <!-- 上で入力した設定ファイルへのパスを入力して実行します -->
 <!-- (Emacsを再起動する事で再読み込みしてもよいです) -->
 <!-- ### logalimacsのpackageをインストールします -->
 <!-- これで準備が整いました。 -->
-<!-- EmacsからM-x list-packageコマンドを入力します。 -->
+<!-- EmacsからM-x list-packagesコマンドを入力します。 -->
 <!-- packageのリストが表示されるので -->
 <!-- C-sなどでlogalimacsを検索します。 -->
 <!-- 同じ行にカーソルを合わせて"i"でpackageのマーク, -->
 <!-- "x"でインストールの実行になります。 -->
 <!-- (実行するとpackage-user-dirで指定したディレクトリか -->
-<!-- デフォルトの???にインストールされます) -->
+<!-- デフォルトの~/.emacs.d/elpaにインストールされます) -->
 <!-- ===================================================== -->
 
 ## 2. インストール方法
