@@ -10,8 +10,10 @@ title: チュートリアル
 
 ## logalimacsをインストールします。
 
-Emacs23と24でインストール方法が違うので、
-詳しくは[インストール方法](/logalimacs/install.html)を参照してください。
+Emacs24から標準搭載のpackage.elを利用する方法と
+GitHubからcloneする方法があります。
+Emacs23でもpackage.elを導入する方法を紹介していますので
+[インストール方法](/logalimacs/install.html)を参照してください。
 
 ## 英和,和英辞書のインポート
 
