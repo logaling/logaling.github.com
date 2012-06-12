@@ -58,7 +58,7 @@ Emacs23ユーザーの方はpackage.elが必要なので先に準備する必要
 
 ---
 
-    ;; ~/.emacs.d/elisp/以下にロードパスを通します
+    ;; ~/.emacs.d/package23/以下にロードパスを通します
     ;; Emacs24未満の場合だけEmacs23用のpackage.elを読み込む
     (when (version< emacs-version "24.0.0")
       (add-to-list 'load-path "~/.emacs.d/package23")
