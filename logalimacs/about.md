@@ -36,7 +36,8 @@ logalimacsに対する問題点、要望は[issues](https://github.com/logaling/
 
 ## バージョン情報
 
-Version:1.0.0(2012/6/xx) : logaling-commandの--dictionaryオプションに対応
+Version:1.0.1(2012/6/12) : EmacsリポジトリサイトをMermaladeからMELPAに変更
+Version:1.0.0(2012/6/7) : logaling-commandの--dictionaryオプションに対応
 Version:0.9.0(2012/2/13) : 初版
 
 ## ライセンス
