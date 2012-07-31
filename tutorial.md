@@ -140,7 +140,7 @@ glossary は、このプロジェクトの用語集を置くためのディレ�
 では結果は返ってきません。ですが、 logaling-command を辞書として使いたい場合には検索した語にマッチした用語または対訳は表示してほしいものです。
 そういった場合は *--dictionary* オプションを付けて下さい。
 
-	% loga lookp データベース --dictionary
+	% loga lookup データベース --dictionary
 	  Database Administrator           データベース管理者   postgresql_manual
 	  database                         データベース postgresql_manual
 	  database                         データベース my_project
