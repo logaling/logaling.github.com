@@ -12,6 +12,7 @@ title: コマンドリファレンス
 <ul class="listMark">
 <li><a href="#add">add</a></li>
 <li><a href="#config">config</a></li>
+<li><a href="#copy">copy</a></li>
 <li><a href="#delete">delete</a></li>
 <li><a href="#help">help</a></li>
 <li><a href="#import">import</a></li>
@@ -72,6 +73,15 @@ loga config [KEY] [VALUE]
 #### オプション
 ##### --global
 グローバルな設定を書き換える場合は指定します
+
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
+
+
+### <a id="copy">copy</a> - 用語集をコピーする ###
+#### 書式
+loga copy [元用語集名] [原文の言語コード] [訳文の言語コード] [新しい用語集名] [原文の言語コード] [訳文の言語コード]
+#### 説明
+既存の用語集をコピーして新しい用語集を作ります。
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
