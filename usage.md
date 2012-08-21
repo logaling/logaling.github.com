@@ -16,6 +16,7 @@ title: 詳しい使い方
   <ol>
   <li><a href="#new">プロジェクトに logaling-command を導入する場合</a></li>
   <li><a href="#register">既に logaling-command を使用しているプロジェクトに参加する場合</a></li>
+  <li><a href="#new-personal">プロジェクトとは関係なく用語集だけ作りたい</a></li>
   </ol>
 </li>
 </ol>
@@ -158,6 +159,25 @@ glossary は、このプロジェクトの用語集を置くためのディレ�
 
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
 
+
+
+#### <a id="new-personal">2-3.プロジェクトとは関係なく用語集だけ作りたい</a> ####
+
+ここまでは、オープンソースまたはそうでないプロジェクトに参加している場合に logaling-command を導入するやり方を紹介してきましたが、ここではそういったプロジェクトとは関係なく、単に用語集だけを作りたい場合のやり方を紹介します。
+
+用語集を作りたいと思ったら、任意のディレクトリで以下のコマンドを実行して下さい。
+
+これは 2-1 で説明したコマンドと同じコマンドですが、オプションとして `--personal` がつくところがポイントです。
+
+	% loga new myglossary en ja --personal
+	Successfully created /Users/suzuki/.logaling.d/personal/myglossary.en.ja.yml
+
+パラメータは通常の`loga new`同様「用語集名」と「原文の言語コード」「対訳の言語コード」をこの順番で指定し、最後にオプションの`--personal`を付けます。「対訳の言語コード」はこの場合は必須となります。
+個人的な用途の用語集なので用語集名は何でも構いませんが、プロジェクト名や既に作成済みの用語集名とは同じものは使えません。
+
+上記コマンドを実行すると、ユーザーホームに .logaling.d/personal というディレクトリを作成し、そのディレクトリ配下に用語集を登録します。
+
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
 
