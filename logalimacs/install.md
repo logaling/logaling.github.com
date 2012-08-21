@@ -51,7 +51,7 @@ Emacs23ユーザーの方はpackage.elが必要なので先に準備する必要
     $ wget http://repo.or.cz/w/emacs.git/blob_plain/1a0a666f941c99882093d7bd08ced15033bc3f0c:/lisp/emacs-lisp/package.el
 
 上記を行うと~/.emacs.d/package23/ディレクトリ以下にpackage.elが作成されるはずです。
-作成するディレクトリは適宜変更してください
+作成するディレクトリは適宜変更してください。
 
 ### Emacsにpackage.el用の設定とlogalimacs用の設定を追加
 ~/.emacs.d/init.elなどに以下の設定を追加します
@@ -103,6 +103,8 @@ C-sなどでlogalimacsを検索します。
 "x"でインストールの実行になります。
 実行するとpackage-user-dirで指定したディレクトリか,
 デフォルトの~/.emacs.d/elpaにインストールされます。
+
+※注意: Emacs24のlist-packagesコマンドで既にlogalimacsをインストール済みのバイトコンパイルファイルをEmacs23でロードした場合、正常に動かない場合があります。この場合はlogalimacs.elファイルをバイトコンパイルしてみてください。(Dired-mode中にファイルを選択してBを押すとバイトコンパイルするか選べます)
 
 ## 3. git cloneからのインストール方法
 
