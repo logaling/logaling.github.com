@@ -198,6 +198,9 @@ loga new [用語集名] [原文の言語コード] [訳文の言語コード] [-
 プロジェクトの用語集を新規に作成します。
 同時に logaling-command ホームディレクトリ（ユーザーホームディレクトリ/.logaling.d）に
 プロジェクトのディレクトリへのシンボリックリンクを作成します。
+
+ただし、*--personal* オプションを指定された場合は、プロジェクトの用語集ではなく個人用途の用語集を logaling-command ホームディレクトリ下の /personal ディレクトリ直下に作成します。
+
 #### オプション
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
@@ -205,6 +208,8 @@ logaling-command ホームディレクトリ
 logaling-command プロジェクト設定ディレクトリ
 ##### --no-register
 logaling-command ホームディレクトリにシンボリックリンクを作成したくない場合は指定します
+##### --personal
+個人用途の用語集を作成します。
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
