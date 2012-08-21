@@ -109,7 +109,7 @@ logaling-command は RubyGems でインストールできます。
 	Your project is now registered to logaling.
 	Successfully created .logaling
 
-*loga new* はプロジェクトで用語集を使うための設定ファイルやディレクトリなどを作成します。パラメータは「用語集名」と「原文の言語コード[※1](#kome1)」「対訳の言語コード(省略可能）」をこの順番で指定します。用語集名は必ずしもプロジェクト名と同じでなくても構いません。ですが、後々プロジェクトを横断して検索を掛けたときにわかりやすくするためにも、プロジェクト名が分かるようにしておいたほうが良いでしょう。
+`loga new` はプロジェクトで用語集を使うための設定ファイルやディレクトリなどを作成します。パラメータは「用語集名」と「原文の言語コード[※1](#kome1)」「対訳の言語コード(省略可能）」をこの順番で指定します。用語集名は必ずしもプロジェクト名と同じでなくても構いません。ですが、後々プロジェクトを横断して検索を掛けたときにわかりやすくするためにも、プロジェクト名が分かるようにしておいたほうが良いでしょう。
 
 さて、上記のコマンドを実行すると、 .logaling というディレクトリが作成されました。.logaling の中は次のようになっています。
 
@@ -126,7 +126,7 @@ config はこのプロジェクト内で logaling-command を使うときの設�
 
 glossary は、このプロジェクトの用語集を置くためのディレクトリです。現時点では何も用語集は置かれていません。
 
-*loga new* は上記を行うと共に、ユーザーホームに .logaling.d/projects というディレクトリを作成し、そのディレクトリ配下にプロジェクトを登録します。
+`loga new` は上記を行うと共に、ユーザーホームに .logaling.d/projects というディレクトリを作成し、そのディレクトリ配下にプロジェクトを登録します。
 
 これで logaling-command を使うための準備が整いました。
 
@@ -148,7 +148,7 @@ glossary は、このプロジェクトの用語集を置くためのディレ�
 	% loga register
 	Your project is now registered to logaling.
 
-*loga register* を実行すると、データベースがなければ作成され、その中にプロジェクトが登録されます。
+`loga register` を実行すると、データベースがなければ作成され、その中にプロジェクトが登録されます。
 
 プロジェクトが登録されたかどうかは以下のコマンドで確認することができます。(ここでは、 groonga プロジェクトを例とします。)
 
@@ -275,7 +275,7 @@ lookup サブコマンド実行時に --output=csv (または、--output=json) �
 	% loga lookup storage
 	  storage engine    ストレージエンジン   # groongaをベースとしたMySQLのストレージエンジン
 
-また、この用語登録はひとつの用語で複数の対訳を登録することが可能です。その場合も同じように *loga add* してください。
+また、この用語登録はひとつの用語で複数の対訳を登録することが可能です。その場合も同じように `loga add` してください。
 
 	% loga add "storage engine" "ストレージ・エンジン"
 
@@ -301,7 +301,7 @@ lookup サブコマンド実行時に --output=csv (または、--output=json) �
 	--glossary groonga
 	--source-language en
 
-この状態で *loga add* しようとすると、
+この状態で `loga add` しようとすると、
 
 	% loga add email Eメール
 	input target-language code '-T <target-language code>'
@@ -310,7 +310,7 @@ lookup サブコマンド実行時に --output=csv (または、--output=json) �
 もちろん、1つの用語だけを用語集に追加したいだけなら、このメッセージ通りにオプションとして翻訳言語を指定することで問題なく追加することができます。
 ですが、次々に用語を追加していきたい場合には毎回オプションで翻訳言語の言語コードを指定するのは面倒です。
 
-そのような場合には *loga config* を利用します。
+そのような場合には `loga config` を利用します。
 
 	% loga config target-language ja --global
 	Successfully set config.
@@ -327,7 +327,7 @@ lookup サブコマンド実行時に --output=csv (または、--output=json) �
 この設定はグローバルな設定となるので、どこの階層にいても参照されることになります。設定ファイルの中身は .logaling/config と同じですが logaling-command は実行時に、 **コマンドラインオプション ＞ プロジェクトごとの設定 ＞ ユーザホームのグローバルな設定** という順序で設定を参照します。
 .logaling.d/config に自分専用のグローバルな設定を持つことができるので、一つのプロジェクトで複数の言語への翻訳が同時進行していても普段と同じように用語集の編集ができるようになります。
 
-*loga config* の使い方の詳細は[コマンドリファレンス](reference.html#config)を参照して下さい。
+`loga config` の使い方の詳細は[コマンドリファレンス](reference.html#config)を参照して下さい。
 
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
 
@@ -412,7 +412,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 #### <a id="import">6-2. 有名プロジェクトの用語集を logaling-command にインポートしたい</a> ###
 
-自分が参加しているプロジェクト以外で、同じ用語がどのように訳されているのかを知りたい場合があるかもしれません。 *loga import* で、いくつかの有名プロジェクトで利用されている用語集をインポートすることができます。
+自分が参加しているプロジェクト以外で、同じ用語がどのように訳されているのかを知りたい場合があるかもしれません。 `loga import` で、いくつかの有名プロジェクトで利用されている用語集をインポートすることができます。
 
 まずは、インポートできるプロジェクトの種類がどれくらいあるのかを知るために、以下のコマンドを実行して下さい。
 
@@ -421,7 +421,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 	gnome_project : GNOME Translation Project Ja (http://live.gnome.org/TranslationProjectJa)
 	postgresql_manual : PostgreSQL7.1 Manual (http://osb.sraoss.co.jp/PostgreSQL/Manual/)
 
-コマンドの結果から、インポート出来る用語集が3種類あることがわかりました。それでは、このうちの postgresql_manual をインポートしてみましょう。実際に用語集をインポートするためには *loga import* に用語集名をパラメータとして渡してあげます。この用語集名は上記のリストのコロンの前にある項目です。
+コマンドの結果から、インポート出来る用語集が3種類あることがわかりました。それでは、このうちの postgresql_manual をインポートしてみましょう。実際に用語集をインポートするためには `loga import` に用語集名をパラメータとして渡してあげます。この用語集名は上記のリストのコロンの前にある項目です。
 
 	% loga import postgresql_manual
 
