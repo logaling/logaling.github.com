@@ -256,6 +256,9 @@ logaling-command ホームディレクトリ
 logaling-command プロジェクト設定ディレクトリ
 ##### --no-pager
 ページングを無効にします。
+##### --annotation
+ノートに @wip と書かれている用語だけを一覧表示する。
+ノートに @wip と書かれている用語は、訳語が確定していないものとみなす。wip は work in progress の略。
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
