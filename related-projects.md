@@ -6,6 +6,10 @@ title: 関連プロジェクト
 関連プロジェクト
 ==============
 
+logaling-server
+------------------
+[logaling-server](https://github.com/logaling/logaling-server) は、logaling-command を使って作成した対訳用語集を Web 上で簡単に検索できるようにする Web アプリケーションです。
+
 logalimacs
 ------------------
 [logalimacs](http://logaling.github.com/logalimacs/) は、logaling-commandをEmacsで使用するフロントエンドです。Emacsから一つのキーバインドでlogaling-commandを使う事ができます。
