@@ -287,6 +287,17 @@ lookup サブコマンド実行時に --output=csv (または、--output=json) �
 	  storage engine    ストレージエンジン    # groongaをベースとしたMySQLのストレージエンジン
 	  storage engine    ストレージ・エンジン
 
+
+用語の登録時点で、訳語が定まっていないが用語は登録したいという場合はノートに @wip と書いて登録して下さい。
+
+	% loga add "database" "database" "@wip 訳語未定"
+
+そうしておくことで`loga show`コマンド使用時に *--annotation* オプションを指定するとノートに @wip と書かれた用語だけを表示させることができます。
+
+	% loga show --annotation
+	  database      database        # @wip 訳語未定
+
+
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
