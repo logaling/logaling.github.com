@@ -12,6 +12,7 @@ title: コマンドリファレンス
 <ul class="listMark">
 <li><a href="#add">add</a></li>
 <li><a href="#config">config</a></li>
+<li><a href="#copy">copy</a></li>
 <li><a href="#delete">delete</a></li>
 <li><a href="#help">help</a></li>
 <li><a href="#import">import</a></li>
@@ -72,6 +73,15 @@ loga config [KEY] [VALUE]
 #### オプション
 ##### --global
 グローバルな設定を書き換える場合は指定します
+
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
+
+
+### <a id="copy">copy</a> - 用語集をコピーする ###
+#### 書式
+loga copy [元用語集名] [原文の言語コード] [訳文の言語コード] [新しい用語集名] [原文の言語コード] [訳文の言語コード]
+#### 説明
+既存の用語集をコピーして新しい用語集を作ります。
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
@@ -188,6 +198,9 @@ loga new [用語集名] [原文の言語コード] [訳文の言語コード] [-
 プロジェクトの用語集を新規に作成します。
 同時に logaling-command ホームディレクトリ（ユーザーホームディレクトリ/.logaling.d）に
 プロジェクトのディレクトリへのシンボリックリンクを作成します。
+
+ただし、*--personal* オプションを指定された場合は、プロジェクトの用語集ではなく個人用途の用語集を logaling-command ホームディレクトリ下の /personal ディレクトリ直下に作成します。
+
 #### オプション
 ##### -h, [--logaling-home=logaling-command ホームディレクトリ]
 logaling-command ホームディレクトリ
@@ -195,6 +208,8 @@ logaling-command ホームディレクトリ
 logaling-command プロジェクト設定ディレクトリ
 ##### --no-register
 logaling-command ホームディレクトリにシンボリックリンクを作成したくない場合は指定します
+##### --personal
+個人用途の用語集を作成します。
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
@@ -241,6 +256,9 @@ logaling-command ホームディレクトリ
 logaling-command プロジェクト設定ディレクトリ
 ##### --no-pager
 ページングを無効にします。
+##### --annotation
+ノートに @wip と書かれている用語だけを一覧表示する。
+ノートに @wip と書かれている用語は、訳語が確定していないものとみなす。wip は work in progress の略。
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
 
