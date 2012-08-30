@@ -16,6 +16,7 @@ title: 詳しい使い方
   <ol>
   <li><a href="#new">プロジェクトに logaling-command を導入する場合</a></li>
   <li><a href="#register">既に logaling-command を使用しているプロジェクトに参加する場合</a></li>
+  <li><a href="#new-personal">個人用途で logaling-command を使う場合</a></li>
   </ol>
 </li>
 </ol>
@@ -47,6 +48,7 @@ title: 詳しい使い方
   <li><a href="#import-tmx">TMX(Translation Memory eXchange)形式の用語集を logaling-command にインポートしたい</a></li>
   </ol>
 </li>
+<li><a href="#copy">用語集をコピーする</a></li>
 </ol>
 
 </div>
@@ -108,7 +110,7 @@ logaling-command は RubyGems でインストールできます。
 	Your project is now registered to logaling.
 	Successfully created .logaling
 
-*loga new* はプロジェクトで用語集を使うための設定ファイルやディレクトリなどを作成します。パラメータは「用語集名」と「原文の言語コード[※1](#kome1)」「対訳の言語コード(省略可能）」をこの順番で指定します。用語集名は必ずしもプロジェクト名と同じでなくても構いません。ですが、後々プロジェクトを横断して検索を掛けたときにわかりやすくするためにも、プロジェクト名が分かるようにしておいたほうが良いでしょう。
+`loga new` はプロジェクトで用語集を使うための設定ファイルやディレクトリなどを作成します。パラメータは「用語集名」と「原文の言語コード[※1](#kome1)」「対訳の言語コード(省略可能）」をこの順番で指定します。用語集名は必ずしもプロジェクト名と同じでなくても構いません。ですが、後々プロジェクトを横断して検索を掛けたときにわかりやすくするためにも、プロジェクト名が分かるようにしておいたほうが良いでしょう。
 
 さて、上記のコマンドを実行すると、 .logaling というディレクトリが作成されました。.logaling の中は次のようになっています。
 
@@ -125,7 +127,7 @@ config はこのプロジェクト内で logaling-command を使うときの設�
 
 glossary は、このプロジェクトの用語集を置くためのディレクトリです。現時点では何も用語集は置かれていません。
 
-*loga new* は上記を行うと共に、ユーザーホームに .logaling.d/projects というディレクトリを作成し、そのディレクトリ配下にプロジェクトを登録します。
+`loga new` は上記を行うと共に、ユーザーホームに .logaling.d/projects というディレクトリを作成し、そのディレクトリ配下にプロジェクトを登録します。
 
 これで logaling-command を使うための準備が整いました。
 
@@ -147,7 +149,7 @@ glossary は、このプロジェクトの用語集を置くためのディレ�
 	% loga register
 	Your project is now registered to logaling.
 
-*loga register* を実行すると、データベースがなければ作成され、その中にプロジェクトが登録されます。
+`loga register` を実行すると、データベースがなければ作成され、その中にプロジェクトが登録されます。
 
 プロジェクトが登録されたかどうかは以下のコマンドで確認することができます。(ここでは、 groonga プロジェクトを例とします。)
 
@@ -158,6 +160,25 @@ glossary は、このプロジェクトの用語集を置くためのディレ�
 
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
 
+
+
+#### <a id="new-personal">2-3.個人用途で logaling-command を使う場合</a> ####
+
+ここまではオープンソースまたはそうでないプロジェクトで logaling-command を導入するやり方を紹介してきましたが、ここでは個人用の用語集を作りたい場合のやり方を紹介します。
+
+用語集を作りたいと思ったら、任意のディレクトリで以下のコマンドを実行して下さい。
+
+これは 2-1 で説明したコマンドと同じコマンドですが、オプションとして `--personal` がつくところがポイントです。
+
+	% loga new myglossary en ja --personal
+	Successfully created /Users/suzuki/.logaling.d/personal/myglossary.en.ja.yml
+
+パラメータは通常の`loga new`同様「用語集名」と「原文の言語コード」「対訳の言語コード」をこの順番で指定し、最後にオプションの`--personal`を付けます。「対訳の言語コード」はこの場合は必須となります。
+個人的な用途の用語集なので用語集名は何でも構いませんが、既に作成済みの用語集名とは同じものは使えません。
+
+上記コマンドを実行すると、ユーザーホームに .logaling.d/personal というディレクトリを作成され、そのディレクトリ配下に用語集が作成されます。
+
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
 
 
@@ -255,7 +276,7 @@ lookup サブコマンド実行時に --output=csv (または、--output=json) �
 	% loga lookup storage
 	  storage engine    ストレージエンジン   # groongaをベースとしたMySQLのストレージエンジン
 
-また、この用語登録はひとつの用語で複数の対訳を登録することが可能です。その場合も同じように *loga add* してください。
+また、この用語登録はひとつの用語で複数の対訳を登録することが可能です。その場合も同じように `loga add` してください。
 
 	% loga add "storage engine" "ストレージ・エンジン"
 
@@ -265,6 +286,17 @@ lookup サブコマンド実行時に --output=csv (または、--output=json) �
 	now index groonga...
 	  storage engine    ストレージエンジン    # groongaをベースとしたMySQLのストレージエンジン
 	  storage engine    ストレージ・エンジン
+
+
+用語の登録時点で、訳語が定まっていないが用語は登録したいという場合はノートに @wip と書いて登録して下さい。
+
+	% loga add "database" "database" "@wip 訳語未定"
+
+そうしておくことで`loga show`コマンド使用時に *--annotation* オプションを指定するとノートに @wip と書かれた用語だけを表示させることができます。
+
+	% loga show --annotation
+	  database      database        # @wip 訳語未定
+
 
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
 
@@ -281,7 +313,7 @@ lookup サブコマンド実行時に --output=csv (または、--output=json) �
 	--glossary groonga
 	--source-language en
 
-この状態で *loga add* しようとすると、
+この状態で `loga add` しようとすると、
 
 	% loga add email Eメール
 	input target-language code '-T <target-language code>'
@@ -290,7 +322,7 @@ lookup サブコマンド実行時に --output=csv (または、--output=json) �
 もちろん、1つの用語だけを用語集に追加したいだけなら、このメッセージ通りにオプションとして翻訳言語を指定することで問題なく追加することができます。
 ですが、次々に用語を追加していきたい場合には毎回オプションで翻訳言語の言語コードを指定するのは面倒です。
 
-そのような場合には *loga config* を利用します。
+そのような場合には `loga config` を利用します。
 
 	% loga config target-language ja --global
 	Successfully set config.
@@ -307,7 +339,7 @@ lookup サブコマンド実行時に --output=csv (または、--output=json) �
 この設定はグローバルな設定となるので、どこの階層にいても参照されることになります。設定ファイルの中身は .logaling/config と同じですが logaling-command は実行時に、 **コマンドラインオプション ＞ プロジェクトごとの設定 ＞ ユーザホームのグローバルな設定** という順序で設定を参照します。
 .logaling.d/config に自分専用のグローバルな設定を持つことができるので、一つのプロジェクトで複数の言語への翻訳が同時進行していても普段と同じように用語集の編集ができるようになります。
 
-*loga config* の使い方の詳細は[コマンドリファレンス](reference.html#config)を参照して下さい。
+`loga config` の使い方の詳細は[コマンドリファレンス](reference.html#config)を参照して下さい。
 
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
 
@@ -392,7 +424,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 
 #### <a id="import">6-2. 有名プロジェクトの用語集を logaling-command にインポートしたい</a> ###
 
-自分が参加しているプロジェクト以外で、同じ用語がどのように訳されているのかを知りたい場合があるかもしれません。 *loga import* で、いくつかの有名プロジェクトで利用されている用語集をインポートすることができます。
+自分が参加しているプロジェクト以外で、同じ用語がどのように訳されているのかを知りたい場合があるかもしれません。 `loga import` で、いくつかの有名プロジェクトで利用されている用語集をインポートすることができます。
 
 まずは、インポートできるプロジェクトの種類がどれくらいあるのかを知るために、以下のコマンドを実行して下さい。
 
@@ -401,7 +433,7 @@ logaling-command では、そのような場合のために、1行1用語ペア�
 	gnome_project : GNOME Translation Project Ja (http://live.gnome.org/TranslationProjectJa)
 	postgresql_manual : PostgreSQL7.1 Manual (http://osb.sraoss.co.jp/PostgreSQL/Manual/)
 
-コマンドの結果から、インポート出来る用語集が3種類あることがわかりました。それでは、このうちの postgresql_manual をインポートしてみましょう。実際に用語集をインポートするためには *loga import* に用語集名をパラメータとして渡してあげます。この用語集名は上記のリストのコロンの前にある項目です。
+コマンドの結果から、インポート出来る用語集が3種類あることがわかりました。それでは、このうちの postgresql_manual をインポートしてみましょう。実際に用語集をインポートするためには `loga import` に用語集名をパラメータとして渡してあげます。この用語集名は上記のリストのコロンの前にある項目です。
 
 	% loga import postgresql_manual
 
@@ -438,4 +470,27 @@ TMX 形式のファイルを指定するには、ローカルファイルのパ�
 
 
 
+
+#### <a id="copy">6-4. 用語集をコピーする</a> ###
+
+個人的な用途の用語集を作る際に、既存の用語集を流用したいことがあるかもしれません。
+そのような場合には  `loga copy <元用語集名> <原文の言語コード> <訳文の言語コード> <新しい用語集名> <原文の言語コード> <訳文の言語コード>` で用語集をコピーすることができます。
+
+例えば、既に存在している groonga プロジェクトの英→日の用語集を元に自分の用語集を作成したいという場合は、以下のコマンドを実行します。（自分の用語集は myglossary という名前にします）
+
+	% loga copy groonga en ja myglossary en ja
+
+あるいは、自分で作成した英→日の用語集を元にして英→仏の用語集を作り、後から訳語だけ編集したい、という場合は以下のようにします。
+
+	% loga copy myglossary en ja myglossary en fr
+
+コピー元とコピー先の言語コードは必ずしも一致しなくても問題はありません。あとで自分で内容を言語コードに合うように編集しましょう。
+
+
+コピー元のプロジェクトの用語集が logaling-command で作成した用語集だけでなく、CSV や TSV の用語集を含んでいる場合はそれらをマージしたものを元用語集としてコピーします。
+
+コピー元となる事ができる用語集はプロジェクトの用語集、または`loga new`時に`--personal`オプション付きで作成した個人の用語集です。インポートしてきた用語集は含まれません。
+
+
+<p class="toTop"><a href="#index">目次へ戻る</a></p>
 
