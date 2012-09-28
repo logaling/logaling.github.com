@@ -17,6 +17,12 @@ title: チュートリアル
 4. 他の用語集をインポートする
 5. 辞書検索する
 
+### 事前に用意するもの
+<ul class="listMark">
+<li> <a href="http://www.ruby-lang.org/ja/">Ruby 1.9.x</a></li>
+<li> <a href="http://groonga.org/ja/">groonga</a></li>
+<li> <a href="http://groonga.rubyforge.org/index.html.ja">rroonga</a></li>
+</ul>
 
 ### インストールする
 まずは logaling-command をインストールします。
@@ -40,13 +46,6 @@ logaling-command は RubyGems でインストールできます。
 	logaling-command version 0.1.9
 
 上記のようなバージョン情報が表示されたら、インストールは成功です。
-
-<ul class="listMark">
-<li> <a href="http://www.ruby-lang.org/ja/">Ruby 1.9.x</a></li>
-<li> <a href="http://groonga.org/ja/">groonga</a></li>
-<li> <a href="http://groonga.rubyforge.org/index.html.ja">rroonga</a></li>
-</ul>
-
 
 
 ### 用語集を作る
