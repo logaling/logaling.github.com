@@ -16,7 +16,7 @@ title: コマンドリファレンス
 <li><a href="#delete">delete</a></li>
 <li><a href="#help">help</a></li>
 <li><a href="#import">import</a></li>
-<li><a href="#index">import</a></li>
+<li><a href="#index">index</a></li>
 <li><a href="#list">list</a></li>
 <li><a href="#lookup">lookup</a></li>
 <li><a href="#new">new</a></li>
