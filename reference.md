@@ -16,6 +16,7 @@ title: コマンドリファレンス
 <li><a href="#delete">delete</a></li>
 <li><a href="#help">help</a></li>
 <li><a href="#import">import</a></li>
+<li><a href="#index">import</a></li>
 <li><a href="#list">list</a></li>
 <li><a href="#lookup">lookup</a></li>
 <li><a href="#new">new</a></li>
@@ -135,6 +136,19 @@ logaling-command で利用できる形式の用語集が存在する
 読み込むことが出来るプロジェクトを一覽表示する。
 
 <p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
+
+
+
+
+
+### <a id="index">index</a> - 検索用のインデックスを更新する ###
+#### 書式
+loga index
+#### 説明
+検索用のインデックスを更新する
+
+<p class="toTop"><a href="#commands">コマンド一覧へ戻る</a></p>
+
 
 
 

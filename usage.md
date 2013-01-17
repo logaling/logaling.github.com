@@ -131,6 +131,11 @@ glossary は、このプロジェクトの用語集を置くためのディレ�
 
 これで logaling-command を使うための準備が整いました。
 
+リポジトリ上の用語集が変更された場合は以下のコマンドを実行して、検索用のインデックスを更新してください。
+
+	% loga index
+	now index groonga...
+	Complete index.
 
 ------
 <a id="kome1">※1言語の名称の略号2文字（ja や en など）<http://ja.wikipedia.org/wiki/ISO_639></a>
@@ -157,6 +162,13 @@ glossary は、このプロジェクトの用語集を置くためのディレ�
 	groonga
 
 これで logaling-command を使うための準備が整いました。
+
+リポジトリ上の用語集が変更された場合は以下のコマンドを実行して、検索用のインデックスを更新してください。
+
+	% loga index
+	now index groonga...
+	Complete index.
+
 
 <p class="toTop"><a href="#index">目次へ戻る</a></p>
 
