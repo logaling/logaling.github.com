@@ -21,7 +21,7 @@ logaling-command をつかうことで、翻訳作業に欠かせない作業が
 
 バージョン情報
 --------------
-2013-1-25 にリリースされた [0.2.3](https://github.com/logaling/logaling-command/blob/v0.2.3/CHANGES) が最新バージョンです。
+2014-1-15 にリリースされた [0.2.4](https://github.com/logaling/logaling-command/blob/v0.2.4/CHANGES) が最新バージョンです。
 
 ライセンス
 ----------

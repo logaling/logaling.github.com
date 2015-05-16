@@ -37,7 +37,7 @@ logaling-command は RubyGems でインストールできます。
 インストールが成功したことを確認するには、コマンドラインで `loga -v` と打ってみてください。
 
 	% loga -v
-	logaling-command version 0.2.3
+	logaling-command version 0.2.4
 
 上記のようなバージョン情報が表示されたら、インストールは成功です。
 
